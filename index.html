@@ -269,7 +269,7 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-07-05T14:39:04+08:00" content="2016-07-05">
+            <time itemprop="dateCreated" datetime="2016-07-05T16:35:04+08:00" content="2016-07-05">
               2016-07-05
             </time>
           </span>
@@ -325,9 +325,8 @@
       
         
           
-            <p>##前言<br>　　之前一直使用<a href="http://jekyll.bootcss.com/" target="_blank" rel="external">Jekyll</a>+GithubPages做自己的个人博客，这几天偶然机会要重做自己的博客。之前就听说了<a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>这个博客系统框架，这次决定用它试一试。折腾了一晚上，踩了好多的坑，今天终于搭建成功了。  </p>
-<p>##HEXO简介</p>
-<blockquote>
+            <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>　　之前一直使用<a href="http://jekyll.bootcss.com/" target="_blank" rel="external">Jekyll</a>+GithubPages做自己的个人博客，这几天偶然机会要重做自己的博客。之前就听说了<a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>这个博客系统框架，这次决定用它试一试。折腾了一晚上，踩了好多的坑，今天终于搭建成功了。  </p>
+<h2 id="HEXO简介"><a href="#HEXO简介" class="headerlink" title="HEXO简介"></a>HEXO简介</h2><blockquote>
 <p>A fast, simple &amp; powerful blog framework  </p>
 </blockquote>
 <p>　　正如官网的介绍所说，HEXO是一个快速、简单、有效的博客框架。使用之后与Jekyll相比，最大的特点就是更加方便和便捷。  </p>
@@ -341,7 +340,7 @@
 <li><p><strong>一条指令实现部署</strong><br>你只需要一条指令，就可以将你的压面部署在GitHub Pages,Heroku或者其他站点上。  </p>
 </li>
 </ul>
-<p>##Node环境安装<br>　　Jekyll基于Ruby环境，而Hexo是基于Node环境的。而在使用这些模板系统前，必须要预安装相应的环境。  </p>
+<h2 id="Node环境安装"><a href="#Node环境安装" class="headerlink" title="Node环境安装"></a>Node环境安装</h2><p>　　Jekyll基于Ruby环境，而Hexo是基于Node环境的。而在使用这些模板系统前，必须要预安装相应的环境。  </p>
 <ol>
 <li>前往<a href="http://nodejs.cn/" target="_blank" rel="external">Node</a>官网下载合适的安装包。  </li>
 <li>打开并按步骤安装Node安装包即可。  </li>
@@ -350,34 +349,31 @@
 <p>　　若查询版本显示没有该命令，但软件已安装完成，那可能就是node或者npm的环境变量设置有问题。现版本的环境变量无需手动添加，安装时已经自动添加。若有上述问题，可按以下步骤手动添加。<br>　　1. 右键 我的电脑-属性<img src="http://7xk5u3.com1.z0.glb.clouddn.com/%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F1.png" alt="">  </p>
 <p>　　2. 选项卡 高级-环境变量，并按下图在用户变量中添加PATH变量。<img src="http://7xk5u3.com1.z0.glb.clouddn.com/NOXF7CQJ%28$%5B@%25L_9W@GYTRD.png" alt="">  </p>
 <p>　　3. 确定后可再重复之前操作，测试指令是否正常。  </p>
-<p>##GIt环境安装  </p>
-<ol>
+<h2 id="Git环境安装"><a href="#Git环境安装" class="headerlink" title="Git环境安装"></a>Git环境安装</h2><ol>
 <li>前往<a href="https://git-scm.com/download" target="_blank" rel="external">Git官网</a>，下载Windows版的Git Bash，并安装。</li>
 <li>打开Git Bash输入指令<code>git --version</code>查看git版本号，若显示正常则说明安装成功。  </li>
 <li>请提前学习git相关知识，推荐教程 <a href="http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000/" target="_blank" rel="external">廖雪峰Git教程</a></li>
 </ol>
-<p>##GitHub Pages仓库的建立  </p>
-<ol>
+<h2 id="GitHub-Pages仓库的建立"><a href="#GitHub-Pages仓库的建立" class="headerlink" title="GitHub Pages仓库的建立"></a>GitHub Pages仓库的建立</h2><ol>
 <li>登录<a href="github.com">GitHub官网</a>，并创建申请github账号</li>
 <li>创建github pages仓库，即仓库名为 username.github.io  </li>
 <li>复制该仓库的地址<br><img src="http://7xk5u3.com1.z0.glb.clouddn.com/%7DKCB@Q%7BM4RGA%29MKXDV%5BO%5BS2.png" alt=""><br>我使用了SSH地址，也可以使用HTTPS地址。在合适的路径下运行GitBash并用<code>git clone</code>指令加仓库地址，将远程仓库克隆至本地。  </li>
 </ol>
-<p>##Hexo安装初始化</p>
-<ol>
+<h2 id="Hexo安装初始化"><a href="#Hexo安装初始化" class="headerlink" title="Hexo安装初始化"></a>Hexo安装初始化</h2><ol>
 <li>请确保之前的环境配置正确</li>
 <li>在之前创建的Github Pages仓库中运行GitBash</li>
 <li>依次运行指令<br><code>npm install hexo-cli -g</code><br><code>hexo init</code><br><code>npm install</code>  </li>
 <li>安装完毕后，可通过指令<code>hexo -v</code>查看版本，确认安装成功。  </li>
 </ol>
 <p>　　此时Hexo即安装完成，可以看看当前目录下的文件分布。  </p>
-<p>##Hexo的初次使用</p>
-<ol>
+<h2 id="Hexo的初次使用"><a href="#Hexo的初次使用" class="headerlink" title="Hexo的初次使用"></a>Hexo的初次使用</h2><ol>
 <li>将你的文章（Markdown格式）放在 根目录 <code>source</code>文件夹下的<code>_posts</code>文件夹中。</li>
 <li>执行命令<code>hexo g</code>，该指令用于生成静态网页文件，运行后将产生<code>public</code>文件夹。</li>
-<li><p>再执行命令<code>hexo s</code>，该指令可开启本地测试服务器，通过访问<code>localhost:4000</code>，在本地测试观察你的博客。<br>##部署到Github Pages<br>　　Hexo自带部署指令，进行相关配置后只需要一条指令，就可以实现本地网站部署在服务器上。  </p>
-</li>
-<li><p>打开根目录下的<code>_config.yml</code>文件，找到<code>deploy</code>属性按下图设置。<br><img src="http://7xk5u3.com1.z0.glb.clouddn.com/deploy.png" alt=""><br>其中repo即仓库地址，与之前clone仓库时用的地址一致。  </p>
-</li>
+<li>再执行命令<code>hexo s</code>，该指令可开启本地测试服务器，通过访问<code>localhost:4000</code>，在本地测试观察你的博客。  </li>
+</ol>
+<h2 id="部署到Github-Pages"><a href="#部署到Github-Pages" class="headerlink" title="部署到Github Pages"></a>部署到Github Pages</h2><p>　　Hexo自带部署指令，进行相关配置后只需要一条指令，就可以实现本地网站部署在服务器上。  </p>
+<ol>
+<li>打开根目录下的<code>_config.yml</code>文件，找到<code>deploy</code>属性按下图设置。<br><img src="http://7xk5u3.com1.z0.glb.clouddn.com/deploy.png" alt=""><br>其中repo即仓库地址，与之前clone仓库时用的地址一致。  </li>
 <li>执行指令<code>npm install hexo-deployer-git --save</code>，安装Hexo的Git插件。</li>
 <li>依次输入以下指令，这也是之后修改博客后推送部署的步骤：<br><code>hexo clean</code> 清除缓存文件和public文件夹<br><code>hexo g</code> 生成静态文件，即public文件夹<br><code>hexo s</code> 本地测试，这步可以省略<br><code>hexo d</code> 部署指令  </li>
 <li>若部署成功，可观察github仓库是否变化。也可以直接访问你的Github Pages的网址，即你的仓库名 <code>username.github.io</code>。  </li>
@@ -389,7 +385,7 @@
 </ul>
 </li>
 </ol>
-<p>##结束语<br>　　在使用中出了很多莫名的问题，最终总算是实现了博客的搭建。此次只做最基础的Hexo博客系统介绍与讲解。包括域名绑定、主题切换等其他应用，会在之后再总结出来。</p>
+<h2 id="结束语"><a href="#结束语" class="headerlink" title="结束语"></a>结束语</h2><p>　　在使用中出了很多莫名的问题，最终总算是实现了博客的搭建。此次只做最基础的Hexo博客系统介绍与讲解。包括域名绑定、主题切换等其他应用，会在之后再总结出来。</p>
 <blockquote>
 <p>author:Czh 2016-07-05</p>
 </blockquote>
