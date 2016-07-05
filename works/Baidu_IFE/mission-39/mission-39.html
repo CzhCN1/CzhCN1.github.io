@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Extra mission-39</title>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" type="text/css" href="MYUI.css">
+	<style type="text/css">
+		*{
+			padding: 0;
+			margin: 0;
+		}
+		table{
+			margin: 50px;
+		}
+		#tab tr>td{
+			width: 150px;
+			height: 50px;
+			border: 1px solid #CCC;
+		}
+	</style>
+
+</head>
+<body>
+	<table id="tab"></table>
+	<table id="tab2"></table>
+	<br ><br ><br ><br ><br ><br ><br ><br ><br ><br ><br ><br ><br ><br ><br ><br ><br ><br ><br >
+	<br ><br ><br ><br ><br ><br ><br ><br ><br ><br ><br ><br ><br ><br ><br ><br ><br ><br ><br >
+<script type="text/javascript" src="MYUI.js"></script>
+<script type="text/javascript">
+
+	var tab1 = MYUI.table.init({
+		tabId : "tab",
+		thContent : ['姓名','语文','数学','英语','总分'],
+		sortFlag : [false,true,true,true,true],
+		trContent : [
+				['小明',80,90,70,240],
+				['小红',90,60,90,240],
+				['小亮',60,100,70,230],
+				['小强',100,70,80,250],
+				['小刚',70,70,80,220],
+			     ],
+		thStickyFlag : true,
+	});
+	var tab2 = MYUI.table.init({
+		tabId : "tab2",
+		thContent : ['姓名','语文','数学','英语','总分'],
+		sortFlag : [false,true,true,true,true],
+		trContent : [
+				['小明',80,90,70,240],
+				['小红',90,60,90,240],
+			     ],
+		thStickyFlag : true,
+	});
+</script>
+</body>
+</html>

@@ -255,6 +255,143 @@
             
               
                 
+                <a class="post-title-link" href="/2016/07/05/HexoSkipRender/" itemprop="url">
+                  设置Hexo不渲染source目录下的部分文件
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-07-05T16:35:04+08:00" content="2016-07-05">
+              2016-07-05
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/技术/" itemprop="url" rel="index">
+                    <span itemprop="name">技术</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/07/05/HexoSkipRender/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/07/05/HexoSkipRender/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="遇到的问题？"><a href="#遇到的问题？" class="headerlink" title="遇到的问题？"></a>遇到的问题？</h2><p>　　想上传几个自己写的demo到github pages，于是放到了source文件夹下。生成静态文件后，浏览时却发现这些页面都被渲染了模板样式。  </p>
+<p>　　于是开始搜索答案，如何使某些页面跳过渲染呢？  </p>
+<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><ol>
+<li><p>在.md开头的文件加上以下控制符<br> <code>layout: none</code><br>然而该方法对html并没有效果。  </p>
+</li>
+<li><p>设置<code>_config.yml</code>里的<code>skip_render</code>属性<br>　　假设你的Source文件夹里面有个Demo目录，要忽略Demo目录下的所有html页面，可以通过在<code>_config.yml</code>设置<code>skip_render</code>来忽略的目录，具体如下：<br><code>skip_render: Demo/*.html</code>  </p>
+</li>
+</ol>
+<p>文件匹配是基于正则匹配的，更复杂的情况可以通过通配符配置该属性：  </p>
+<ul>
+<li>单个文件夹下全部文件：skip_render: demo/*</li>
+<li>单个文件夹下指定类型文件：skip_render: demo/*.html</li>
+<li>单个文件夹下全部文件以及子目录:skip_render: demo/**</li>
+<li>多个文件夹以及各种复杂情况：  <pre><code>skip_render:  
+  - demo/*.html  
+  - demo/**  
+</code></pre></li>
+</ul>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/07/05/ToHexo/" itemprop="url">
                   迁移你的博客至Hexo
                 </a>
@@ -869,7 +1006,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">4</span>
+              <span class="site-state-item-count">5</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>

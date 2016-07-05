@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Tetris俄罗斯方块</title>
+	<style>
+		#canvas{
+			display: block;
+			border: 1px solid #000;
+			margin: 0 auto;
+		}
+	</style>
+</head>
+<body>
+	<canvas id="canvas"></canvas>
+	<script>
+		var WINDOW_WIDTH = 250,
+			WINDOW_HEIGHT = 600,
+			UNIT_WIDTH = 25;
+		var newSquare,
+			kind = ["Line","Square","LL","LR","ZL","ZR","T"],
+			colorList = ["rgb(249,47,41)","rgb(0,90,141)","rgb(187,30,250)","rgb(146,156,154)","rgb(10,219,185)","rgb(15,170,22)","rgb(241,241,26)"],
+			score = 0,
+			timer;
+
+		var position = 
+		[
+			[0,0,0,0,0,0,0,0,0,0],
+			[0,0,0,0,0,0,0,0,0,0],
+			[0,0,0,0,0,0,0,0,0,0],
+			[0,0,0,0,0,0,0,0,0,0],
+			[0,0,0,0,0,0,0,0,0,0],
+			[0,0,0,0,0,0,0,0,0,0],
+			[0,0,0,0,0,0,0,0,0,0],
+			[0,0,0,0,0,0,0,0,0,0],
+			[0,0,0,0,0,0,0,0,0,0],
+			[0,0,0,0,0,0,0,0,0,0],
+			[0,0,0,0,0,0,0,0,0,0],
+			[0,0,0,0,0,0,0,0,0,0],
+			[0,0,0,0,0,0,0,0,0,0],
+			[0,0,0,0,0,0,0,0,0,0],
+			[0,0,0,0,0,0,0,0,0,0],
+			[0,0,0,0,0,0,0,0,0,0],
+			[0,0,0,0,0,0,0,0,0,0],
+			[0,0,0,0,0,0,0,0,0,0],
+			[0,0,0,0,0,0,0,0,0,0],
+			[0,0,0,0,0,0,0,0,0,0],
+		],color = 
+		[
+			[0,0,0,0,0,0,0,0,0,0],
+			[0,0,0,0,0,0,0,0,0,0],
+			[0,0,0,0,0,0,0,0,0,0],
+			[0,0,0,0,0,0,0,0,0,0],
+			[0,0,0,0,0,0,0,0,0,0],
+			[0,0,0,0,0,0,0,0,0,0],
+			[0,0,0,0,0,0,0,0,0,0],
+			[0,0,0,0,0,0,0,0,0,0],
+			[0,0,0,0,0,0,0,0,0,0],
+			[0,0,0,0,0,0,0,0,0,0],
+			[0,0,0,0,0,0,0,0,0,0],
+			[0,0,0,0,0,0,0,0,0,0],
+			[0,0,0,0,0,0,0,0,0,0],
+			[0,0,0,0,0,0,0,0,0,0],
+			[0,0,0,0,0,0,0,0,0,0],
+			[0,0,0,0,0,0,0,0,0,0],
+			[0,0,0,0,0,0,0,0,0,0],
+			[0,0,0,0,0,0,0,0,0,0],
+			[0,0,0,0,0,0,0,0,0,0],
+			[0,0,0,0,0,0,0,0,0,0],
+		];
+			hightList = [0,0,0,0,0,0,0,0,0,0];
+
+		window.onload = function () {
+			var canvas = document.getElementById('canvas'),
+				context = canvas.getContext('2d');
+
+			canvas.width = WINDOW_WIDTH;
+			canvas.height = WINDOW_HEIGHT;
+
+			createShape();
+
+			window.addEventListener('keydown', doKeyDown,false);
+
+			timer = setInterval(function(){
+				render(context);
+				update();
+			},50);
+		}
+
+		//更新方块数据
+		function update(){
+			var maxLevel = countLevel(newSquare.x,newSquare.y,newSquare.start[0],newSquare.len[0]),
+				maxHight = maxLevel * UNIT_WIDTH + 100;
+			if(maxLevel == 0 || maxLevel == -1){
+				clearInterval(timer);
+				alert("GAME OVER");
+			}
+			if(newSquare.len[1] && newSquare.y >125){
+				var maxLevel2 = countLevel(newSquare.x,newSquare.y,newSquare.start[1],newSquare.len[1])+1,
+					maxHight2 = maxLevel2 * UNIT_WIDTH + 100;	
+			}
+
+			var pX = newSquare.x / UNIT_WIDTH,
+				pY = Math.floor((newSquare.y - 100)/25);
+
+			if(newSquare.y == maxHight || newSquare.y == maxHight2){
+				var xStart = newSquare.x / UNIT_WIDTH;
+
+				maxLevel = maxLevel2?Math.min(maxLevel,maxLevel2):maxLevel;
+				maxHight = maxLevel * UNIT_WIDTH + 100;
+
+				//position更新
+				for(var i=0;i<newSquare.len[0];i++){
+					position[maxLevel][xStart + i + newSquare.start[0]] = 1;
+					color[maxLevel][xStart + i + newSquare.start[0]] = newSquare.kind;
+					hightList[xStart + i + newSquare.start[0]]++;
+				}
+				for(var j=0;j<newSquare.len[1];j++){
+					position[maxLevel-1][xStart + j + newSquare.start[1]] = 1;
+					color[maxLevel-1][xStart + j + newSquare.start[1]] = newSquare.kind;
+					hightList[xStart + j + newSquare.start[1]]++;
+				}
+
+				clear();
+
+				createShape();
+
+			}else{
+				newSquare.y += newSquare.vy;
+			}
+			
+		}
+
+		//渲染canvas画布
+		function render(cxt){
+			cxt.clearRect(0,0,WINDOW_WIDTH,WINDOW_HEIGHT);
+
+			//绘制下落图形
+			if(kind[newSquare.kind] == 'Line'){
+				drawLine(newSquare.x,newSquare.y,cxt);
+			}else if(kind[newSquare.kind] == 'Square'){
+				drawSquare(newSquare.x,newSquare.y,cxt);
+			}else if(kind[newSquare.kind] == 'LL'){
+				drawLL(newSquare.x,newSquare.y,cxt);
+			}else if(kind[newSquare.kind] == 'LR'){
+				drawLR(newSquare.x,newSquare.y,cxt);
+			}else if(kind[newSquare.kind] == 'ZL'){
+				drawZL(newSquare.x,newSquare.y,cxt);
+			}else if(kind[newSquare.kind] == 'ZR'){
+				drawZR(newSquare.x,newSquare.y,cxt);
+			}else if(kind[newSquare.kind] == 'T'){
+				drawT(newSquare.x,newSquare.y,cxt);
+			}
+
+			//绘制沉底的图形
+			for(var i=0;i<20;i++){
+				for(var j=0;j<10;j++){
+					if(position[i][j]){
+						drawUnit(j*UNIT_WIDTH,100+i*UNIT_WIDTH,cxt,colorList[color[i][j]]);
+					}
+				}
+			}
+
+			//绘制分数显示
+			cxt.font="bold 40px Arial";
+			cxt.fillText("Score:"+score,0,50);
+		}
+
+		//满行消除
+		function clear(){
+			for(var i = 0;i < 20;i++){
+				if(position[i][0] && position[i][1] && position[i][2] && position[i][3] && position[i][4] && position[i][5] && position[i][6] && position[i][7] && position[i][8] && position[i][9]){
+
+					position.splice(i,1);
+					position.unshift([0,0,0,0,0,0,0,0,0,0]);
+					color.splice(i,1);
+					color.unshift([0,0,0,0,0,0,0,0,0,0]);
+
+					score+= 100;
+				}
+			}
+		}
+
+		//键盘按键按下事件
+		function doKeyDown(eve){
+
+			var keyCode = eve.keyCode || eve.which || eve.charCode; 
+			var xNow = newSquare.x / 25,
+				yNow = Math.floor((newSquare.y - 100)/25);
+			//右移
+			if(keyCode == 39 && (newSquare.x + newSquare.len[2]*UNIT_WIDTH)< 250 ){
+				if(position[yNow+1][xNow + newSquare.len[0]+newSquare.start[0]] == 0 && position[yNow][xNow + newSquare.len[1]+newSquare.start[1]] == 0){
+					newSquare.x += UNIT_WIDTH;
+				}
+			//左移
+			}else if(keyCode == 37 && newSquare.x>0){
+				if(position[yNow+1][xNow+newSquare.start[0]-1] == 0 && position[yNow][xNow+newSquare.start[1]-1] == 0 ){
+					newSquare.x -= UNIT_WIDTH;
+				}
+			//翻转
+			}else if(keyCode == 38){
+				newSquare.rotate++;
+			}
+			
+		}
+
+		//计算停止位置
+		function countLevel(x,y,start,len){
+			var xStart = x/UNIT_WIDTH + start,
+				yStart = Math.floor((y - 100)/25);
+			for(var i=yStart;i<20;i++){
+				for(var j = xStart;j<len+xStart;j++){
+					if(position[i][j]){
+						return i - 1;
+					}
+				}
+			}
+			return 19;
+		}
+
+		//随机创建新图形
+		function createShape(){
+			newSquare = {
+				kind : Math.floor(Math.random()*7),
+				x : 100,
+				y : 100,
+				vy : 5,
+				rotate : 0,
+			};
+			switch(newSquare.kind){
+				case 0:
+					newSquare.len = [4,0,4];	//第一行4格 第二行0格 总宽为4格
+					newSquare.start = [0,0];	//第一行从0开始  第二行从0开始
+					break;
+				case 1:
+					newSquare.len = [2,2,2];	//第一行2格 第二行2格 总宽为2格
+					newSquare.start = [0,0];	//第一行从0开始  第二行从0开始
+					break;
+				case 2:
+					newSquare.len = [3,1,3];	//第一行3格 第二行1格 总宽为3格
+					newSquare.start = [0,0];	//第一行从0开始  第二行从0开始
+					break;
+				case 3:
+					newSquare.len = [3,1,3];	//第一行3格 第二行1格 总宽为3格
+					newSquare.start = [0,2];	//第一行从0开始  第二行从2开始
+					break;
+				case 4:
+					newSquare.len = [2,2,3];	
+					newSquare.start = [1,0];
+					break;
+				case 5:
+					newSquare.len = [2,2,3];
+					newSquare.start = [0,1];
+					break;
+				case 6:
+					newSquare.len = [3,1,3];
+					newSquare.start = [0,1];
+					break;
+			}
+		}
+
+		//绘制基本单元方格
+		function drawUnit(x,y,cxt,color){
+			if(color){
+				cxt.beginPath();
+				cxt.fillStyle = color;
+				cxt.strokeStyle = "#CCC";
+			}
+			cxt.fillRect(x,y,UNIT_WIDTH,UNIT_WIDTH);
+			cxt.strokeRect(x,y,UNIT_WIDTH,UNIT_WIDTH);
+		}
+
+		//绘制正方块
+		function drawSquare(x,y,cxt){
+			//填充颜色设置
+			cxt.fillStyle = "rgb(0,90,141)";
+			cxt.strokeStyle = "#CCC";
+
+			//绘制
+			drawUnit(x,y - UNIT_WIDTH,cxt);
+			drawUnit(x + UNIT_WIDTH,y - UNIT_WIDTH,cxt);
+			drawUnit(x,y,cxt);
+			drawUnit(x + UNIT_WIDTH,y,cxt);
+		}
+		//绘制长方块
+		function drawLine(x,y,cxt){
+			//填充颜色设置
+			cxt.fillStyle = "rgb(249,47,41)";
+			cxt.strokeStyle = "#CCC";
+
+			//绘制
+			drawUnit(x,y,cxt);
+			drawUnit(x + UNIT_WIDTH,y,cxt);
+			drawUnit(x + UNIT_WIDTH * 2,y,cxt);
+			drawUnit(x + UNIT_WIDTH * 3,y,cxt);
+
+		}
+		//绘制左L
+		function drawLL(x,y,cxt){
+			//填充颜色设置
+			cxt.fillStyle = "rgb(187,30,250)";
+			cxt.strokeStyle = "#CCC";
+
+			//绘制
+			drawUnit(x,y - UNIT_WIDTH,cxt);
+			drawUnit(x,y,cxt);
+			drawUnit(x + UNIT_WIDTH,y,cxt);
+			drawUnit(x + UNIT_WIDTH * 2,y,cxt);
+		}
+		//绘制右L
+		function drawLR(x,y,cxt){
+			//填充颜色设置
+			cxt.fillStyle = "rgb(146,156,154)";
+			cxt.strokeStyle = "#CCC";
+
+			//绘制
+			drawUnit(x + UNIT_WIDTH * 2,y - UNIT_WIDTH,cxt);
+			drawUnit(x,y,cxt);
+			drawUnit(x + UNIT_WIDTH,y,cxt);
+			drawUnit(x + UNIT_WIDTH * 2,y,cxt);
+		}
+		//绘制左Z
+		function drawZL(x,y,cxt){
+			//填充颜色设置
+			cxt.fillStyle = "rgb(10,219,185)";
+			cxt.strokeStyle = "#CCC";
+
+			//绘制
+			drawUnit(x,y  - UNIT_WIDTH,cxt);
+			drawUnit(x + UNIT_WIDTH,y - UNIT_WIDTH,cxt);
+			drawUnit(x + UNIT_WIDTH,y,cxt);
+			drawUnit(x + UNIT_WIDTH * 2,y,cxt);
+		}
+		//绘制右Z
+		function drawZR(x,y,cxt){
+			//填充颜色设置
+			cxt.fillStyle = "rgb(15,170,22)";
+			cxt.strokeStyle = "#CCC";
+
+			//绘制
+			drawUnit(x + UNIT_WIDTH,y - UNIT_WIDTH,cxt);
+			drawUnit(x + UNIT_WIDTH * 2,y - UNIT_WIDTH,cxt);
+			drawUnit(x,y,cxt);
+			drawUnit(x + UNIT_WIDTH,y,cxt);
+		}
+		//绘制T型
+		function drawT(x,y,cxt){
+			//填充颜色设置
+			cxt.fillStyle = "rgb(241,241,26)";
+			cxt.strokeStyle = "#CCC";
+
+			//绘制
+			drawUnit(x,y,cxt);
+			drawUnit(x + UNIT_WIDTH,y,cxt);
+			drawUnit(x + UNIT_WIDTH,y - UNIT_WIDTH,cxt);
+			drawUnit(x + UNIT_WIDTH * 2,y,cxt);
+		}
+	</script>
+</body>
+</html>
