@@ -86,15 +86,15 @@
 
 
 
-<meta name="description" content="My blog">
+<meta name="description" content="前端 新手猿">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Czh's Blog">
 <meta property="og:url" content="http://gentlemanczh.com/index.html">
 <meta property="og:site_name" content="Czh's Blog">
-<meta property="og:description" content="My blog">
+<meta property="og:description" content="前端 新手猿">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Czh's Blog">
-<meta name="twitter:description" content="My blog">
+<meta name="twitter:description" content="前端 新手猿">
 
 
 
@@ -270,8 +270,8 @@
             
               
                 
-                <a class="post-title-link" href="/2016/07/05/HexoSkipRender/" itemprop="url">
-                  设置Hexo不渲染source目录下的部分文件
+                <a class="post-title-link" href="/2016/07/06/HexoTheme/" itemprop="url">
+                  更换你的Hexo主题
                 </a>
               
             
@@ -284,8 +284,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-07-05T16:35:04+08:00" content="2016-07-05">
-              2016-07-05
+            <time itemprop="dateCreated" datetime="2016-07-06T20:35:04+08:00" content="2016-07-06">
+              2016-07-06
             </time>
           </span>
 
@@ -314,8 +314,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/07/05/HexoSkipRender/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/07/05/HexoSkipRender/" itemprop="commentsCount"></span>
+                <a href="/2016/07/06/HexoTheme/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/07/06/HexoTheme/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -340,24 +340,22 @@
       
         
           
-            <h2 id="遇到的问题？"><a href="#遇到的问题？" class="headerlink" title="遇到的问题？"></a>遇到的问题？</h2><p>　　想上传几个自己写的demo到github pages，于是放到了source文件夹下。生成静态文件后，浏览时却发现这些页面都被渲染了模板样式。  </p>
-<p>　　于是开始搜索答案，如何使某些页面跳过渲染呢？  </p>
-<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><ol>
-<li><p>在.md开头的文件加上以下控制符<br> <code>layout: none</code><br>然而该方法对html并没有效果。  </p>
-</li>
-<li><p>设置<code>_config.yml</code>里的<code>skip_render</code>属性<br>　　假设你的Source文件夹里面有个Demo目录，要忽略Demo目录下的所有html页面，可以通过在<code>_config.yml</code>设置<code>skip_render</code>来忽略的目录，具体如下：<br><code>skip_render: Demo/*.html</code>  </p>
+            <h2 id="Hexo的主题"><a href="#Hexo的主题" class="headerlink" title="Hexo的主题"></a>Hexo的主题</h2><p>　　也许你已经厌倦了博客单调的界面，今天就来讲解如何更换博客的主题。Hexo博客框架具有非常多的优秀主题，各有各的独特风格，而且主题间更换十分方便。  </p>
+<h2 id="更换主题"><a href="#更换主题" class="headerlink" title="更换主题"></a>更换主题</h2><ol>
+<li>首先你可以去<a href="https://github.com/hexojs/hexo/wiki/Themes" target="_blank" rel="external">官方主题下载点</a>看demo页面，挑选你心水的主题。 挑选好主题后，进入该主题的Github页面进行下载。下载的方式与之前从远端同步仓库至本地一样，可以通过clone指令或者下载zip的方法。(下面以NexT主题为例)<br><img src="http://7xk5u3.com1.z0.glb.clouddn.com/theme1.png" alt=""><br><img src="http://7xk5u3.com1.z0.glb.clouddn.com/theme2.png" alt=""><br>　　将下载的主题文件夹整体移动到博客站点目录下的<code>themes</code>文件夹内。你可能发现已经有一个叫做<code>landscape</code>的文件夹，这个就是Hexo自带的模板。  </li>
+<li>打开站点目录下的<code>_config.yml</code>文件，找到theme关键字并将其后面的值修改为你想要切换的模板文件夹名称。<img src="http://7xk5u3.com1.z0.glb.clouddn.com/theme3.png" alt="">  </li>
+<li>依次执行<code>hexo clean</code>，<code>hexo g</code>。 </li>
+<li><code>hexo s</code> 在本地浏览你的博客，好好欣赏崭新的主题界面吧!<br>##NexT主题<br>　　我在挑选许久后，选择了一款叫做<a href="http://theme-next.iissnan.com/" target="_blank" rel="external">NexT</a>的主题。  <blockquote>
+<p>精于心，简于形  </p>
+</blockquote>
 </li>
 </ol>
-<p>文件匹配是基于正则匹配的，更复杂的情况可以通过通配符配置该属性：  </p>
-<ul>
-<li>单个文件夹下全部文件：skip_render: demo/*</li>
-<li>单个文件夹下指定类型文件：skip_render: demo/*.html</li>
-<li>单个文件夹下全部文件以及子目录:skip_render: demo/**</li>
-<li>多个文件夹以及各种复杂情况：  <pre><code>skip_render:  
-  - demo/*.html  
-  - demo/**  
-</code></pre></li>
-</ul>
+<p>　　这款主题很简约，也更精致。提供了很多的可配置项和第三方服务，方便你打造属于自己独一无二的博客。  </p>
+<p>###切换风格<br>　　NexT主题提供三种风格的界面供大家选择，分别是Pisces、Mist和Muse。具体切换方法：  </p>
+<ol>
+<li>打开主题的配置文件<code>_config.yml</code>，这与之前的站点配置文件不同。它所在的目录是<code>username.github.io - themes - Next - _config.yml</code>.这点十分重要，一定要能区分<strong>站点配置文件</strong>和<strong>主题配置文件</strong>。  </li>
+<li>找到<code>Schemes</code>关键字，用<code>#</code>注释掉不用的主题，选择要使用的主题即可。<img src="http://7xk5u3.com1.z0.glb.clouddn.com/theme4.png" alt=""><br>###添加头像图片<br>　　打开<strong>站点配置文件</strong>，添加字段<code>avatar:</code>，后面的值是你头像图片的外链。<img src="http://7xk5u3.com1.z0.glb.clouddn.com/theme5.png" alt=""><br>　　我的外链是使用七牛云存储做图床生成的，速度快而且免费可用，推荐！<br>###其他的主题配置<br>　　还有许多的主题配置可以修改，详细可查看官网的<a href="http://theme-next.iissnan.com/theme-settings.html" target="_blank" rel="external">帮助文档</a>。</li>
+</ol>
 
           
         
@@ -541,6 +539,143 @@
 <blockquote>
 <p>author:Czh 2016-07-05</p>
 </blockquote>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/07/05/HexoSkipRender/" itemprop="url">
+                  设置Hexo不渲染source目录下的部分文件
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-07-05T16:35:04+08:00" content="2016-07-05">
+              2016-07-05
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/技术/" itemprop="url" rel="index">
+                    <span itemprop="name">技术</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/07/05/HexoSkipRender/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/07/05/HexoSkipRender/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="遇到的问题？"><a href="#遇到的问题？" class="headerlink" title="遇到的问题？"></a>遇到的问题？</h2><p>　　想上传几个自己写的demo到github pages，于是放到了source文件夹下。生成静态文件后，浏览时却发现这些页面都被渲染了模板样式。  </p>
+<p>　　于是开始搜索答案，如何使某些页面跳过渲染呢？  </p>
+<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><ol>
+<li><p>在.md开头的文件加上以下控制符<br> <code>layout: none</code><br>然而该方法对html并没有效果。  </p>
+</li>
+<li><p>设置<code>_config.yml</code>里的<code>skip_render</code>属性<br>　　假设你的Source文件夹里面有个Demo目录，要忽略Demo目录下的所有html页面，可以通过在<code>_config.yml</code>设置<code>skip_render</code>来忽略的目录，具体如下：<br><code>skip_render: Demo/*.html</code>  </p>
+</li>
+</ol>
+<p>文件匹配是基于正则匹配的，更复杂的情况可以通过通配符配置该属性：  </p>
+<ul>
+<li>单个文件夹下全部文件：skip_render: demo/*</li>
+<li>单个文件夹下指定类型文件：skip_render: demo/*.html</li>
+<li>单个文件夹下全部文件以及子目录:skip_render: demo/**</li>
+<li>多个文件夹以及各种复杂情况：  <pre><code>skip_render:  
+  - demo/*.html  
+  - demo/**  
+</code></pre></li>
+</ul>
 
           
         
@@ -1016,12 +1151,12 @@
                src="http://7xk5u3.com1.z0.glb.clouddn.com/f5e58bb0a39708803bcb60f4bd503798.jpg"
                alt="Czh" />
           <p class="site-author-name" itemprop="name">Czh</p>
-          <p class="site-description motion-element" itemprop="description">My blog</p>
+          <p class="site-description motion-element" itemprop="description">前端 新手猿</p>
         </div>
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">5</span>
+              <span class="site-state-item-count">6</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -1038,7 +1173,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-count">4</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
