@@ -86,31 +86,19 @@
 
 
 
-<meta name="description" content="在为大量元素重复绑定相同事件时，会有几种不同的方法，不同的方法各有优缺点。在这里我会分别对几种方法进行介绍和讲解！　　现在，我们要为下面的无序列表中的每个列表项li都绑定一个点击事件，打印出其内容。
-&amp;lt;ul id=&amp;quot;test&amp;quot;&amp;gt;
-    &amp;lt;li&amp;gt;第一行&amp;lt;/li&amp;gt;
-    &amp;lt;li&amp;gt;第二行&amp;lt;/li&amp;gt;
-    &amp;lt;l">
+<meta name="description" content="在为大量元素重复绑定相同事件时，会有几种不同的方法，不同的方法各有优缺点。在这里我会分别对几种方法进行介绍和讲解！　　现在，我们要为下面的无序列表中的每个列表项li都绑定一个点击事件，打印出其内容。    12345&amp;lt;ul id=&quot;test&quot;&amp;gt;	&amp;lt;li&amp;gt;第一行&amp;lt;/li&amp;gt;	&amp;lt;li&amp;gt;第二行&amp;lt;/li&amp;gt;	&amp;lt;li&amp;gt;第三行&amp;lt;/l">
 <meta property="og:type" content="article">
 <meta property="og:title" content="事件绑定的几种方法">
 <meta property="og:url" content="http://gentlemanczh.com/2016/07/10/eventAgent/index.html">
 <meta property="og:site_name" content="Czh's Blog">
-<meta property="og:description" content="在为大量元素重复绑定相同事件时，会有几种不同的方法，不同的方法各有优缺点。在这里我会分别对几种方法进行介绍和讲解！　　现在，我们要为下面的无序列表中的每个列表项li都绑定一个点击事件，打印出其内容。
-&amp;lt;ul id=&amp;quot;test&amp;quot;&amp;gt;
-    &amp;lt;li&amp;gt;第一行&amp;lt;/li&amp;gt;
-    &amp;lt;li&amp;gt;第二行&amp;lt;/li&amp;gt;
-    &amp;lt;l">
+<meta property="og:description" content="在为大量元素重复绑定相同事件时，会有几种不同的方法，不同的方法各有优缺点。在这里我会分别对几种方法进行介绍和讲解！　　现在，我们要为下面的无序列表中的每个列表项li都绑定一个点击事件，打印出其内容。    12345&amp;lt;ul id=&quot;test&quot;&amp;gt;	&amp;lt;li&amp;gt;第一行&amp;lt;/li&amp;gt;	&amp;lt;li&amp;gt;第二行&amp;lt;/li&amp;gt;	&amp;lt;li&amp;gt;第三行&amp;lt;/l">
 <meta property="og:image" content="http://7xk5u3.com1.z0.glb.clouddn.com/agent2.png">
 <meta property="og:image" content="http://7xk5u3.com1.z0.glb.clouddn.com/agent1.png">
 <meta property="og:image" content="http://7xk5u3.com1.z0.glb.clouddn.com/agent3.png">
-<meta property="og:updated_time" content="2016-07-11T00:22:49.687Z">
+<meta property="og:updated_time" content="2016-07-21T06:12:27.375Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="事件绑定的几种方法">
-<meta name="twitter:description" content="在为大量元素重复绑定相同事件时，会有几种不同的方法，不同的方法各有优缺点。在这里我会分别对几种方法进行介绍和讲解！　　现在，我们要为下面的无序列表中的每个列表项li都绑定一个点击事件，打印出其内容。
-&amp;lt;ul id=&amp;quot;test&amp;quot;&amp;gt;
-    &amp;lt;li&amp;gt;第一行&amp;lt;/li&amp;gt;
-    &amp;lt;li&amp;gt;第二行&amp;lt;/li&amp;gt;
-    &amp;lt;l">
+<meta name="twitter:description" content="在为大量元素重复绑定相同事件时，会有几种不同的方法，不同的方法各有优缺点。在这里我会分别对几种方法进行介绍和讲解！　　现在，我们要为下面的无序列表中的每个列表项li都绑定一个点击事件，打印出其内容。    12345&amp;lt;ul id=&quot;test&quot;&amp;gt;	&amp;lt;li&amp;gt;第一行&amp;lt;/li&amp;gt;	&amp;lt;li&amp;gt;第二行&amp;lt;/li&amp;gt;	&amp;lt;li&amp;gt;第三行&amp;lt;/l">
 <meta name="twitter:image" content="http://7xk5u3.com1.z0.glb.clouddn.com/agent2.png">
 
 
@@ -372,47 +360,18 @@
       
 
       
-        <p>　　在为大量元素重复绑定相同事件时，会有几种不同的方法，不同的方法各有优缺点。在这里我会分别对几种方法进行介绍和讲解！<br>　　现在，我们要为下面的无序列表中的每个列表项<code>li</code>都绑定一个点击事件，打印出其内容。</p>
-<pre><code>&lt;ul id=&quot;test&quot;&gt;
-    &lt;li&gt;第一行&lt;/li&gt;
-    &lt;li&gt;第二行&lt;/li&gt;
-    &lt;li&gt;第三行&lt;/li&gt;
-&lt;/ul&gt;  
-</code></pre><p>　　页面的显示如下：<br><img src="http://7xk5u3.com1.z0.glb.clouddn.com/agent2.png" alt=""></p>
-<h2 id="循环绑定事件"><a href="#循环绑定事件" class="headerlink" title="循环绑定事件"></a>循环绑定事件</h2><p>　　这种方式是最容易想到的方法，即遍历所有需要绑定事件的元素，将事件绑定在对应元素上。其实这里有个大坑！  </p>
-<pre><code>var ul = document.getElementById(&apos;test&apos;),
-    li = ul.getElementsByTagName(&apos;li&apos;);
-for(var i = 0;i &lt; li.length;i++){
-    li[i].onclick = function(){
-        console.log(li[i].innerHTML);
-    };
-}  
-</code></pre><p>　　当我们点击后，会产生以下错误：<br><img src="http://7xk5u3.com1.z0.glb.clouddn.com/agent1.png" alt=""><br>　　这样你可能还有点蒙，我们对程序做以下修改：<br>　　将循环判断条件由 <code>i&lt;li.length</code>改为<code>i&lt;li.length-1</code>,此时我们相当于少绑定了一个元素的事件。我们保存程序后再点击测试一下。<br><img src="http://7xk5u3.com1.z0.glb.clouddn.com/agent3.png" alt=""><br>　　发现当点击第一行和第二行的li时，都会打印出第三行的信息。而在点击第三行时，没有任何反应，这点倒是与我们之前的推断一致。可为什么点击第一行、第二行却显示第三行的内容呢？<br>　　这就是我刚所说的坑！在绑定事件时，循环变量i一直自加，直到最后加一等于了数组的长度，从而终止了循环。因此在执行完事件绑定后，i的值应为数组的长度，而数组是从下标0开始，以数组长度值-1结束。<br>　　当事件绑定结束后，i一直保持为结束时的值不变。当时间触发后，li[i]就不再是当时绑定事件时的元素了，而是<code>li[li.length]</code>这个元素。因此就会出现我们第一次的那个错误，因为<code>li[li.length]</code>是undefined。之后将循环次数减一，不管哪个元素触发事件都会显示<code>li[li.length-1]</code>元素的内容，因此不管点击第一行还是第二行都会显示第三行的内容。  </p>
+        <p>　　在为大量元素重复绑定相同事件时，会有几种不同的方法，不同的方法各有优缺点。在这里我会分别对几种方法进行介绍和讲解！<br>　　现在，我们要为下面的无序列表中的每个列表项<code>li</code>都绑定一个点击事件，打印出其内容。<br>    <figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">ul</span> <span class="attr">id</span>=<span class="string">"test"</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">li</span>&gt;</span>第一行<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">li</span>&gt;</span>第二行<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">li</span>&gt;</span>第三行<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p>　　页面的显示如下：<br><img src="http://7xk5u3.com1.z0.glb.clouddn.com/agent2.png" alt=""></p>
+<h2 id="循环绑定事件"><a href="#循环绑定事件" class="headerlink" title="循环绑定事件"></a>循环绑定事件</h2><p>　　这种方式是最容易想到的方法，即遍历所有需要绑定事件的元素，将事件绑定在对应元素上。其实这里有个大坑！<br>    <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> ul = <span class="built_in">document</span>.getElementById(<span class="string">'test'</span>),</div><div class="line">	li = ul.getElementsByTagName(<span class="string">'li'</span>);</div><div class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>;i &lt; li.length;i++)&#123;</div><div class="line">	li[i].onclick = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">		<span class="built_in">console</span>.log(li[i].innerHTML);</div><div class="line">	&#125;;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>　　当我们点击后，会产生以下错误：<br><img src="http://7xk5u3.com1.z0.glb.clouddn.com/agent1.png" alt=""><br>　　这样你可能还有点蒙，我们对程序做以下修改：<br>　　将循环判断条件由 <code>i&lt;li.length</code>改为<code>i&lt;li.length-1</code>,此时我们相当于少绑定了一个元素的事件。我们保存程序后再点击测试一下。<br><img src="http://7xk5u3.com1.z0.glb.clouddn.com/agent3.png" alt=""><br>　　发现当点击第一行和第二行的li时，都会打印出第三行的信息。而在点击第三行时，没有任何反应，这点倒是与我们之前的推断一致。可为什么点击第一行、第二行却显示第三行的内容呢？<br>　　这就是我刚所说的坑！在绑定事件时，循环变量i一直自加，直到最后加一等于了数组的长度，从而终止了循环。因此在执行完事件绑定后，i的值应为数组的长度，而数组是从下标0开始，以数组长度值-1结束。<br>　　当事件绑定结束后，i一直保持为结束时的值不变。当事件触发后，li[i]就不再是触发事件的元素了，而是<code>li[li.length]</code>这个元素。因此就会出现我们第一次的那个错误，因为<code>li[li.length]</code>是undefined。之后将循环次数减一，不管哪个元素触发事件都会显示<code>li[li.length-1]</code>元素的内容，因此不管点击第一行还是第二行都会显示第三行的内容。  </p>
 <h3 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h3><ol>
 <li>使用this<br>　　将<code>console.log(li[i].innerHTML);</code>更改为<code>console.log(this.innerHTML);</code>。即用<code>this</code>取代<code>li[i]</code>,this是JavaScript中非常重要的关键字，之后会在博客中详细介绍。这里的this代表的是触发事件的对象，我们的事件绑定在<code>li</code>元素上。当事件触发，this会指向这个事件触发的对象，也就是我们需要的li元素了。</li>
-<li><p>使用闭包  </p>
-<pre><code>var ul = document.getElementById(&apos;test&apos;),
-    li = ul.getElementsByTagName(&apos;li&apos;);
-for(var i = 0;i &lt; li.length;i++){
-    (function(){
-        var j = i;
-        li[j].onclick = function(){
-            console.log(li[j].innerHTML);
-        };
-    })();
-}
-</code></pre></li>
+<li>使用闭包   <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> ul = <span class="built_in">document</span>.getElementById(<span class="string">'test'</span>),</div><div class="line">	li = ul.getElementsByTagName(<span class="string">'li'</span>);</div><div class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>;i &lt; li.length;i++)&#123;</div><div class="line">	(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">		<span class="keyword">var</span> j = i;</div><div class="line">		li[j].onclick = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">			<span class="built_in">console</span>.log(li[j].innerHTML);</div><div class="line">		&#125;;</div><div class="line">	&#125;)();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
 </ol>
 <p>　　在for循环内部，使用一个立即执行函数。一个临时变量j保存i的值，在该函数内部再绑定事件。事件的绑定函数与外层的立即执行函数形成闭包，内部函数可以读取外部函数的变量值，且外部函数会为内部函数保留变量值不清楚。因此，在事件触发后，触发事件的服务函数会通过闭包读取变老了j，而j保留着当时的i值。  </p>
-<h2 id="使用事件代理"><a href="#使用事件代理" class="headerlink" title="使用事件代理"></a>使用事件代理</h2><p>　　在面对我们这个例子的情况时，通常是使用事件代理而非采用循环绑定。那事件代理相比前者的优点在哪呢？<br>　　如果我们的列表项非常多，那么每个li都绑定一个事件，那就非常占用系统的资源和时间。而且如果动态的向ul列表中添加了li的DOM节点，用之前的方法是无法触发事件的。因为新添加的li节点是在绑定事件之后，即新添加的li节点是没有绑定上事件的。事件代理则解决了以上两个问题，具体代码如下：  </p>
-<pre><code>var ul = document.getElementById(&apos;test&apos;);
-ul.onclick = function(e){
-    var eve = e || window.e;
-    if(e.target.tagName == &quot;LI&quot;){
-        console.log(e.target.innerHTML);
-    }
-};  
-</code></pre><p>　　事件代理，即把事件绑定在其公共的父元素上。由于事件流的作用，当子节点接收到触发事件，其父节点也会同样接收到该事件。因此我们只需在其父节点上绑定事件，即可侦听其所有子节点的事件，然后只需通过判断事件触发的对象是否为li元素即可。</p>
+<h2 id="使用事件代理"><a href="#使用事件代理" class="headerlink" title="使用事件代理"></a>使用事件代理</h2><p>　　在面对我们这个例子的情况时，通常是使用事件代理而非采用循环绑定。那事件代理相比前者的优点在哪呢？<br>　　如果我们的列表项非常多，那么每个li都绑定一个事件，那就非常占用系统的资源和时间。而且如果动态的向ul列表中添加了li的DOM节点，用之前的方法是无法触发事件的。因为新添加的li节点是在绑定事件之后，即新添加的li节点是没有绑定上事件的。事件代理则解决了以上两个问题，具体代码如下：<br>    <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> ul = <span class="built_in">document</span>.getElementById(<span class="string">'test'</span>);</div><div class="line">ul.onclick = <span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>&#123;</div><div class="line">	<span class="keyword">var</span> eve = e || <span class="built_in">window</span>.e;</div><div class="line">	<span class="keyword">if</span>(e.target.tagName == <span class="string">"LI"</span>)&#123;</div><div class="line">		<span class="built_in">console</span>.log(e.target.innerHTML);</div><div class="line">	&#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
+<p>　　事件代理，即把事件绑定在其公共的父元素上。由于事件流的作用，当子节点接收到触发事件，其父节点也会同样接收到该事件。因此我们只需在其父节点上绑定事件，即可侦听其所有子节点的事件，然后只需通过判断事件触发的对象是否为li元素即可。</p>
 
       
     </div>
@@ -454,6 +413,10 @@ ul.onclick = function(e){
           </div>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/07/21/selector/" rel="prev" title="原生JavaScript选择器">
+                原生JavaScript选择器 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -531,7 +494,7 @@ ul.onclick = function(e){
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">8</span>
+              <span class="site-state-item-count">9</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -548,7 +511,7 @@ ul.onclick = function(e){
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-count">9</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

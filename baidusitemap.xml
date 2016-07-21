@@ -4,8 +4,33 @@
 
     
   <url>
+    <loc>http://gentlemanczh.com/2016/07/21/selector/</loc>
+    <lastmod>2016-07-21T09:27:47.274Z</lastmod>
+    <data>
+        <display>
+        <title>原生JavaScript选择器</title>
+        <pubTime>2016-07-21T07:06:33.000Z</pubTime>
+        
+        <tag>JavaScript</tag>
+         
+        <tag>选择器</tag>
+         
+         
+           
+             
+              <breadCrumb title="前端" url="http://gentlemanczh.com/categories/%E5%89%8D%E7%AB%AF/"/>
+          
+             
+              <breadCrumb title="JavaScript" url="http://gentlemanczh.com/categories/%E5%89%8D%E7%AB%AF/JavaScript/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://gentlemanczh.com/2016/07/10/eventAgent/</loc>
-    <lastmod>2016-07-11T00:22:49.687Z</lastmod>
+    <lastmod>2016-07-21T06:12:27.375Z</lastmod>
     <data>
         <display>
         <title>事件绑定的几种方法</title>
@@ -64,9 +89,9 @@
         
         <tag>Hexo</tag>
          
-        <tag>Blog</tag>
-         
         <tag>Git</tag>
+         
+        <tag>Blog</tag>
          
          
            
