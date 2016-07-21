@@ -280,8 +280,8 @@
             
               
                 
-                <a class="post-title-link" href="/2016/07/21/selector/" itemprop="url">
-                  原生JavaScript选择器
+                <a class="post-title-link" href="/2016/07/21/typeof/" itemprop="url">
+                  Js类型检测
                 </a>
               
             
@@ -294,7 +294,7 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-07-21T15:06:33+08:00" content="2016-07-21">
+            <time itemprop="dateCreated" datetime="2016-07-21T20:00:04+08:00" content="2016-07-21">
               2016-07-21
             </time>
           </span>
@@ -336,8 +336,165 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/07/21/selector/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/07/21/selector/" itemprop="commentsCount"></span>
+                <a href="/2016/07/21/typeof/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/07/21/typeof/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>　　JavaScript中有很多类型检测的方法：<br>　　1. typeof<br>　　2. instanceof<br>　　3. Object.prototype.toString<br>　　4. constructor<br>　　5. duck type  </p>
+<p>　　各种方法都有它的用途和局限，下来我们依次分析各方法。  </p>
+<h2 id="typeof操作符"><a href="#typeof操作符" class="headerlink" title="typeof操作符"></a>typeof操作符</h2><p>　　typeof是用于判断变量、数值字面量的类型，而且typeof是个操作符，而不是一个方法。对一个值使用typeof操作符，可能返回下列中的某个字符串：  </p>
+<ul>
+<li>“undefined”————如果这个值未定义  </li>
+<li>“booldean” ————如果这个值是布尔值  </li>
+<li>“string”     ————如果这个值是字符串  </li>
+<li>“number”     ————如果这个值是数值  </li>
+<li>“object”     ————如果这个值是对象或null  </li>
+<li>“function” ————如果这个值是函数  </li>
+</ul>
+<p>　　以下是在chrome浏览器控制台下的测试结果：<br><img src="http://7xk5u3.com1.z0.glb.clouddn.com/typeof1.png" alt="">  </p>
+<h3 id="局限"><a href="#局限" class="headerlink" title="局限"></a>局限</h3><p>　　我们可以看到，对于这些基本数据类型、对象和函数可以准确判断。但你可能会发现，少了一个基本数据类型null，我们也可以测试一下看看：<br><img src="http://7xk5u3.com1.z0.glb.clouddn.com/typeof2.png" alt=""><br>　　跟上面讲的一样，null被判断为object类型，这其实是一个历史错误。  </p>
+<p>　　typeof只适用于基本类型检测。</p>
+<h2 id="instanceof操作符"><a href="#instanceof操作符" class="headerlink" title="instanceof操作符"></a>instanceof操作符</h2><p>　　instanceof操作符可以检测引用类型，如果变量是给定引用类型（由构造函数表示）的实例，那么instanceof就会返回true。<br>　　操作符左边的操作数必须是一个对象，而右边的操作数应该是一个函数对象或函数构造器。其原理就是判断左操作数这个对象的原型链上是否有右边这个构造函数的prototype对象属性。也就是说，instanceof是基于原型链判断类型的。<br>　　以下是简单的例子：<br>　　分别判断了正则表达式，数组，日期等类型，可以通过该操作符判断对象的是哪种类型的实例。<br><img src="http://7xk5u3.com1.z0.glb.clouddn.com/typeof3.png" alt="">  </p>
+<p>　　自己定义的构造函数和实例也可以使用该方法：  </p>
+<p><img src="http://7xk5u3.com1.z0.glb.clouddn.com/typeof4.png" alt="">  </p>
+<p>　　要注意的是，根据规定所有引用类型的值都是Object实例。因此在检测一个引用类型值和Object构造函数时，instanceof操作符始终都会返回true。如果你了解原型链，那么就很容易理解这点了。<br><img src="http://7xk5u3.com1.z0.glb.clouddn.com/typeof5.png" alt="">  </p>
+<h3 id="局限-1"><a href="#局限-1" class="headerlink" title="局限"></a>局限</h3><p>　　如果用instanceof操作符检测基本类型的值，则会报错。  </p>
+<h2 id="Object-prototype-toString方法"><a href="#Object-prototype-toString方法" class="headerlink" title="Object.prototype.toString方法"></a>Object.prototype.toString方法</h2><p>　　想要判断某个对象值属于哪种内置类型,最靠谱的做法就是通过Object.prototype.toString方法。该方法可以判断任何对象，并准确的给出其类型。其具体的用法为 <code>Object.prototype.toString.apply( )</code>，需要判断的内容放在括号中即可。下面是一些例子：  </p>
+<p><img src="http://7xk5u3.com1.z0.glb.clouddn.com/typeof6.png" alt="">  </p>
+<h2 id="constructor属性"><a href="#constructor属性" class="headerlink" title="constructor属性"></a>constructor属性</h2><p>　　对象的constructor属性用于返回创建该对象的函数，也就是我们常说的构造函数。在JavaScript中，每个具有原型的对象都会自动获得constructor属性。除了arguments、Enumerator、Error、Global、Math、RegExp、Regular Expression等一些特殊对象之外，其他所有的JavaScript内置对象都具备constructor属性。例如：Array、Boolean、Date、Function、Number、Object、String等。<br>　　因此我们可以通过判断对象的constructor属性来判断其类型，这与第二条instanceof有点类似。<br><img src="http://7xk5u3.com1.z0.glb.clouddn.com/typeof7.png" alt="">  </p>
+<h2 id="duck-type-鸭子类型"><a href="#duck-type-鸭子类型" class="headerlink" title="duck type 鸭子类型"></a>duck type 鸭子类型</h2><blockquote>
+<p>“当看到一只鸟走起来像鸭子、游泳起来像鸭子、叫起来也像鸭子，那么这只鸟就可以被称为鸭子。”  </p>
+</blockquote>
+<p>　　每种数据类型，都有其独有的方法或属性。那我们如果检测到被判断的对象具有这些属性或者方法的话，那我们也就可以认为这个对象的类型。</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/07/16/selector/" itemprop="url">
+                  原生JavaScript选择器
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-07-16T15:06:33+08:00" content="2016-07-16">
+              2016-07-16
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/前端/" itemprop="url" rel="index">
+                    <span itemprop="name">前端</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/前端/JavaScript/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/07/16/selector/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/07/16/selector/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -364,7 +521,7 @@
           <p>　　jQuery是最流行的一个JavaScript库，其最重要的功能之一就是可以检索符合通过CSS选择器指定的模式的一些DOM元素，它是构建于DOM文档的CSS选择器查询之上。jQuery的出现，代替了通过<code>getElementById()</code>、<code>getElementsByTagName()</code>和<code>getElementsByClassName()</code>等选择器来检索元素。  </p>
 <p>　　其实，原生的JavaScript中就带有非常强大的选择器<code>querySelector()</code>和<code>querySelectorAll()</code>。相比引用外部库，使用内置的API则具有更好的性能。<br>
           <div class="post-more-link text-center">
-            <a class="btn" href="/2016/07/21/selector/#more" rel="contents">
+            <a class="btn" href="/2016/07/16/selector/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1582,7 +1739,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">9</span>
+              <span class="site-state-item-count">10</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -1599,7 +1756,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-count">10</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

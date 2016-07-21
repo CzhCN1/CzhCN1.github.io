@@ -4,12 +4,37 @@
 
     
   <url>
-    <loc>http://gentlemanczh.com/2016/07/21/selector/</loc>
-    <lastmod>2016-07-21T09:27:47.274Z</lastmod>
+    <loc>http://gentlemanczh.com/2016/07/21/typeof/</loc>
+    <lastmod>2016-07-21T13:42:45.644Z</lastmod>
+    <data>
+        <display>
+        <title>Js类型检测</title>
+        <pubTime>2016-07-21T12:00:04.000Z</pubTime>
+        
+        <tag>JavaScript</tag>
+         
+        <tag>类型检测</tag>
+         
+         
+           
+             
+              <breadCrumb title="前端" url="http://gentlemanczh.com/categories/%E5%89%8D%E7%AB%AF/"/>
+          
+             
+              <breadCrumb title="JavaScript" url="http://gentlemanczh.com/categories/%E5%89%8D%E7%AB%AF/JavaScript/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://gentlemanczh.com/2016/07/16/selector/</loc>
+    <lastmod>2016-07-21T11:59:39.619Z</lastmod>
     <data>
         <display>
         <title>原生JavaScript选择器</title>
-        <pubTime>2016-07-21T07:06:33.000Z</pubTime>
+        <pubTime>2016-07-16T07:06:33.000Z</pubTime>
         
         <tag>JavaScript</tag>
          
@@ -89,9 +114,9 @@
         
         <tag>Hexo</tag>
          
-        <tag>Git</tag>
-         
         <tag>Blog</tag>
+         
+        <tag>Git</tag>
          
          
            

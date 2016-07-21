@@ -70,7 +70,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="感悟," />
+  <meta name="keywords" content="JavaScript,类型检测," />
 
 
 
@@ -86,19 +86,30 @@
 
 
 
-<meta name="description" content="自从进了大学，可谓过得一帆风顺，风平浪静，也是我最快乐的一段时光。尝试了许多，体验了很多，苦辣酸甜也应有尽有。生活不像自己想的精彩，却也不失味道。学习不像自己想的轻松，却也能游刃有余。庆幸自己没有沉沦，不曾颓废。多亏身边有一群好朋友，时时激励我着我，无私的帮助我。
-　　有过一个善良的姑娘，和她可以聊昨天，谈今天，却不能计划明天。我不喜欢沉湎于过去，这也是和她最不合的地方。她活在当下，却总怀念着">
+<meta name="description" content="前言　　JavaScript中有很多类型检测的方法：　　1. typeof　　2. instanceof　　3. Object.prototype.toString　　4. constructor　　5. duck type  
+　　各种方法都有它的用途和局限，下来我们依次分析各方法。  
+typeof操作符　　typeof是用于判断变量、数值字面量的类型，而且typeof是个操作符，而不是一个方">
 <meta property="og:type" content="article">
-<meta property="og:title" content="我 大学 忠告">
-<meta property="og:url" content="http://gentlemanczh.com/2015/05/23/advice/index.html">
+<meta property="og:title" content="Js类型检测">
+<meta property="og:url" content="http://gentlemanczh.com/2016/07/21/typeof/index.html">
 <meta property="og:site_name" content="Czh's Blog">
-<meta property="og:description" content="自从进了大学，可谓过得一帆风顺，风平浪静，也是我最快乐的一段时光。尝试了许多，体验了很多，苦辣酸甜也应有尽有。生活不像自己想的精彩，却也不失味道。学习不像自己想的轻松，却也能游刃有余。庆幸自己没有沉沦，不曾颓废。多亏身边有一群好朋友，时时激励我着我，无私的帮助我。
-　　有过一个善良的姑娘，和她可以聊昨天，谈今天，却不能计划明天。我不喜欢沉湎于过去，这也是和她最不合的地方。她活在当下，却总怀念着">
-<meta property="og:updated_time" content="2016-07-05T03:34:38.425Z">
+<meta property="og:description" content="前言　　JavaScript中有很多类型检测的方法：　　1. typeof　　2. instanceof　　3. Object.prototype.toString　　4. constructor　　5. duck type  
+　　各种方法都有它的用途和局限，下来我们依次分析各方法。  
+typeof操作符　　typeof是用于判断变量、数值字面量的类型，而且typeof是个操作符，而不是一个方">
+<meta property="og:image" content="http://7xk5u3.com1.z0.glb.clouddn.com/typeof1.png">
+<meta property="og:image" content="http://7xk5u3.com1.z0.glb.clouddn.com/typeof2.png">
+<meta property="og:image" content="http://7xk5u3.com1.z0.glb.clouddn.com/typeof3.png">
+<meta property="og:image" content="http://7xk5u3.com1.z0.glb.clouddn.com/typeof4.png">
+<meta property="og:image" content="http://7xk5u3.com1.z0.glb.clouddn.com/typeof5.png">
+<meta property="og:image" content="http://7xk5u3.com1.z0.glb.clouddn.com/typeof6.png">
+<meta property="og:image" content="http://7xk5u3.com1.z0.glb.clouddn.com/typeof7.png">
+<meta property="og:updated_time" content="2016-07-21T13:42:45.644Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="我 大学 忠告">
-<meta name="twitter:description" content="自从进了大学，可谓过得一帆风顺，风平浪静，也是我最快乐的一段时光。尝试了许多，体验了很多，苦辣酸甜也应有尽有。生活不像自己想的精彩，却也不失味道。学习不像自己想的轻松，却也能游刃有余。庆幸自己没有沉沦，不曾颓废。多亏身边有一群好朋友，时时激励我着我，无私的帮助我。
-　　有过一个善良的姑娘，和她可以聊昨天，谈今天，却不能计划明天。我不喜欢沉湎于过去，这也是和她最不合的地方。她活在当下，却总怀念着">
+<meta name="twitter:title" content="Js类型检测">
+<meta name="twitter:description" content="前言　　JavaScript中有很多类型检测的方法：　　1. typeof　　2. instanceof　　3. Object.prototype.toString　　4. constructor　　5. duck type  
+　　各种方法都有它的用途和局限，下来我们依次分析各方法。  
+typeof操作符　　typeof是用于判断变量、数值字面量的类型，而且typeof是个操作符，而不是一个方">
+<meta name="twitter:image" content="http://7xk5u3.com1.z0.glb.clouddn.com/typeof1.png">
 
 
 
@@ -119,9 +130,9 @@
 
 
 
-  <link rel="canonical" href="http://gentlemanczh.com/2015/05/23/advice/"/>
+  <link rel="canonical" href="http://gentlemanczh.com/2016/07/21/typeof/"/>
 
-  <title> 我 大学 忠告 | Czh's Blog </title>
+  <title> Js类型检测 | Czh's Blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -281,7 +292,7 @@
             
             
               
-                我 大学 忠告
+                Js类型检测
               
             
           </h1>
@@ -293,8 +304,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2015-05-23T12:39:04+08:00" content="2015-05-23">
-              2015-05-23
+            <time itemprop="dateCreated" datetime="2016-07-21T20:00:04+08:00" content="2016-07-21">
+              2016-07-21
             </time>
           </span>
 
@@ -307,8 +318,20 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/随笔/" itemprop="url" rel="index">
-                    <span itemprop="name">随笔</span>
+                  <a href="/categories/前端/" itemprop="url" rel="index">
+                    <span itemprop="name">前端</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/前端/JavaScript/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript</span>
                   </a>
                 </span>
 
@@ -323,8 +346,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2015/05/23/advice/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/05/23/advice/" itemprop="commentsCount"></span>
+                <a href="/2016/07/21/typeof/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/07/21/typeof/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -347,32 +370,32 @@
       
 
       
-        <p>　　自从进了大学，可谓过得一帆风顺，风平浪静，也是我最快乐的一段时光。尝试了许多，体验了很多，苦辣酸甜也应有尽有。生活不像自己想的精彩，却也不失味道。学习不像自己想的轻松，却也能游刃有余。庆幸自己没有沉沦，不曾颓废。多亏身边有一群好朋友，时时激励我着我，无私的帮助我。</p>
-<p>　　有过一个善良的姑娘，和她可以聊昨天，谈今天，却不能计划明天。我不喜欢沉湎于过去，这也是和她最不合的地方。她活在当下，却总怀念着美好的匆匆那年，而我计划着我想要的明天。</p>
-<p>　　从不奢求富贵，不用为衣食而担忧就好。只想有一个温暖的家，不必大。只要有明亮干净的厨房，温暖闲适的阳台就足够了。养一只乖巧的猫，每天回家它会舔舔我的手，依偎在我的脚旁。种一盆翠绿旺盛的茉莉，时常修剪，待它施舍我一屋芳香。周末为自己做精致的料理，坐在铺有亚麻布的餐桌上享用。陪猫在阳台晒晒太阳，读晦涩难懂的小说。晚上躺在床上看一场漫长的电影，喝一杯廉价的速溶咖啡。不懂浪漫，也不喜欢轰轰烈烈，就是享受平淡生活的温暖和那份安全感。</p>
-<p>　　我就是这样，对未来的考虑远超过当下和过去。 
-　　</p>
-<p> 大学的生活也快过半了，经历了很多，也懂了很多道理，与君共勉。</p>
-<ol>
-<li><p>今天多学会一项技能，明天少说几句求人的话。</p>
-</li>
-<li><p>没有努力过，就闭上嘴，别抱怨。</p>
-</li>
-<li><p>如果努力白费了，一定要更努力。</p>
-</li>
-<li><p>可以吃小亏，但别吃傻亏，千万不要占便宜。</p>
-</li>
-<li><p>不要荒废了自己的青春。</p>
-</li>
-<li><p>亲人还在身边，更要加倍珍惜。</p>
-</li>
-<li><p>永远不要抱怨自己的父母满足不了你的物质需求。他们精神上早已为你透支，而你享受青春的物质基础是他们全部青春的辛劳付出。</p>
-</li>
-<li><p>恋人间请珍惜彼此的感情。</p>
-</li>
-<li><p>一个人也没什么不好，去做自己喜欢的事，花时间完善自己，不用考虑太多，照顾好你自己。</p>
-</li>
-</ol>
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>　　JavaScript中有很多类型检测的方法：<br>　　1. typeof<br>　　2. instanceof<br>　　3. Object.prototype.toString<br>　　4. constructor<br>　　5. duck type  </p>
+<p>　　各种方法都有它的用途和局限，下来我们依次分析各方法。  </p>
+<h2 id="typeof操作符"><a href="#typeof操作符" class="headerlink" title="typeof操作符"></a>typeof操作符</h2><p>　　typeof是用于判断变量、数值字面量的类型，而且typeof是个操作符，而不是一个方法。对一个值使用typeof操作符，可能返回下列中的某个字符串：  </p>
+<ul>
+<li>“undefined”————如果这个值未定义  </li>
+<li>“booldean” ————如果这个值是布尔值  </li>
+<li>“string”     ————如果这个值是字符串  </li>
+<li>“number”     ————如果这个值是数值  </li>
+<li>“object”     ————如果这个值是对象或null  </li>
+<li>“function” ————如果这个值是函数  </li>
+</ul>
+<p>　　以下是在chrome浏览器控制台下的测试结果：<br><img src="http://7xk5u3.com1.z0.glb.clouddn.com/typeof1.png" alt="">  </p>
+<h3 id="局限"><a href="#局限" class="headerlink" title="局限"></a>局限</h3><p>　　我们可以看到，对于这些基本数据类型、对象和函数可以准确判断。但你可能会发现，少了一个基本数据类型null，我们也可以测试一下看看：<br><img src="http://7xk5u3.com1.z0.glb.clouddn.com/typeof2.png" alt=""><br>　　跟上面讲的一样，null被判断为object类型，这其实是一个历史错误。  </p>
+<p>　　typeof只适用于基本类型检测。</p>
+<h2 id="instanceof操作符"><a href="#instanceof操作符" class="headerlink" title="instanceof操作符"></a>instanceof操作符</h2><p>　　instanceof操作符可以检测引用类型，如果变量是给定引用类型（由构造函数表示）的实例，那么instanceof就会返回true。<br>　　操作符左边的操作数必须是一个对象，而右边的操作数应该是一个函数对象或函数构造器。其原理就是判断左操作数这个对象的原型链上是否有右边这个构造函数的prototype对象属性。也就是说，instanceof是基于原型链判断类型的。<br>　　以下是简单的例子：<br>　　分别判断了正则表达式，数组，日期等类型，可以通过该操作符判断对象的是哪种类型的实例。<br><img src="http://7xk5u3.com1.z0.glb.clouddn.com/typeof3.png" alt="">  </p>
+<p>　　自己定义的构造函数和实例也可以使用该方法：  </p>
+<p><img src="http://7xk5u3.com1.z0.glb.clouddn.com/typeof4.png" alt="">  </p>
+<p>　　要注意的是，根据规定所有引用类型的值都是Object实例。因此在检测一个引用类型值和Object构造函数时，instanceof操作符始终都会返回true。如果你了解原型链，那么就很容易理解这点了。<br><img src="http://7xk5u3.com1.z0.glb.clouddn.com/typeof5.png" alt="">  </p>
+<h3 id="局限-1"><a href="#局限-1" class="headerlink" title="局限"></a>局限</h3><p>　　如果用instanceof操作符检测基本类型的值，则会报错。  </p>
+<h2 id="Object-prototype-toString方法"><a href="#Object-prototype-toString方法" class="headerlink" title="Object.prototype.toString方法"></a>Object.prototype.toString方法</h2><p>　　想要判断某个对象值属于哪种内置类型,最靠谱的做法就是通过Object.prototype.toString方法。该方法可以判断任何对象，并准确的给出其类型。其具体的用法为 <code>Object.prototype.toString.apply( )</code>，需要判断的内容放在括号中即可。下面是一些例子：  </p>
+<p><img src="http://7xk5u3.com1.z0.glb.clouddn.com/typeof6.png" alt="">  </p>
+<h2 id="constructor属性"><a href="#constructor属性" class="headerlink" title="constructor属性"></a>constructor属性</h2><p>　　对象的constructor属性用于返回创建该对象的函数，也就是我们常说的构造函数。在JavaScript中，每个具有原型的对象都会自动获得constructor属性。除了arguments、Enumerator、Error、Global、Math、RegExp、Regular Expression等一些特殊对象之外，其他所有的JavaScript内置对象都具备constructor属性。例如：Array、Boolean、Date、Function、Number、Object、String等。<br>　　因此我们可以通过判断对象的constructor属性来判断其类型，这与第二条instanceof有点类似。<br><img src="http://7xk5u3.com1.z0.glb.clouddn.com/typeof7.png" alt="">  </p>
+<h2 id="duck-type-鸭子类型"><a href="#duck-type-鸭子类型" class="headerlink" title="duck type 鸭子类型"></a>duck type 鸭子类型</h2><blockquote>
+<p>“当看到一只鸟走起来像鸭子、游泳起来像鸭子、叫起来也像鸭子，那么这只鸟就可以被称为鸭子。”  </p>
+</blockquote>
+<p>　　每种数据类型，都有其独有的方法或属性。那我们如果检测到被判断的对象具有这些属性或者方法的话，那我们也就可以认为这个对象的类型。</p>
 
       
     </div>
@@ -394,7 +417,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/感悟/" rel="tag">#感悟</a>
+            <a href="/tags/JavaScript/" rel="tag">#JavaScript</a>
+          
+            <a href="/tags/类型检测/" rel="tag">#类型检测</a>
           
         </div>
       
@@ -403,13 +428,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2016/07/16/selector/" rel="next" title="原生JavaScript选择器">
+                <i class="fa fa-chevron-left"></i> 原生JavaScript选择器
+              </a>
+            
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2015/09/20/myfamily/" rel="prev" title="科协，我家">
-                科协，我家 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -441,8 +466,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2015/05/23/advice/"
-           data-title="我 大学 忠告" data-url="http://gentlemanczh.com/2015/05/23/advice/">
+      <div class="ds-thread" data-thread-key="2016/07/21/typeof/"
+           data-title="Js类型检测" data-url="http://gentlemanczh.com/2016/07/21/typeof/">
       </div>
     
   </div>
@@ -566,7 +591,7 @@
               
             
             
-              <p class="post-toc-empty">此文章未包含目录</p>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#typeof操作符"><span class="nav-number">2.</span> <span class="nav-text">typeof操作符</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#局限"><span class="nav-number">2.1.</span> <span class="nav-text">局限</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#instanceof操作符"><span class="nav-number">3.</span> <span class="nav-text">instanceof操作符</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#局限-1"><span class="nav-number">3.1.</span> <span class="nav-text">局限</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Object-prototype-toString方法"><span class="nav-number">4.</span> <span class="nav-text">Object.prototype.toString方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#constructor属性"><span class="nav-number">5.</span> <span class="nav-text">constructor属性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#duck-type-鸭子类型"><span class="nav-number">6.</span> <span class="nav-text">duck type 鸭子类型</span></a></li></ol></div>
             
           </div>
         </section>
