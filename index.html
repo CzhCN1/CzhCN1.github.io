@@ -361,13 +361,35 @@
 
       
         
-          <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>　　JavaScript中有很多类型检测的方法：<br>　　1. typeof<br>　　2. instanceof<br>　　3. Object.prototype.toString<br>　　4. constructor<br>　　5. duck type  </p>
-<p>　　各种方法都有它的用途和局限，下来我们依次分析各方法。<br>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/07/21/typeof/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
+          
+            <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>　　JavaScript中有很多类型检测的方法：<br>　　1. typeof<br>　　2. instanceof<br>　　3. Object.prototype.toString<br>　　4. constructor<br>　　5. duck type  </p>
+<p>　　各种方法都有它的用途和局限，下来我们依次分析各方法。  </p>
+<h2 id="typeof操作符"><a href="#typeof操作符" class="headerlink" title="typeof操作符"></a>typeof操作符</h2><p>　　typeof是用于判断变量、数值字面量的类型，而且typeof是个操作符，而不是一个方法。对一个值使用typeof操作符，可能返回下列中的某个字符串：  </p>
+<ul>
+<li>“undefined”————如果这个值未定义  </li>
+<li>“booldean” ————如果这个值是布尔值  </li>
+<li>“string”     ————如果这个值是字符串  </li>
+<li>“number”     ————如果这个值是数值  </li>
+<li>“object”     ————如果这个值是对象或null  </li>
+<li>“function” ————如果这个值是函数  </li>
+</ul>
+<p>　　以下是在chrome浏览器控制台下的测试结果：<br><img src="http://7xk5u3.com1.z0.glb.clouddn.com/typeof1.png" alt="">  </p>
+<h3 id="局限"><a href="#局限" class="headerlink" title="局限"></a>局限</h3><p>　　我们可以看到，对于这些基本数据类型、对象和函数可以准确判断。但你可能会发现，少了一个基本数据类型null，我们也可以测试一下看看：<br><img src="http://7xk5u3.com1.z0.glb.clouddn.com/typeof2.png" alt=""><br>　　跟上面讲的一样，null被判断为object类型，这其实是一个历史错误。  </p>
+<p>　　typeof只适用于基本类型检测。</p>
+<h2 id="instanceof操作符"><a href="#instanceof操作符" class="headerlink" title="instanceof操作符"></a>instanceof操作符</h2><p>　　instanceof操作符可以检测引用类型，如果变量是给定引用类型（由构造函数表示）的实例，那么instanceof就会返回true。<br>　　操作符左边的操作数必须是一个对象，而右边的操作数应该是一个函数对象或函数构造器。其原理就是判断左操作数这个对象的原型链上是否有右边这个构造函数的prototype对象属性。也就是说，instanceof是基于原型链判断类型的。<br>　　以下是简单的例子：<br>　　分别判断了正则表达式，数组，日期等类型，可以通过该操作符判断对象的是哪种类型的实例。<br><img src="http://7xk5u3.com1.z0.glb.clouddn.com/typeof3.png" alt="">  </p>
+<p>　　自己定义的构造函数和实例也可以使用该方法：  </p>
+<p><img src="http://7xk5u3.com1.z0.glb.clouddn.com/typeof4.png" alt="">  </p>
+<p>　　要注意的是，根据规定所有引用类型的值都是Object实例。因此在检测一个引用类型值和Object构造函数时，instanceof操作符始终都会返回true。如果你了解原型链，那么就很容易理解这点了。<br><img src="http://7xk5u3.com1.z0.glb.clouddn.com/typeof5.png" alt="">  </p>
+<h3 id="局限-1"><a href="#局限-1" class="headerlink" title="局限"></a>局限</h3><p>　　如果用instanceof操作符检测基本类型的值，则会报错。  </p>
+<h2 id="Object-prototype-toString方法"><a href="#Object-prototype-toString方法" class="headerlink" title="Object.prototype.toString方法"></a>Object.prototype.toString方法</h2><p>　　想要判断某个对象值属于哪种内置类型,最靠谱的做法就是通过Object.prototype.toString方法。该方法可以判断任何对象，并准确的给出其类型。其具体的用法为 <code>Object.prototype.toString.apply( )</code>，需要判断的内容放在括号中即可。下面是一些例子：  </p>
+<p><img src="http://7xk5u3.com1.z0.glb.clouddn.com/typeof6.png" alt="">  </p>
+<h2 id="constructor属性"><a href="#constructor属性" class="headerlink" title="constructor属性"></a>constructor属性</h2><p>　　对象的constructor属性用于返回创建该对象的函数，也就是我们常说的构造函数。在JavaScript中，每个具有原型的对象都会自动获得constructor属性。除了arguments、Enumerator、Error、Global、Math、RegExp、Regular Expression等一些特殊对象之外，其他所有的JavaScript内置对象都具备constructor属性。例如：Array、Boolean、Date、Function、Number、Object、String等。<br>　　因此我们可以通过判断对象的constructor属性来判断其类型，这与第二条instanceof有点类似。<br><img src="http://7xk5u3.com1.z0.glb.clouddn.com/typeof7.png" alt="">  </p>
+<h2 id="duck-type-鸭子类型"><a href="#duck-type-鸭子类型" class="headerlink" title="duck type 鸭子类型"></a>duck type 鸭子类型</h2><blockquote>
+<p>“当看到一只鸟走起来像鸭子、游泳起来像鸭子、叫起来也像鸭子，那么这只鸟就可以被称为鸭子。”  </p>
+</blockquote>
+<p>　　每种数据类型，都有其独有的方法或属性。那我们如果检测到被判断的对象具有这些属性或者方法的话，那我们也就可以认为这个对象的类型。</p>
+
+          
         
       
     </div>
@@ -631,13 +653,21 @@
 
       
         
-          <p>　　在为大量元素重复绑定相同事件时，会有几种不同的方法，不同的方法各有优缺点。在这里我会分别对几种方法进行介绍和讲解！<br>　　现在，我们要为下面的无序列表中的每个列表项<code>li</code>都绑定一个点击事件，打印出其内容。<br>    <figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">ul</span> <span class="attr">id</span>=<span class="string">"test"</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">li</span>&gt;</span>第一行<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">li</span>&gt;</span>第二行<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">li</span>&gt;</span>第三行<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></div></pre></td></tr></table></figure></p>
-<p>　　页面的显示如下：<br><img src="http://7xk5u3.com1.z0.glb.clouddn.com/agent2.png" alt=""><br>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/07/10/eventAgent/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
+          
+            <p>　　在为大量元素重复绑定相同事件时，会有几种不同的方法，不同的方法各有优缺点。在这里我会分别对几种方法进行介绍和讲解！<br>　　现在，我们要为下面的无序列表中的每个列表项<code>li</code>都绑定一个点击事件，打印出其内容。<br>    <figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">ul</span> <span class="attr">id</span>=<span class="string">"test"</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">li</span>&gt;</span>第一行<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">li</span>&gt;</span>第二行<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">li</span>&gt;</span>第三行<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p>　　页面的显示如下：<br><img src="http://7xk5u3.com1.z0.glb.clouddn.com/agent2.png" alt="">  </p>
+<h2 id="循环绑定事件"><a href="#循环绑定事件" class="headerlink" title="循环绑定事件"></a>循环绑定事件</h2><p>　　这种方式是最容易想到的方法，即遍历所有需要绑定事件的元素，将事件绑定在对应元素上。其实这里有个大坑！<br>    <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> ul = <span class="built_in">document</span>.getElementById(<span class="string">'test'</span>),</div><div class="line">	li = ul.getElementsByTagName(<span class="string">'li'</span>);</div><div class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>;i &lt; li.length;i++)&#123;</div><div class="line">	li[i].onclick = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">		<span class="built_in">console</span>.log(li[i].innerHTML);</div><div class="line">	&#125;;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>　　当我们点击后，会产生以下错误：<br><img src="http://7xk5u3.com1.z0.glb.clouddn.com/agent1.png" alt=""><br>　　这样你可能还有点蒙，我们对程序做以下修改：<br>　　将循环判断条件由 <code>i&lt;li.length</code>改为<code>i&lt;li.length-1</code>,此时我们相当于少绑定了一个元素的事件。我们保存程序后再点击测试一下。<br><img src="http://7xk5u3.com1.z0.glb.clouddn.com/agent3.png" alt=""><br>　　发现当点击第一行和第二行的li时，都会打印出第三行的信息。而在点击第三行时，没有任何反应，这点倒是与我们之前的推断一致。可为什么点击第一行、第二行却显示第三行的内容呢？<br>　　这就是我刚所说的坑！在绑定事件时，循环变量i一直自加，直到最后加一等于了数组的长度，从而终止了循环。因此在执行完事件绑定后，i的值应为数组的长度，而数组是从下标0开始，以数组长度值-1结束。<br>　　当事件绑定结束后，i一直保持为结束时的值不变。当事件触发后，li[i]就不再是触发事件的元素了，而是<code>li[li.length]</code>这个元素。因此就会出现我们第一次的那个错误，因为<code>li[li.length]</code>是undefined。之后将循环次数减一，不管哪个元素触发事件都会显示<code>li[li.length-1]</code>元素的内容，因此不管点击第一行还是第二行都会显示第三行的内容。  </p>
+<h3 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h3><ol>
+<li>使用this<br>　　将<code>console.log(li[i].innerHTML);</code>更改为<code>console.log(this.innerHTML);</code>。即用<code>this</code>取代<code>li[i]</code>,this是JavaScript中非常重要的关键字，之后会在博客中详细介绍。这里的this代表的是触发事件的对象，我们的事件绑定在<code>li</code>元素上。当事件触发，this会指向这个事件触发的对象，也就是我们需要的li元素了。</li>
+<li>使用闭包   <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> ul = <span class="built_in">document</span>.getElementById(<span class="string">'test'</span>),</div><div class="line">	li = ul.getElementsByTagName(<span class="string">'li'</span>);</div><div class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>;i &lt; li.length;i++)&#123;</div><div class="line">	(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">		<span class="keyword">var</span> j = i;</div><div class="line">		li[j].onclick = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">			<span class="built_in">console</span>.log(li[j].innerHTML);</div><div class="line">		&#125;;</div><div class="line">	&#125;)();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>　　在for循环内部，使用一个立即执行函数。一个临时变量j保存i的值，在该函数内部再绑定事件。事件的绑定函数与外层的立即执行函数形成闭包，内部函数可以读取外部函数的变量值，且外部函数会为内部函数保留变量值不清楚。因此，在事件触发后，触发事件的服务函数会通过闭包读取变老了j，而j保留着当时的i值。  </p>
+<h2 id="使用事件代理"><a href="#使用事件代理" class="headerlink" title="使用事件代理"></a>使用事件代理</h2><p>　　在面对我们这个例子的情况时，通常是使用事件代理而非采用循环绑定。那事件代理相比前者的优点在哪呢？<br>　　如果我们的列表项非常多，那么每个li都绑定一个事件，那就非常占用系统的资源和时间。而且如果动态的向ul列表中添加了li的DOM节点，用之前的方法是无法触发事件的。因为新添加的li节点是在绑定事件之后，即新添加的li节点是没有绑定上事件的。事件代理则解决了以上两个问题，具体代码如下：<br>    <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> ul = <span class="built_in">document</span>.getElementById(<span class="string">'test'</span>);</div><div class="line">ul.onclick = <span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>&#123;</div><div class="line">	<span class="keyword">var</span> eve = e || <span class="built_in">window</span>.e;</div><div class="line">	<span class="keyword">if</span>(e.target.tagName == <span class="string">"LI"</span>)&#123;</div><div class="line">		<span class="built_in">console</span>.log(e.target.innerHTML);</div><div class="line">	&#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
+<p>　　事件代理，即把事件绑定在其公共的父元素上。由于事件流的作用，当子节点接收到触发事件，其父节点也会同样接收到该事件。因此我们只需在其父节点上绑定事件，即可侦听其所有子节点的事件，然后只需通过判断事件触发的对象是否为li元素即可。</p>
+
+          
         
       
     </div>
@@ -754,12 +784,28 @@
 
       
         
-          <h2 id="绑定域名"><a href="#绑定域名" class="headerlink" title="绑定域名"></a>绑定域名</h2><h3 id="挑选域名"><a href="#挑选域名" class="headerlink" title="挑选域名"></a>挑选域名</h3><p>　　是不是觉得你的域名即难记又丑！我们的博客当然可以绑定自己的独立域名。但首先，你要花钱买一个。。。国内通常去阿里云的<a href="https://wanwang.aliyun.com/">万网</a>购买，后缀不同价格也不同。不要舍不得，一年也只需要几十元就够了。<br>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/07/07/domain/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
+          
+            <h2 id="绑定域名"><a href="#绑定域名" class="headerlink" title="绑定域名"></a>绑定域名</h2><h3 id="挑选域名"><a href="#挑选域名" class="headerlink" title="挑选域名"></a>挑选域名</h3><p>　　是不是觉得你的域名即难记又丑！我们的博客当然可以绑定自己的独立域名。但首先，你要花钱买一个。。。国内通常去阿里云的<a href="https://wanwang.aliyun.com/" target="_blank" rel="external">万网</a>购买，后缀不同价格也不同。不要舍不得，一年也只需要几十元就够了。  </p>
+<h3 id="域名解析"><a href="#域名解析" class="headerlink" title="域名解析"></a>域名解析</h3><p>　　域名如何才能与我们的博客联系起来呢？首先简单介绍一下，当我们在浏览器中输入一个域名后，都发生了什么。  </p>
+<ol>
+<li>浏览器发起DNS查询请求，需要域名服务系统将域名转换成IP地址。  </li>
+<li>域名服务器向客户端返回查询结果域名，从而完成域名到IP地址的转换。  </li>
+<li>客户端向web服务器发送HTTP请求。  </li>
+<li>服务器发送响应数据给客户端。  </li>
+</ol>
+<p>　　我们可以发现，在域名的背后实际上是网站对应的IP地址。因此，我们要做的就是将域名与我们博客服务器所对应的IP地址建立联系。<br>　　首先进入<strong>阿里云管理控制台</strong>，选择<strong>云解析DNS</strong>。<img src="http://7xk5u3.com1.z0.glb.clouddn.com/domain1.png" alt=""><br>　　<br>　　在右侧就能看到你刚买的域名了，然后点击解析。<br><img src="http://7xk5u3.com1.z0.glb.clouddn.com/domain2.png" alt=""><br>　　<br>　　<br>　　点击<strong>设置网站解析</strong>的<strong>立即设置</strong><br><img src="http://7xk5u3.com1.z0.glb.clouddn.com/domain3.png" alt=""><br>　　<br>　　此时它会让你输入服务器主机IP地址了<img src="http://7xk5u3.com1.z0.glb.clouddn.com/domain4.png" alt="">  </p>
+<p>　　我们的IP是什么呢？因为我们使用的是Github托管我们的博客，因此我们只需要知道我们的Github域名背后的IP地址就可以了。也就是<code>username.github.io</code>对应的IP地址，这样当访问我们自己的域名时就和访问Github域名的效果一样了。那么如何查询我们的Github域名所对应的IP地址呢？  </p>
+<ol>
+<li>打开windows的CMD  </li>
+<li>输入指令<code>cd c:\Windows\System32</code>，跳转到该目录下  </li>
+<li>输入指令<code>ping username.github.io</code>，一定要填你自己的github域名！  </li>
+<li>接下来CMD就会返回IP地址到屏幕上  </li>
+<li>记录地址，并输入到刚才的输入框内提交  </li>
+</ol>
+<p>　　提交结束后，会自动添加两条解析记录。<img src="http://7xk5u3.com1.z0.glb.clouddn.com/domain5.png" alt=""><br>　　至此，域名的解析就完成了。  </p>
+<h3 id="添加CNAME"><a href="#添加CNAME" class="headerlink" title="添加CNAME"></a>添加CNAME</h3><p>　　接下来还需要在<code>站点目录</code>下的<code>source</code>文件下建立一个<code>CNAME</code>文件，文件的内容就是你需要绑定的域名，<strong>不需要加www.</strong>！！而且该文件<strong>不能有任何后缀</strong>！！<br>　　接下来只需要重新生成静态文件，推送至服务器就好了。快在浏览器里试试你的新域名吧！</p>
+
+          
         
       
     </div>
@@ -876,12 +922,25 @@
 
       
         
-          <h2 id="Hexo的主题"><a href="#Hexo的主题" class="headerlink" title="Hexo的主题"></a>Hexo的主题</h2><p>　　也许你已经厌倦了博客单调的界面，今天就来讲解如何更换博客的主题。Hexo博客框架具有非常多的优秀主题，各有各的独特风格，而且主题间更换十分方便。<br>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/07/06/HexoTheme/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
+          
+            <h2 id="Hexo的主题"><a href="#Hexo的主题" class="headerlink" title="Hexo的主题"></a>Hexo的主题</h2><p>　　也许你已经厌倦了博客单调的界面，今天就来讲解如何更换博客的主题。Hexo博客框架具有非常多的优秀主题，各有各的独特风格，而且主题间更换十分方便。  </p>
+<h2 id="更换主题"><a href="#更换主题" class="headerlink" title="更换主题"></a>更换主题</h2><ol>
+<li>首先你可以去<a href="https://github.com/hexojs/hexo/wiki/Themes" target="_blank" rel="external">官方主题下载点</a>看demo页面，挑选你心水的主题。 挑选好主题后，进入该主题的Github页面进行下载。下载的方式与之前从远端同步仓库至本地一样，可以通过clone指令或者下载zip的方法。(下面以NexT主题为例)<br><img src="http://7xk5u3.com1.z0.glb.clouddn.com/theme1.png" alt=""><br><img src="http://7xk5u3.com1.z0.glb.clouddn.com/theme2.png" alt=""><br>　　将下载的主题文件夹整体移动到博客站点目录下的<code>themes</code>文件夹内。你可能发现已经有一个叫做<code>landscape</code>的文件夹，这个就是Hexo自带的模板。  </li>
+<li>打开站点目录下的<code>_config.yml</code>文件，找到theme关键字并将其后面的值修改为你想要切换的模板文件夹名称。<img src="http://7xk5u3.com1.z0.glb.clouddn.com/theme3.png" alt="">  </li>
+<li>依次执行<code>hexo clean</code>，<code>hexo g</code>。 </li>
+<li><code>hexo s</code> 在本地浏览你的博客，好好欣赏崭新的主题界面吧!  <h2 id="NexT主题"><a href="#NexT主题" class="headerlink" title="NexT主题"></a>NexT主题</h2>　　我在挑选许久后，选择了一款叫做<a href="http://theme-next.iissnan.com/" target="_blank" rel="external">NexT</a>的主题。  <blockquote>
+<p>精于心，简于形  </p>
+</blockquote>
+</li>
+</ol>
+<p>　　这款主题很简约，也更精致。提供了很多的可配置项和第三方服务，方便你打造属于自己独一无二的博客。  </p>
+<h3 id="切换风格"><a href="#切换风格" class="headerlink" title="切换风格"></a>切换风格</h3><p>　　NexT主题提供三种风格的界面供大家选择，分别是Pisces、Mist和Muse。具体切换方法：  </p>
+<ol>
+<li>打开主题的配置文件<code>_config.yml</code>，这与之前的站点配置文件不同。它所在的目录是<code>username.github.io - themes - Next - _config.yml</code>.这点十分重要，一定要能区分<strong>站点配置文件</strong>和<strong>主题配置文件</strong>。  </li>
+<li>找到<code>Schemes</code>关键字，用<code>#</code>注释掉不用的主题，选择要使用的主题即可。<img src="http://7xk5u3.com1.z0.glb.clouddn.com/theme4.png" alt="">  <h3 id="添加头像图片"><a href="#添加头像图片" class="headerlink" title="添加头像图片"></a>添加头像图片</h3>　　打开<strong>站点配置文件</strong>，添加字段<code>avatar:</code>，后面的值是你头像图片的外链。<img src="http://7xk5u3.com1.z0.glb.clouddn.com/theme5.png" alt=""><br>　　我的外链是使用七牛云存储做图床生成的，速度快而且免费可用，推荐！<h3 id="其他的主题配置"><a href="#其他的主题配置" class="headerlink" title="其他的主题配置"></a>其他的主题配置</h3>　　还有许多的主题配置可以修改，详细可查看官网的<a href="http://theme-next.iissnan.com/theme-settings.html" target="_blank" rel="external">帮助文档</a>。</li>
+</ol>
+
+          
         
       
     </div>
@@ -998,12 +1057,73 @@
 
       
         
-          <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>　　之前一直使用<a href="http://jekyll.bootcss.com/">Jekyll</a>+GithubPages做自己的个人博客，这几天偶然机会要重做自己的博客。之前就听说了<a href="https://hexo.io/">Hexo</a>这个博客系统框架，这次决定用它试一试。折腾了一晚上，踩了好多的坑，今天终于搭建成功了。<br>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/07/05/ToHexo/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
+          
+            <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>　　之前一直使用<a href="http://jekyll.bootcss.com/" target="_blank" rel="external">Jekyll</a>+GithubPages做自己的个人博客，这几天偶然机会要重做自己的博客。之前就听说了<a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>这个博客系统框架，这次决定用它试一试。折腾了一晚上，踩了好多的坑，今天终于搭建成功了。  </p>
+<h2 id="HEXO简介"><a href="#HEXO简介" class="headerlink" title="HEXO简介"></a>HEXO简介</h2><blockquote>
+<p>A fast, simple &amp; powerful blog framework  </p>
+</blockquote>
+<p>　　正如官网的介绍所说，HEXO是一个快速、简单、有效的博客框架。使用之后与Jekyll相比，最大的特点就是更加方便和便捷。  </p>
+<ul>
+<li><p><strong>风一般的速度</strong><br>Hexo基于Node.js，支持多进程，几百篇文章也可以秒生成。  </p>
+</li>
+<li><p><strong>流畅的撰写</strong><br>支持GitHub Flavored Markdown和所有Octopress的插件。  </p>
+</li>
+<li><p><strong>各式的插件</strong><br>Hexo拥有强大的插件系统，你可以通过插件支持Jade、CoffeeScript等。  </p>
+</li>
+<li><p><strong>一条指令实现部署</strong><br>你只需要一条指令，就可以将你的压面部署在GitHub Pages,Heroku或者其他站点上。  </p>
+</li>
+</ul>
+<h2 id="Node环境安装"><a href="#Node环境安装" class="headerlink" title="Node环境安装"></a>Node环境安装</h2><p>　　Jekyll基于Ruby环境，而Hexo是基于Node环境的。而在使用这些模板系统前，必须要预安装相应的环境。  </p>
+<ol>
+<li>前往<a href="http://nodejs.cn/" target="_blank" rel="external">Node</a>官网下载合适的安装包。  </li>
+<li>打开并按步骤安装Node安装包即可。  </li>
+<li>安装结束后，打开系统的CMD并输入<code>node -v</code>查看node版本号和<code>npm -v</code>查看包管理器的版本号，如果正常显示则说明安装成功。  </li>
+</ol>
+<p>　　若查询版本显示没有该命令，但软件已安装完成，那可能就是node或者npm的环境变量设置有问题。现版本的环境变量无需手动添加，安装时已经自动添加。若有上述问题，可按以下步骤手动添加。<br>　　1. 右键 我的电脑-属性<img src="http://7xk5u3.com1.z0.glb.clouddn.com/%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F1.png" alt="">  </p>
+<p>　　2. 选项卡 高级-环境变量，并按下图在用户变量中添加PATH变量。<img src="http://7xk5u3.com1.z0.glb.clouddn.com/NOXF7CQJ%28$%5B@%25L_9W@GYTRD.png" alt="">  </p>
+<p>　　3. 确定后可再重复之前操作，测试指令是否正常。  </p>
+<h2 id="Git环境安装"><a href="#Git环境安装" class="headerlink" title="Git环境安装"></a>Git环境安装</h2><ol>
+<li>前往<a href="https://git-scm.com/download" target="_blank" rel="external">Git官网</a>，下载Windows版的Git Bash，并安装。</li>
+<li>打开Git Bash输入指令<code>git --version</code>查看git版本号，若显示正常则说明安装成功。  </li>
+<li>请提前学习git相关知识，推荐教程 <a href="http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000/" target="_blank" rel="external">廖雪峰Git教程</a></li>
+</ol>
+<h2 id="GitHub-Pages仓库的建立"><a href="#GitHub-Pages仓库的建立" class="headerlink" title="GitHub Pages仓库的建立"></a>GitHub Pages仓库的建立</h2><ol>
+<li>登录<a href="github.com">GitHub官网</a>，并创建申请github账号</li>
+<li>创建github pages仓库，即仓库名为 username.github.io  </li>
+<li>复制该仓库的地址<br><img src="http://7xk5u3.com1.z0.glb.clouddn.com/%7DKCB@Q%7BM4RGA%29MKXDV%5BO%5BS2.png" alt=""><br>我使用了SSH地址，也可以使用HTTPS地址。在合适的路径下运行GitBash并用<code>git clone</code>指令加仓库地址，将远程仓库克隆至本地。  </li>
+</ol>
+<h2 id="Hexo安装初始化"><a href="#Hexo安装初始化" class="headerlink" title="Hexo安装初始化"></a>Hexo安装初始化</h2><ol>
+<li>请确保之前的环境配置正确</li>
+<li>在之前创建的Github Pages仓库中运行GitBash</li>
+<li>依次运行指令<br><code>npm install hexo-cli -g</code><br><code>hexo init</code><br><code>npm install</code>  </li>
+<li>安装完毕后，可通过指令<code>hexo -v</code>查看版本，确认安装成功。  </li>
+</ol>
+<p>　　此时Hexo即安装完成，可以看看当前目录下的文件分布。  </p>
+<h2 id="Hexo的初次使用"><a href="#Hexo的初次使用" class="headerlink" title="Hexo的初次使用"></a>Hexo的初次使用</h2><ol>
+<li>将你的文章（Markdown格式）放在 根目录 <code>source</code>文件夹下的<code>_posts</code>文件夹中。</li>
+<li>执行命令<code>hexo g</code>，该指令用于生成静态网页文件，运行后将产生<code>public</code>文件夹。</li>
+<li>再执行命令<code>hexo s</code>，该指令可开启本地测试服务器，通过访问<code>localhost:4000</code>，在本地测试观察你的博客。  </li>
+</ol>
+<h2 id="部署到Github-Pages"><a href="#部署到Github-Pages" class="headerlink" title="部署到Github Pages"></a>部署到Github Pages</h2><p>　　Hexo自带部署指令，进行相关配置后只需要一条指令，就可以实现本地网站部署在服务器上。  </p>
+<ol>
+<li>打开根目录下的<code>_config.yml</code>文件，找到<code>deploy</code>属性按下图设置。<br><img src="http://7xk5u3.com1.z0.glb.clouddn.com/deploy.png" alt=""><br>其中repo即仓库地址，与之前clone仓库时用的地址一致。  </li>
+<li>执行指令<code>npm install hexo-deployer-git --save</code>，安装Hexo的Git插件。</li>
+<li>依次输入以下指令，这也是之后修改博客后推送部署的步骤：<br><code>hexo clean</code> 清除缓存文件和public文件夹<br><code>hexo g</code> 生成静态文件，即public文件夹<br><code>hexo s</code> 本地测试，这步可以省略<br><code>hexo d</code> 部署指令  </li>
+<li>若部署成功，可观察github仓库是否变化。也可以直接访问你的Github Pages的网址，即你的仓库名 <code>username.github.io</code>。  </li>
+<li>若网站显示正常，那么恭喜你，创建成功！<br>　　<br>如果再输入<code>hexo d</code>后报错，可能是以下几种情况：  <ul>
+<li>Git环境没有与github账号绑定起来，请查看GIT相关教程。</li>
+<li>没有成功安装hexo git插件，请观察根目录下的<code>node_modules</code>文件夹内是否有<code>hexo-deployer-git</code>文件夹。若没有，请执行 部署到Github Pages中的第二步。</li>
+<li>确保修改了配置文件<code>_config.yml</code>中的deploy部分。  </li>
+<li>为了稳定，请确保使用Git Bash执行上述所有的命令。作者在起初使用Node.js Command执行上述命令时就出现了部署报错的问题。  </li>
+</ul>
+</li>
+</ol>
+<h2 id="结束语"><a href="#结束语" class="headerlink" title="结束语"></a>结束语</h2><p>　　在使用中出了很多莫名的问题，最终总算是实现了博客的搭建。此次只做最基础的Hexo博客系统介绍与讲解。包括域名绑定、主题切换等其他应用，会在之后再总结出来。</p>
+<blockquote>
+<p>author:Czh 2016-07-05</p>
+</blockquote>
+
+          
         
       
     </div>
@@ -1120,13 +1240,27 @@
 
       
         
-          <h2 id="遇到的问题？"><a href="#遇到的问题？" class="headerlink" title="遇到的问题？"></a>遇到的问题？</h2><p>　　想上传几个自己写的demo到github pages，于是放到了source文件夹下。生成静态文件后，浏览时却发现这些页面都被渲染了模板样式。  </p>
-<p>　　于是开始搜索答案，如何使某些页面跳过渲染呢？<br>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/07/05/HexoSkipRender/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
+          
+            <h2 id="遇到的问题？"><a href="#遇到的问题？" class="headerlink" title="遇到的问题？"></a>遇到的问题？</h2><p>　　想上传几个自己写的demo到github pages，于是放到了source文件夹下。生成静态文件后，浏览时却发现这些页面都被渲染了模板样式。  </p>
+<p>　　于是开始搜索答案，如何使某些页面跳过渲染呢？  </p>
+<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><ol>
+<li><p>在.md开头的文件加上以下控制符<br> <code>layout: none</code><br>然而该方法对html并没有效果。  </p>
+</li>
+<li><p>设置<code>_config.yml</code>里的<code>skip_render</code>属性<br>　　假设你的Source文件夹里面有个Demo目录，要忽略Demo目录下的所有html页面，可以通过在<code>_config.yml</code>设置<code>skip_render</code>来忽略的目录，具体如下：<br><code>skip_render: Demo/*.html</code>  </p>
+</li>
+</ol>
+<p>文件匹配是基于正则匹配的，更复杂的情况可以通过通配符配置该属性：  </p>
+<ul>
+<li>单个文件夹下全部文件：skip_render: demo/*</li>
+<li>单个文件夹下指定类型文件：skip_render: demo/*.html</li>
+<li>单个文件夹下全部文件以及子目录:skip_render: demo/**</li>
+<li>多个文件夹以及各种复杂情况：  <pre><code>skip_render:  
+  - demo/*.html  
+  - demo/**  
+</code></pre></li>
+</ul>
+
+          
         
       
     </div>
@@ -1243,12 +1377,23 @@
 
       
         
-          <p>　　终于考完了大三的最后一门，人一旦放松下来，就忍不住想说些什么。<br>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/06/22/Igot100/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
+          
+            <p>　　终于考完了大三的最后一门，人一旦放松下来，就忍不住想说些什么。</p>
+<p>　　先说说标题吧，这是一首我很喜欢的后摇音乐。没错，这首音乐的名字确实就是这样的。第一次听就喜欢上了这首音乐，前半部分舒缓悦耳，突然而至的人声令人惊艳。后半部分转折变得聒噪，人声开始撕吼。也许听完可能会觉得音乐跟曲名完全无关，可我听完音乐看到这名字却惊得一身汗。</p>
+<p>　　大学里出的第一门成绩，线性代数我考了100分。这是我从小学到大学里第一个满分，也是唯一一个。还记得当时知道成绩后很兴奋，正如歌词里I feel so high…正是因为这个100分，让我对大学充满了信心。5.0的绩点，成为了一支注入我静脉的兴奋剂，我暗自下定决心我一定要好好学，一定要保持下去。</p>
+<p>　　开始花大量的时间用来学习，也因此错过了很多机会。最近看到学弟学妹去山东参加比赛，真的很羡慕也很向往。当时大二的时候，呆在科协想学很多东西，参加好玩的比赛。但是专注于课外的活动会分散我的精力，花费我很多的时间。自己能力不足，做不到两者兼顾。即使知道什么才是我想要的，可我却不能做出选择。那绩点拖得我太累，就像一条沉重的尾巴，甩也甩不掉。</p>
+<blockquote>
+<p>I lost my smile…<br>Lost my way…<br>Lost my everything…</p>
+</blockquote>
+<p>　　慢慢的我觉得自己并不是真的喜欢学习还有这个专业。反而渐渐觉得自己并不适合这个专业，一点兴趣也没有。上课根本不想听，也听不进去。可就这样却还想着绩点，搞得自己考试前狼狈的像条狗。其实想想，努力的背后也只是为了绩点而已，不希望它掉的太快。</p>
+<p>　　我承认自己输不起，而且不只是学习一方面。不愿意看到自己被人超过，也不愿意看到自己变弱。可最华丽的开场，就意味着你只会黯然谢幕。100分就注定了你永远也超不过曾经的自己，再怎么努力都是在退步。做梦也没想到，我曾经引以为傲的东西，如今成为了我最大的负担。</p>
+<p>　　我暗自决定要斩断这沉重的尾巴，斩断这拖累我的尾巴。否则，我注定在成绩的泥潭中继续挣扎，直到毕业才追悔莫及。大三以来，我开始慢慢寻找自己未来的道路。吃过亏，碰过壁，想过放弃，可我知道这才是自己想要的，我真的再没有时间可以浪费了。</p>
+<p>　　考完最后一门电力电子，也算是给那个电力电子方向的自己一个交代。现在我只想对自己说两句话：去tm的绩点，FXXK YOU!  还有一句就是，加油吧。</p>
+<blockquote>
+<p>The sun still shine…<br>Because of your smile…</p>
+</blockquote>
+
+          
         
       
     </div>
@@ -1365,13 +1510,23 @@
 
       
         
-          <blockquote>
-<p>科协，为兴趣和梦想而聚，却因亲情和回忆不散。　　<br>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2015/09/20/myfamily/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
+          
+            <blockquote>
+<p>科协，为兴趣和梦想而聚，却因亲情和回忆不散。　　</p>
+</blockquote>
+<h2 id="传承"><a href="#传承" class="headerlink" title="传承"></a>传承</h2><p>　　一年前，钰哥在他的<a href="http://xautkx.com/we-are-family" target="_blank" rel="external">文章</a>开头写下了他美好的憧憬。他所期盼的，当时却没完美实现。而一年后的今天，我认为我们做到了。</p>
+<p>　　平时若没课，我们就呆在地下的工作室里。或编程或学习，课余不用在无聊中虚度。到了饭点，我们一起去吃饭，回来接着做自己的事情。时而讨论自己的新灵感，网上又有哪些新技术，当然还有路上碰到了哪个漂亮的妹子。晚上快十一点了，相约回宿舍，即使再晚路上也十分安心。因为太阳升起，我们还在那里相聚。呆在这里，就像是自己的家一样自在安逸。身边的朋友也如家人般，没有丝毫的距离感，喜欢这里的氛围，温馨舒适。</p>
+<h2 id="科协，我们，家"><a href="#科协，我们，家" class="headerlink" title="科协，我们，家"></a>科协，我们，家</h2><p>　　科协，科协到底是干什么的？我想，在科协里的每个人都有不同的见解。对我来说，科协正如口号所说，”科协我家”。如今我们科协大三成员，主席团和技术团人数加起来不过十五人，可我们真正的像是一个大家庭，即使不在一个房间里。有事情，大家坐在一起共同商量。筹划活动，安排事宜，从不推卸，认真负责。即使因开会过了饭点，大家也不会闹情绪。正如这两天的新星杯，即使大家非常辛苦，但也没有丝毫怨言。我很自信，我们是一个非常棒的团队，我们会带着科协越来越好。<br>　　我对这一届的学弟学妹们很有信心，他们不少人都有扎实的技术，浓厚的兴趣,对科协的活动积极上心。思维灵活，也很活泼。很喜欢跟他们呆在一起，即使作为学长的我没有太多东西能教给他们。但希望能对他们有所帮助，迷茫时为他们拨开迷雾。科协历经多年而依旧活力旺盛，正是一批批的后续力量不断的补充。我想科协会一直办下去，而且越办越好。因为在大学里，永远不乏一批在科技和创新道路上追逐的热血青年。愿你们快速成长，共同维护我们温馨的大家庭。  </p>
+<h2 id="心路"><a href="#心路" class="headerlink" title="心路"></a>心路</h2><p>　　有时会很感动，在大学里能有机会认识你们。这是我大学里最正确的选择，所带来的最好的结果。那晚回曲江，看到大一的新生们，想起饭桌上唯一的话题——考研与就业。不禁问团长和主席”如果再从大一开始，该怎么过呀？”  他们都还是认为不会光学习的，还要搞技术。即使现实的残酷真不是我们当初所能想象的。我想如果我能重来，我也依旧会进科协，并且会一直留下去。此生无悔入科协。    </p>
+<p>　　时光太快，时常怀念曲江的113。我们曾在那学习，在那里聊天，在那里吃饭，甚至在那里睡觉。那段时光太美好，即使看书到晚上一两点，睡在咯人的板凳和桌子上。不觉得辛苦，也不觉得疲惫，也不知为何，忘不了那美好的记忆。如今我们已经到了金花的地下室，依旧睡过这里的桌子椅子，依旧延续这美好的时光。    </p>
+<p>　　可时光真的太快，我们还能呆在一起多久？明年的现在，我们就要东奔西走为未来而奔波了。该找工作找工作，该考研的忙考研。我们或许再也没机会，像现在这样呆在一起。好好珍惜这一年多的时光吧，努力提高完善自己，期盼明年我们每个人都有个好的归宿。    </p>
+<h2 id="起航"><a href="#起航" class="headerlink" title="起航"></a>起航</h2><p>　　今天写这篇文章，不但是为了记录最近心中的一些感触。也是为了庆祝我们科协的网站一周年的生日。一年前，王钰学长建立了我们科协的网站，全心全意的维护它。如今科协的网站传承给了我，我深感压力之大。我没有什么网站管理和设计的经验，凭着自学的入门知识，勉强开着前辈造好的车。希望自己能够肩负起这重担，用心维护好我们的网站。  </p>
+<p>　　<strong>愿科协越办越好，薪火相传。</strong></p>
+<blockquote>
+<p>Write by Czh.  2015.09.20</p>
+</blockquote>
+
+          
         
       
     </div>
@@ -1488,12 +1643,35 @@
 
       
         
-          <p>　　自从进了大学，可谓过得一帆风顺，风平浪静，也是我最快乐的一段时光。尝试了许多，体验了很多，苦辣酸甜也应有尽有。生活不像自己想的精彩，却也不失味道。学习不像自己想的轻松，却也能游刃有余。庆幸自己没有沉沦，不曾颓废。多亏身边有一群好朋友，时时激励我着我，无私的帮助我。<br>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2015/05/23/advice/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
+          
+            <p>　　自从进了大学，可谓过得一帆风顺，风平浪静，也是我最快乐的一段时光。尝试了许多，体验了很多，苦辣酸甜也应有尽有。生活不像自己想的精彩，却也不失味道。学习不像自己想的轻松，却也能游刃有余。庆幸自己没有沉沦，不曾颓废。多亏身边有一群好朋友，时时激励我着我，无私的帮助我。</p>
+<p>　　有过一个善良的姑娘，和她可以聊昨天，谈今天，却不能计划明天。我不喜欢沉湎于过去，这也是和她最不合的地方。她活在当下，却总怀念着美好的匆匆那年，而我计划着我想要的明天。</p>
+<p>　　从不奢求富贵，不用为衣食而担忧就好。只想有一个温暖的家，不必大。只要有明亮干净的厨房，温暖闲适的阳台就足够了。养一只乖巧的猫，每天回家它会舔舔我的手，依偎在我的脚旁。种一盆翠绿旺盛的茉莉，时常修剪，待它施舍我一屋芳香。周末为自己做精致的料理，坐在铺有亚麻布的餐桌上享用。陪猫在阳台晒晒太阳，读晦涩难懂的小说。晚上躺在床上看一场漫长的电影，喝一杯廉价的速溶咖啡。不懂浪漫，也不喜欢轰轰烈烈，就是享受平淡生活的温暖和那份安全感。</p>
+<p>　　我就是这样，对未来的考虑远超过当下和过去。 
+　　</p>
+<p> 大学的生活也快过半了，经历了很多，也懂了很多道理，与君共勉。</p>
+<ol>
+<li><p>今天多学会一项技能，明天少说几句求人的话。</p>
+</li>
+<li><p>没有努力过，就闭上嘴，别抱怨。</p>
+</li>
+<li><p>如果努力白费了，一定要更努力。</p>
+</li>
+<li><p>可以吃小亏，但别吃傻亏，千万不要占便宜。</p>
+</li>
+<li><p>不要荒废了自己的青春。</p>
+</li>
+<li><p>亲人还在身边，更要加倍珍惜。</p>
+</li>
+<li><p>永远不要抱怨自己的父母满足不了你的物质需求。他们精神上早已为你透支，而你享受青春的物质基础是他们全部青春的辛劳付出。</p>
+</li>
+<li><p>恋人间请珍惜彼此的感情。</p>
+</li>
+<li><p>一个人也没什么不好，去做自己喜欢的事，花时间完善自己，不用考虑太多，照顾好你自己。</p>
+</li>
+</ol>
+
+          
         
       
     </div>

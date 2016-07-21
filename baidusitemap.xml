@@ -4,123 +4,24 @@
 
     
   <url>
-    <loc>http://gentlemanczh.com/2015/09/20/myfamily/</loc>
-    <lastmod>2016-07-21T13:50:25.376Z</lastmod>
+    <loc>http://gentlemanczh.com/2016/07/21/typeof/</loc>
+    <lastmod>2016-07-21T14:01:23.091Z</lastmod>
     <data>
         <display>
-        <title>科协，我家</title>
-        <pubTime>2015-09-20T04:39:04.000Z</pubTime>
+        <title>Js类型检测</title>
+        <pubTime>2016-07-21T12:00:04.000Z</pubTime>
         
-        <tag>感悟</tag>
+        <tag>JavaScript</tag>
+         
+        <tag>类型检测</tag>
          
          
            
              
-              <breadCrumb title="随笔" url="http://gentlemanczh.com/categories/%E9%9A%8F%E7%AC%94/"/>
+              <breadCrumb title="前端" url="http://gentlemanczh.com/categories/%E5%89%8D%E7%AB%AF/"/>
           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://gentlemanczh.com/2016/06/22/Igot100/</loc>
-    <lastmod>2016-07-21T13:50:16.272Z</lastmod>
-    <data>
-        <display>
-        <title>妈妈，我考试考100分</title>
-        <pubTime>2016-06-21T16:43:04.000Z</pubTime>
-        
-        <tag>感悟</tag>
-         
-         
-           
              
-              <breadCrumb title="随笔" url="http://gentlemanczh.com/categories/%E9%9A%8F%E7%AC%94/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://gentlemanczh.com/2016/07/06/HexoTheme/</loc>
-    <lastmod>2016-07-21T13:50:05.025Z</lastmod>
-    <data>
-        <display>
-        <title>更换你的Hexo主题</title>
-        <pubTime>2016-07-06T12:35:04.000Z</pubTime>
-        
-        <tag>Hexo</tag>
-         
-        <tag>NexT</tag>
-         
-         
-           
-             
-              <breadCrumb title="技术" url="http://gentlemanczh.com/categories/%E6%8A%80%E6%9C%AF/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://gentlemanczh.com/2016/07/05/HexoSkipRender/</loc>
-    <lastmod>2016-07-21T13:49:56.448Z</lastmod>
-    <data>
-        <display>
-        <title>设置Hexo不渲染source目录下的部分文件</title>
-        <pubTime>2016-07-05T08:35:04.000Z</pubTime>
-        
-        <tag>Hexo</tag>
-         
-         
-           
-             
-              <breadCrumb title="技术" url="http://gentlemanczh.com/categories/%E6%8A%80%E6%9C%AF/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://gentlemanczh.com/2016/07/07/domain/</loc>
-    <lastmod>2016-07-21T13:49:38.921Z</lastmod>
-    <data>
-        <display>
-        <title>为你的博客绑定个性域名</title>
-        <pubTime>2016-07-07T08:35:04.000Z</pubTime>
-        
-        <tag>Hexo</tag>
-         
-        <tag>Blog</tag>
-         
-         
-           
-             
-              <breadCrumb title="技术" url="http://gentlemanczh.com/categories/%E6%8A%80%E6%9C%AF/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://gentlemanczh.com/2015/05/23/advice/</loc>
-    <lastmod>2016-07-21T13:49:21.168Z</lastmod>
-    <data>
-        <display>
-        <title>我 大学 忠告</title>
-        <pubTime>2015-05-23T04:39:04.000Z</pubTime>
-        
-        <tag>感悟</tag>
-         
-         
-           
-             
-              <breadCrumb title="随笔" url="http://gentlemanczh.com/categories/%E9%9A%8F%E7%AC%94/"/>
+              <breadCrumb title="JavaScript" url="http://gentlemanczh.com/categories/%E5%89%8D%E7%AB%AF/JavaScript/"/>
           
         </display>
     </data>
@@ -129,7 +30,7 @@
     
   <url>
     <loc>http://gentlemanczh.com/2016/07/05/ToHexo/</loc>
-    <lastmod>2016-07-21T13:49:00.409Z</lastmod>
+    <lastmod>2016-07-21T14:01:13.355Z</lastmod>
     <data>
         <display>
         <title>迁移你的博客至Hexo</title>
@@ -152,8 +53,90 @@
 
     
   <url>
+    <loc>http://gentlemanczh.com/2015/09/20/myfamily/</loc>
+    <lastmod>2016-07-21T14:00:43.339Z</lastmod>
+    <data>
+        <display>
+        <title>科协，我家</title>
+        <pubTime>2015-09-20T04:39:04.000Z</pubTime>
+        
+        <tag>感悟</tag>
+         
+         
+           
+             
+              <breadCrumb title="随笔" url="http://gentlemanczh.com/categories/%E9%9A%8F%E7%AC%94/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://gentlemanczh.com/2016/06/22/Igot100/</loc>
+    <lastmod>2016-07-21T14:00:34.804Z</lastmod>
+    <data>
+        <display>
+        <title>妈妈，我考试考100分</title>
+        <pubTime>2016-06-21T16:43:04.000Z</pubTime>
+        
+        <tag>感悟</tag>
+         
+         
+           
+             
+              <breadCrumb title="随笔" url="http://gentlemanczh.com/categories/%E9%9A%8F%E7%AC%94/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://gentlemanczh.com/2016/07/06/HexoTheme/</loc>
+    <lastmod>2016-07-21T14:00:27.597Z</lastmod>
+    <data>
+        <display>
+        <title>更换你的Hexo主题</title>
+        <pubTime>2016-07-06T12:35:04.000Z</pubTime>
+        
+        <tag>Hexo</tag>
+         
+        <tag>NexT</tag>
+         
+         
+           
+             
+              <breadCrumb title="技术" url="http://gentlemanczh.com/categories/%E6%8A%80%E6%9C%AF/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://gentlemanczh.com/2016/07/05/HexoSkipRender/</loc>
+    <lastmod>2016-07-21T14:00:20.126Z</lastmod>
+    <data>
+        <display>
+        <title>设置Hexo不渲染source目录下的部分文件</title>
+        <pubTime>2016-07-05T08:35:04.000Z</pubTime>
+        
+        <tag>Hexo</tag>
+         
+         
+           
+             
+              <breadCrumb title="技术" url="http://gentlemanczh.com/categories/%E6%8A%80%E6%9C%AF/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://gentlemanczh.com/2016/07/10/eventAgent/</loc>
-    <lastmod>2016-07-21T13:46:58.418Z</lastmod>
+    <lastmod>2016-07-21T14:00:09.596Z</lastmod>
     <data>
         <display>
         <title>事件绑定的几种方法</title>
@@ -179,24 +162,41 @@
 
     
   <url>
-    <loc>http://gentlemanczh.com/2016/07/21/typeof/</loc>
-    <lastmod>2016-07-21T13:46:22.011Z</lastmod>
+    <loc>http://gentlemanczh.com/2016/07/07/domain/</loc>
+    <lastmod>2016-07-21T13:59:58.131Z</lastmod>
     <data>
         <display>
-        <title>Js类型检测</title>
-        <pubTime>2016-07-21T12:00:04.000Z</pubTime>
+        <title>为你的博客绑定个性域名</title>
+        <pubTime>2016-07-07T08:35:04.000Z</pubTime>
         
-        <tag>JavaScript</tag>
+        <tag>Hexo</tag>
          
-        <tag>类型检测</tag>
+        <tag>Blog</tag>
          
          
            
              
-              <breadCrumb title="前端" url="http://gentlemanczh.com/categories/%E5%89%8D%E7%AB%AF/"/>
+              <breadCrumb title="技术" url="http://gentlemanczh.com/categories/%E6%8A%80%E6%9C%AF/"/>
           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://gentlemanczh.com/2015/05/23/advice/</loc>
+    <lastmod>2016-07-21T13:59:49.333Z</lastmod>
+    <data>
+        <display>
+        <title>我 大学 忠告</title>
+        <pubTime>2015-05-23T04:39:04.000Z</pubTime>
+        
+        <tag>感悟</tag>
+         
+         
+           
              
-              <breadCrumb title="JavaScript" url="http://gentlemanczh.com/categories/%E5%89%8D%E7%AB%AF/JavaScript/"/>
+              <breadCrumb title="随笔" url="http://gentlemanczh.com/categories/%E9%9A%8F%E7%AC%94/"/>
           
         </display>
     </data>
