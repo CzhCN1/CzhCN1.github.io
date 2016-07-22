@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, minimum-scale=1, maximum-scale=1">
+	<title>My Fullpage</title>
+	<style>
+		body{
+			margin: 0;
+			padding: 0;
+			font-family: "Microsoft Yahei";
+		}
+		.h5_page{
+			background-image: url(img/page_bg.png);
+		}
+		.h5_page_face{
+			background-image: url(img/face_bg.jpg);
+		}
+		/*标题抖动动画*/
+		.name_slogan{
+			-webkit-animation:rock 2s infinite 2s;
+		}
+		@-webkit-keyframes rock{
+			0%  {transform: rotate(0deg)}
+			5%  {transform: rotate(5deg)}
+			10% {transform: rotate(-4deg)}
+			15% {transform: rotate(3deg)}
+			20% {transform: rotate(-2deg)}
+			25% {transform: rotate(1deg)}
+			30% {transform: rotate(-1deg)}
+			35% {transform: rotate(0deg)}
+			100% {transform: rotate(0deg)}
+		}
+
+		.name_caption{
+			background-image: url(img/page_caption_bg.png);
+			width: 283px;
+			height: 160px;
+			text-align: center;
+			line-height: 140px;
+			font-size: 20px;
+			color: #fff;
+		}
+		
+
+		/* 返回首页 上下震荡动画 */
+		.name_goBack{
+			top:30px;
+			-webkit-animation:upAndDown 2s infinite 2s;
+		}
+		@-webkit-keyframes upAndDown{
+			50% {top:20px}
+		}
+	</style>
+
+	<!-- 载入外部库 -->
+	<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+	<script src="http://libs.baidu.com/jqueryui/1.8.22/jquery-ui.min.js "></script>
+	<script src="js/lib/jquery.fullPage.js"></script>
+	
+	<!-- 载入H5组件资源 -->
+	<script>
+		var res = ['h5','base','bar','bar_v','point','polyline','rader','pie'],
+			html = [];
+		for(var i = 0;i<res.length;i++){
+			html.push('<link rel="stylesheet" type="text/css" href="css/'+ res[i] +'.css">');
+			html.push('<script src="js/'+ res[i] +'.js"><\/script>');
+		}
+		document.write(html.join(''));
+	</script>
+	
+	<!-- 页面主逻辑 -->
+	<script>
+		$(function () {
+			// 创建一个H5页面
+			var h5 = new H5();
+			h5
+				.addPage('face')
+					.addComponent('topic',{
+						center:true,
+						width:430,
+						height:171,
+						bg:'img/face_slogan.png',
+						css:{opacity:0},
+						animateIn:{top:'16%',opacity:1},
+						animateOut:{top:'0%',opacity:0},			
+					})
+					.addComponent('slogan',{
+						center:true,
+						width:421,
+						height:96,
+						bg:'img/face_logo.png',
+						css:{opacity:0,top:'45%'},
+						animateIn:{opacity:1},
+						delayIn:500,
+						animateOut:{opacity:0},
+					})
+				.addPage('trend')
+					.addComponent('caption',{text:'发展趋势',css:{
+							top: "5%",
+						}})
+					.addComponent('text',{
+						width:500,
+						height:30,
+						center:true,
+						text:'充满活力与光明',
+						css:{
+							opacity:0,
+							textAlign:'center',
+							color:'#FF4500',
+							fontSize:'26px',
+							top:"45%",
+						},
+						animateIn:{opacity:1,top:"25%"},
+						delayIn:0,
+						animateOut:{opacity:0,top:"45%"},
+					})
+					.addComponent('description',{
+						center:true,
+						width:481,
+						height:295,
+						bg:'img/description_bg.gif',
+						css:{
+							opacity:0,
+							padding:'15px 10px 10px 10px',
+							color:'#fff',
+							fontSize:'15px',
+							lineHeight:'18px',
+							textAlign:'justify',
+							top:"40%",
+						},
+						text:'前端发展日新月异, 甚至有一句戏言: "每六星期重写一个前端框架", 行业是像火箭一样, 充满了活力与动力。各种社区如雨后春笋般冒出，各式各样的类库与框架层出不穷，可见其发展的火热程度。',
+						animateIn:{opacity:1,top:"35%"},
+						delayIn:300,
+						animateOut:{opacity:0,top:"40%"},
+					})
+					.addComponent('people',{
+						center:true,
+						width:515,
+						height:305,
+						bg:'img/p1_people.png',
+						css:{
+							bottom:0,
+							opacity:0,
+						},
+						animateIn:{opacity:1,bottom:"8%"},
+						delayIn:500,
+						animateOut:{opacity:0,bottom:0},
+					})
+				.addPage('bar_v')
+					.addComponent('caption',{
+						text:'编程语言排行榜',css:{
+							top: "5%",
+						}
+					})
+					.addComponent('bar_v',{
+						type: 'bar_v',
+						width: 540,
+						height: 2500,
+						data: [
+							['Java', 0.19],
+							['C', 0.12],
+							['C++', 0.06],
+							['Python', 0.04],
+							['C#', 0.04],
+							['PHP', 0.03],
+							['Js', 0.02],
+						],
+						css:{
+							bottom: 0,
+							opacity: 1,
+						},
+						animateIn:{bottom:"35%"},
+						delayIn: 0,
+						animateOut:{bottom:0},
+						delayOut: 400,
+						center: true,
+					})
+					.addComponent('text',{
+						width:500,
+						height:30,
+						center:true,
+						text:'2016 年 7月 TIOBE 编程语言排行榜',
+						css:{
+							opacity:0,
+							textAlign:'center',
+							color:'#FF4500',
+							fontSize:'22px',
+							bottom:"0%",
+						},
+						animateIn:{opacity:1,bottom:"20%"},
+						delayIn:0,
+						animateOut:{opacity:0,bottom:"0%"},
+					})
+				.addPage('pie')
+					.addComponent('caption',{
+						text:'GitHub最热语言',css:{
+							top: "5%",
+						}
+					})
+					.addComponent('pie',{
+						type: 'pie',
+						width: 400,
+						height: 400,
+						data: [
+							['JS', 0.15],
+							['Java', 0.1],
+							['Python', 0.08],
+							['CSS', 0.08],
+							['PHP', 0.06],
+							['Ruby', 0.06],
+							['Others', 0.47]
+						],
+						css:{
+							bottom: '35%',
+						},
+						center: true,
+					})
+					.addComponent('text',{
+						width:500,
+						height:30,
+						center:true,
+						text:'GitHub各语言仓库数目比例',
+						css:{
+							opacity:0,
+							textAlign:'center',
+							color:'#FF4500',
+							fontSize:'22px',
+							bottom:"0%",
+						},
+						animateIn:{opacity:1,bottom:"20%"},
+						delayIn:0,
+						animateOut:{opacity:0,bottom:"0%"},
+					})
+				.addPage('point')
+					.addComponent('caption',{
+						text:'流行的框架和类库',css:{
+							top: "5%",
+						}
+					})
+					.addComponent('point',{
+						type: 'point',
+						width: 300,
+						height: 300,
+						data: [
+							['jQuery', 0.3 ,'#049FF1'],
+							['Bootstrap', 0.21 ,'#2EC8E9','50%','-70%'],
+							['Angular', 0.17 ,'#49E','70%','120%'],
+							['React', 0.15 ,'#065FB9','-30%','140%'],
+							['Vue', 0.11 ,'#70E1FF','-40%','-30%']
+						],
+						css:{
+							bottom: '30%',
+						},
+						center: true,
+					})
+				.addPage('rader')
+					.addComponent('caption',{
+						text:'个人能力图',css:{
+							top: "5%",
+						}
+					})
+					.addComponent('rader',{
+						type: 'rader',
+						width: 400,
+						height: 400,
+						data: [
+							['JS', 0.8 ],
+							['CSS', 0.6],
+							['HTML', 0.7],
+							['HTML5', 0.5],
+							['Node', 0.4],
+							['jQuery', 0.5],
+						],
+						css:{
+							bottom: '10%',
+							opacity:0,
+						},
+						animateIn:{bottom:'20%',opacity:1},
+						delayIn: 0,
+						animateOut:{bottom:'10%',opacity:0},
+						delayOut: 0,
+						
+						center: true,
+
+					})
+				.addPage('tail')
+					.addComponent('logo',{
+						center:true,
+						width:390,
+						height:83,
+						bg:'img/contact.png',
+						css:{top:"25%",opacity:0},
+						animateIn:{opacity:1,top:"40%"},
+						animateOut:{opacity:0,top:"25%"},
+					})
+					.addComponent('slogan',{
+						center:true,
+						width:512,
+						height:98,
+						bg:'img/tail_slogan.png',
+						css:{top:"26%",opacity:0},
+						animateIn:{opacity:1},
+						delayIn:500,
+						animateOut:{opacity:0},
+					})
+					.addComponent('share',{
+						width:128,
+						height:120,
+						bg:'img/tail_share.png',
+						css:{top:110,right:110,opacity:0},
+						animateIn:{opacity:1,top:10,right:10},
+						delayIn:1000,
+						animateOut:{opacity:0,top:110,right:110},
+					})
+					.addComponent('goBack',{
+						width:52,
+						height:50,
+						bg:'img/tail_back.png',
+						center:true,
+						onclick: function(){
+							$.fn.fullpage.moveTo(1);
+						},
+					})
+					.addComponent('face_left',{
+						width:370,
+						height:493,
+						bg:'img/face_img_left.png',
+						css:{opacity:0,left:-50,bottom:-50},
+						animateIn:{opacity:1,left:0,bottom:0},
+						delayIn:800,
+						animateOut:{opacity:0,left:-50,bottom:-50},
+					})
+					.addComponent('face_left',{
+						width:276,
+						height:449,
+						bg:'img/face_img_right.png',
+						css:{opacity:0,right:-50,bottom:-50},
+						animateIn:{opacity:1,right:0,bottom:0},
+						delayIn:800,
+						animateOut:{opacity:0,right:-50,bottom:-50},
+					})
+				.loader(7);
+		});
+
+	</script>
+
+</head>
+<body>
+	
+</body>
+</html>

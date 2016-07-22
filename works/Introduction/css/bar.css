@@ -1,0 +1,66 @@
+/*
+	柱图组件样式
+ */
+.component_bar{
+
+}
+.component_bar .line{
+	height: 15px;
+	font-size: 12px;
+	line-height: 15px;
+	margin-bottom: 15px;
+}
+.component_bar .name{
+	width:60px;
+	float: left;
+	color: #000;
+	text-align: center;
+}
+.component_bar .rate{
+	height: 15px;
+	margin-left: 5px;
+	float: left;
+	position: relative;
+}
+.component_bar .rate .bgc{
+	background-color: #99c0ff;
+	width: 0;
+	height: 100%;
+	position: absolute;
+	left: 0;
+	top: 0;
+	border-radius: 3px;
+}
+.component_bar .per{
+	width: 20px;
+	color: #99c0ff;
+	margin-left: 5px;
+	float: left;
+	-webkit-opacity:0;
+}
+
+/*
+	柱体生长动画
+ */
+.bar_load .rate .bgc{
+	-webkit-transition: all 1s 0.5s;
+	width: 100%;
+}
+
+.bar_leave .rate .bgc{
+	-webkit-transition: all 0.5s;
+	width: 0%;
+}
+
+/*
+	比例渐显动画
+ */
+.bar_load .per{
+	-webkit-transition: all 0.5s 1.3s;
+	-webkit-opacity:1;
+}
+
+.bar_leave .per{
+	-webkit-transition: all 0.5s;
+	-webkit-opacity:0;
+}
