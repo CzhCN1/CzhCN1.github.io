@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://gentlemanczh.com/worklist/index.html</loc>
+    
+    <lastmod>2016-07-23T09:47:13.442Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://gentlemanczh.com/2015/09/20/myfamily/</loc>
     
     <lastmod>2016-07-21T14:09:30.737Z</lastmod>
@@ -75,13 +82,6 @@
     <loc>http://gentlemanczh.com/about/index.html</loc>
     
     <lastmod>2016-07-07T12:35:53.189Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://gentlemanczh.com/worklist/index.html</loc>
-    
-    <lastmod>2016-07-07T12:20:50.866Z</lastmod>
     
   </url>
   
