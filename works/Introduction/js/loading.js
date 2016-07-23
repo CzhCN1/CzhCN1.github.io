@@ -20,7 +20,6 @@ var H5_loading = function(images,firstPage){
 		this._loaded++;
 		$('.loadingRate').text( ( (this._loaded / this._images * 100) >> 0) + '%');
 		if(this._loaded < this._images){
-			debugger
 			return this;
 		}
 	}
