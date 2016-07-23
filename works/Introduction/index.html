@@ -54,7 +54,15 @@
 			font-size: 20px;
 			color: #fff;
 		}
-		
+		/*滑动观看 上下跳跃动画*/
+		.name_slide1{
+			bottom:-10px;
+			-webkit-animation:upAndDown1 2s infinite 2s;
+		}
+		@-webkit-keyframes upAndDown1{
+			50% {bottom:0px}
+		}
+
 
 		/* 返回首页 上下震荡动画 */
 		.name_goBack{
@@ -82,7 +90,9 @@
 		document.write(html.join(''));
 	</script>
 	<script src="js/H5.js"></script>
-	<link rel="stylesheet" href="css/H5.css">
+	<link rel="stylesheet" href="css/h5.css">
+	<script src="js/H5.js"></script>
+	<link rel="stylesheet" href="css/h5.css">
 	<!-- 页面主逻辑 -->
 	<script>
 		$(function () {
@@ -109,10 +119,21 @@
 						delayIn:500,
 						animateOut:{opacity:0},
 					})
+					.addComponent('slide1',{
+						bg:'img/slide1.png',
+						css:{
+							width:"100%",
+							height:'38px',
+							zIndex: 999,
+							opacity:0,
+							bottom:-40,
+						},
+						animateIn:{opacity:1,bottom:-10,},
+						delayIn:0,
+						animateOut:{opacity:0,bottom:-40,},
+					})
 				.addPage('trend')
-					.addComponent('caption',{text:'发展趋势',css:{
-							top: "5%",
-						}})
+					.addComponent('caption',{text:'发展趋势'})
 					.addComponent('text',{
 						width:500,
 						height:30,
@@ -157,16 +178,12 @@
 							bottom:0,
 							opacity:0,
 						},
-						animateIn:{opacity:1,bottom:"8%"},
+						animateIn:{opacity:1,bottom:"5%"},
 						delayIn:500,
 						animateOut:{opacity:0,bottom:0},
 					})
 				.addPage('bar_v')
-					.addComponent('caption',{
-						text:'编程语言排行榜',css:{
-							top: "5%",
-						}
-					})
+					.addComponent('caption',{text:'编程语言排行榜'})
 					.addComponent('bar_v',{
 						type: 'bar_v',
 						width: 540,
@@ -207,23 +224,19 @@
 						animateOut:{opacity:0,bottom:"0%"},
 					})
 				.addPage('pie')
-					.addComponent('caption',{
-						text:'GitHub最热语言',css:{
-							top: "5%",
-						}
-					})
+					.addComponent('caption',{text:'GitHub最热语言'})
 					.addComponent('pie',{
 						type: 'pie',
 						width: 400,
 						height: 400,
 						data: [
+							['Others', 0.47],
 							['JS', 0.15],
 							['Java', 0.1],
 							['Python', 0.08],
 							['CSS', 0.08],
 							['PHP', 0.06],
-							['Ruby', 0.06],
-							['Others', 0.47]
+							['Ruby', 0.06]
 						],
 						css:{
 							bottom: '35%',
@@ -247,11 +260,7 @@
 						animateOut:{opacity:0,bottom:"0%"},
 					})
 				.addPage('point')
-					.addComponent('caption',{
-						text:'流行的框架和类库',css:{
-							top: "5%",
-						}
-					})
+					.addComponent('caption',{text:'流行的框架和类库'})
 					.addComponent('point',{
 						type: 'point',
 						width: 300,
@@ -269,11 +278,7 @@
 						center: true,
 					})
 				.addPage('rader')
-					.addComponent('caption',{
-						text:'个人能力图',css:{
-							top: "5%",
-						}
-					})
+					.addComponent('caption',{text:'个人能力图'})
 					.addComponent('rader',{
 						type: 'rader',
 						width: 400,
@@ -354,7 +359,7 @@
 						delayIn:800,
 						animateOut:{opacity:0,right:-50,bottom:-50},
 					})
-				.loader(1);
+				.loader();
 		});
 
 	</script>
