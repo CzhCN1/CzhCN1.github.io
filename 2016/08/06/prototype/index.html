@@ -96,7 +96,7 @@
 原型&amp;emsp;&amp;emsp;只要创建了一个新函数，就会根据一组特定的规则为该函数创建一个prototype属性，它的用途是包含可以由特定类型的所有实例共享的属性和方法。通过关键字new和构造函数调用创建的对象的原型就是构造函数的prot">
 <meta property="og:image" content="http://7xk5u3.com1.z0.glb.clouddn.com/proto1.jpg">
 <meta property="og:image" content="http://7xk5u3.com1.z0.glb.clouddn.com/proto2.png">
-<meta property="og:updated_time" content="2016-08-06T13:27:16.333Z">
+<meta property="og:updated_time" content="2016-08-06T13:55:37.843Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="对原型链的简单理解">
 <meta name="twitter:description" content="前言&amp;emsp;&amp;emsp;一直对原型和原型链有个大致的了解，日常中也偶尔会用到原型的设计模式。但总是稀里糊涂的，最近刚好在看JS高程时，决定好好深入的理解一下。
@@ -374,7 +374,7 @@
 <p>&emsp;&emsp;下面介绍一个简单的例子：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//SuperType构造函数</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">SuperType</span>(<span class="params"></span>)</span>&#123;</div><div class="line">  <span class="keyword">this</span>.property = <span class="literal">true</span>;</div><div class="line">&#125;</div><div class="line"><span class="comment">//为SuperType构造函数的原型定义方法</span></div><div class="line">SuperType.prototype.getSuperValue = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">  <span class="keyword">return</span> <span class="keyword">this</span>.property;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">//SubType构造函数</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">SubType</span>(<span class="params"></span>)</span>&#123;</div><div class="line">  <span class="keyword">this</span>.subproperty = <span class="literal">false</span>;</div><div class="line">&#125;</div><div class="line"><span class="comment">//继承了SuperType</span></div><div class="line">SubType.prototype = <span class="keyword">new</span> SuperType();</div><div class="line"><span class="comment">//为SubType构造函数的原型定义方法</span></div><div class="line">SubType.prototype.getSubValue = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">  <span class="keyword">return</span> <span class="keyword">this</span>.subproperty;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">var</span> instance = <span class="keyword">new</span> SubType();</div><div class="line">instance.getSuperValue(); <span class="comment">//true</span></div><div class="line">instance.getSubValue(); <span class="comment">//false</span></div><div class="line"></div><div class="line">instance.constructor == SuperType; <span class="comment">//true</span></div><div class="line">instance.hasOwnProperty(<span class="string">"constructor"</span>); <span class="comment">//false</span></div><div class="line">SubType.prototype.hasOwnProperty(<span class="string">"constructor"</span>);<span class="comment">//false</span></div></pre></td></tr></table></figure></p>
 <p><img src="http://7xk5u3.com1.z0.glb.clouddn.com/proto2.png" alt="原型链图例"></p>
 <p>&emsp;&emsp;上例没有使用<code>SubType</code>默认提供的原型，而是给它换了一个新原型，这个新原型是<code>SuperType</code>的实例。于是，新原型不仅具有作为一个<code>SuperType</code>的实例所拥有的属性和方法，而且其内部有一个指针，指向了<code>SuperType</code>的原型。正如图所示，实例<code>instance</code>指向<code>SubType.prototype</code>,而<code>SubType.prototype</code>又指向<code>SuperType.prototype</code>。实例<code>instance</code>可以通过原型链调用方法<code>getSubValue()</code>和<code>getSuperValue()</code>。</p>
-<p>&emsp;&emsp;值得注意的是，<code>instance.constructor</code>指向了<code>SuperType</code>,这是因为<code>constructor</code>属性并不是<code>instance</code>实例拥有的属性，而是<code>SuperType.prototype</code>的属性。<code>SubType.prototype.constructor</code>本应该指向<code>SubType</code>，可是<code>SubType.prototype</code>被’SuperType’的实例替换,因此<code>SubType.prototype</code>就没有了<code>constructor</code>属性。当访问<code>instance.constructor</code>，就会一直沿原型链查找到<code>SuperType.prototype</code>的<code>constructor</code>属性。</p>
+<p>&emsp;&emsp;值得注意的是，<code>instance.constructor</code>指向了<code>SuperType</code>,这是因为<code>constructor</code>属性并不是<code>instance</code>实例拥有的属性，而是<code>SuperType.prototype</code>的属性。<code>SubType.prototype.constructor</code>本应该指向<code>SubType</code>，可是<code>SubType.prototype</code>被<code>SuperType</code>的实例替换,因此<code>SubType.prototype</code>就没有了<code>constructor</code>属性。当访问<code>instance.constructor</code>，就会一直沿原型链查找到<code>SuperType.prototype</code>的<code>constructor</code>属性。</p>
 
       
     </div>
@@ -414,6 +414,10 @@
           </div>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/08/07/inherit/" rel="prev" title="JS中的继承">
+                JS中的继承 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -491,7 +495,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">11</span>
+              <span class="site-state-item-count">12</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -508,7 +512,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-count">12</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
