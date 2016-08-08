@@ -4,6 +4,33 @@
 
     
   <url>
+    <loc>http://gentlemanczh.com/2016/08/08/%20closure/</loc>
+    <lastmod>2016-08-08T15:26:47.856Z</lastmod>
+    <data>
+        <display>
+        <title>关于JavaScript的作用域及闭包</title>
+        <pubTime>2016-08-08T12:44:37.000Z</pubTime>
+        
+        <tag>JavaScript</tag>
+         
+        <tag>闭包</tag>
+         
+        <tag>作用域</tag>
+         
+         
+           
+             
+              <breadCrumb title="前端" url="http://gentlemanczh.com/categories/%E5%89%8D%E7%AB%AF/"/>
+          
+             
+              <breadCrumb title="JavaScript" url="http://gentlemanczh.com/categories/%E5%89%8D%E7%AB%AF/JavaScript/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://gentlemanczh.com/2016/08/07/inherit/</loc>
     <lastmod>2016-08-07T09:29:30.867Z</lastmod>
     <data>
@@ -148,9 +175,9 @@
         
         <tag>JavaScript</tag>
          
-        <tag>事件代理</tag>
-         
         <tag>闭包</tag>
+         
+        <tag>事件代理</tag>
          
          
            

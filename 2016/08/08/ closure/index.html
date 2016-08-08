@@ -70,7 +70,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="JavaScript,闭包,事件代理," />
+  <meta name="keywords" content="JavaScript,闭包,作用域," />
 
 
 
@@ -86,20 +86,21 @@
 
 
 
-<meta name="description" content="在为大量元素重复绑定相同事件时，会有几种不同的方法，不同的方法各有优缺点。在这里我会分别对几种方法进行介绍和讲解！　　现在，我们要为下面的无序列表中的每个列表项li都绑定一个点击事件，打印出其内容。    12345&amp;lt;ul id=&quot;test&quot;&amp;gt;	&amp;lt;li&amp;gt;第一行&amp;lt;/li&amp;gt;	&amp;lt;li&amp;gt;第二行&amp;lt;/li&amp;gt;	&amp;lt;li&amp;gt;第三行&amp;lt;/l">
+<meta name="description" content="前言&amp;emsp;&amp;emsp;作用域的概念十分重要，对于深入了解JavaScript内部的运行原理有很重要的意义。闭包是个神奇而且十分有用的东西，而却不容易理解。所以，打算把我对其的理解写出来，加深自己的印象。
+作用域&amp;emsp;&amp;emsp;作用域实际上是根据名称查找变量的一套规则，这套规则用来管理引擎如何在当前作用域以及嵌套的子作用域中根据标识符名称进行变量查找。&amp;emsp;&amp;emsp;可能有点拗">
 <meta property="og:type" content="article">
-<meta property="og:title" content="事件绑定的几种方法">
-<meta property="og:url" content="http://gentlemanczh.com/2016/07/10/eventAgent/index.html">
+<meta property="og:title" content="关于JavaScript的作用域及闭包">
+<meta property="og:url" content="http://gentlemanczh.com/2016/08/08/ closure/index.html">
 <meta property="og:site_name" content="Czh's Blog">
-<meta property="og:description" content="在为大量元素重复绑定相同事件时，会有几种不同的方法，不同的方法各有优缺点。在这里我会分别对几种方法进行介绍和讲解！　　现在，我们要为下面的无序列表中的每个列表项li都绑定一个点击事件，打印出其内容。    12345&amp;lt;ul id=&quot;test&quot;&amp;gt;	&amp;lt;li&amp;gt;第一行&amp;lt;/li&amp;gt;	&amp;lt;li&amp;gt;第二行&amp;lt;/li&amp;gt;	&amp;lt;li&amp;gt;第三行&amp;lt;/l">
-<meta property="og:image" content="http://7xk5u3.com1.z0.glb.clouddn.com/agent2.png">
-<meta property="og:image" content="http://7xk5u3.com1.z0.glb.clouddn.com/agent1.png">
-<meta property="og:image" content="http://7xk5u3.com1.z0.glb.clouddn.com/agent3.png">
-<meta property="og:updated_time" content="2016-07-21T14:04:57.146Z">
+<meta property="og:description" content="前言&amp;emsp;&amp;emsp;作用域的概念十分重要，对于深入了解JavaScript内部的运行原理有很重要的意义。闭包是个神奇而且十分有用的东西，而却不容易理解。所以，打算把我对其的理解写出来，加深自己的印象。
+作用域&amp;emsp;&amp;emsp;作用域实际上是根据名称查找变量的一套规则，这套规则用来管理引擎如何在当前作用域以及嵌套的子作用域中根据标识符名称进行变量查找。&amp;emsp;&amp;emsp;可能有点拗">
+<meta property="og:image" content="http://7xk5u3.com1.z0.glb.clouddn.com/closure1.jpg">
+<meta property="og:updated_time" content="2016-08-08T15:26:47.856Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="事件绑定的几种方法">
-<meta name="twitter:description" content="在为大量元素重复绑定相同事件时，会有几种不同的方法，不同的方法各有优缺点。在这里我会分别对几种方法进行介绍和讲解！　　现在，我们要为下面的无序列表中的每个列表项li都绑定一个点击事件，打印出其内容。    12345&amp;lt;ul id=&quot;test&quot;&amp;gt;	&amp;lt;li&amp;gt;第一行&amp;lt;/li&amp;gt;	&amp;lt;li&amp;gt;第二行&amp;lt;/li&amp;gt;	&amp;lt;li&amp;gt;第三行&amp;lt;/l">
-<meta name="twitter:image" content="http://7xk5u3.com1.z0.glb.clouddn.com/agent2.png">
+<meta name="twitter:title" content="关于JavaScript的作用域及闭包">
+<meta name="twitter:description" content="前言&amp;emsp;&amp;emsp;作用域的概念十分重要，对于深入了解JavaScript内部的运行原理有很重要的意义。闭包是个神奇而且十分有用的东西，而却不容易理解。所以，打算把我对其的理解写出来，加深自己的印象。
+作用域&amp;emsp;&amp;emsp;作用域实际上是根据名称查找变量的一套规则，这套规则用来管理引擎如何在当前作用域以及嵌套的子作用域中根据标识符名称进行变量查找。&amp;emsp;&amp;emsp;可能有点拗">
+<meta name="twitter:image" content="http://7xk5u3.com1.z0.glb.clouddn.com/closure1.jpg">
 
 
 
@@ -120,9 +121,9 @@
 
 
 
-  <link rel="canonical" href="http://gentlemanczh.com/2016/07/10/eventAgent/"/>
+  <link rel="canonical" href="http://gentlemanczh.com/2016/08/08/ closure/"/>
 
-  <title> 事件绑定的几种方法 | Czh's Blog </title>
+  <title> 关于JavaScript的作用域及闭包 | Czh's Blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -282,7 +283,7 @@
             
             
               
-                事件绑定的几种方法
+                关于JavaScript的作用域及闭包
               
             
           </h1>
@@ -294,8 +295,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-07-10T16:35:04+08:00" content="2016-07-10">
-              2016-07-10
+            <time itemprop="dateCreated" datetime="2016-08-08T20:44:37+08:00" content="2016-08-08">
+              2016-08-08
             </time>
           </span>
 
@@ -336,8 +337,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/07/10/eventAgent/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/07/10/eventAgent/" itemprop="commentsCount"></span>
+                <a href="/2016/08/08/ closure/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/08/ closure/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -360,18 +361,25 @@
       
 
       
-        <p>　　在为大量元素重复绑定相同事件时，会有几种不同的方法，不同的方法各有优缺点。在这里我会分别对几种方法进行介绍和讲解！<br>　　现在，我们要为下面的无序列表中的每个列表项<code>li</code>都绑定一个点击事件，打印出其内容。<br>    <figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">ul</span> <span class="attr">id</span>=<span class="string">"test"</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">li</span>&gt;</span>第一行<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">li</span>&gt;</span>第二行<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">li</span>&gt;</span>第三行<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></div></pre></td></tr></table></figure></p>
-<p>　　页面的显示如下：<br><img src="http://7xk5u3.com1.z0.glb.clouddn.com/agent2.png" alt=""><br>    <a id="more"></a></p>
-<h2 id="循环绑定事件"><a href="#循环绑定事件" class="headerlink" title="循环绑定事件"></a>循环绑定事件</h2><p>　　这种方式是最容易想到的方法，即遍历所有需要绑定事件的元素，将事件绑定在对应元素上。其实这里有个大坑！<br>    <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> ul = <span class="built_in">document</span>.getElementById(<span class="string">'test'</span>),</div><div class="line">	li = ul.getElementsByTagName(<span class="string">'li'</span>);</div><div class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>;i &lt; li.length;i++)&#123;</div><div class="line">	li[i].onclick = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">		<span class="built_in">console</span>.log(li[i].innerHTML);</div><div class="line">	&#125;;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>　　当我们点击后，会产生以下错误：<br><img src="http://7xk5u3.com1.z0.glb.clouddn.com/agent1.png" alt=""><br>　　这样你可能还有点蒙，我们对程序做以下修改：<br>　　将循环判断条件由 <code>i&lt;li.length</code>改为<code>i&lt;li.length-1</code>,此时我们相当于少绑定了一个元素的事件。我们保存程序后再点击测试一下。<br><img src="http://7xk5u3.com1.z0.glb.clouddn.com/agent3.png" alt=""><br>　　发现当点击第一行和第二行的li时，都会打印出第三行的信息。而在点击第三行时，没有任何反应，这点倒是与我们之前的推断一致。可为什么点击第一行、第二行却显示第三行的内容呢？<br>　　这就是我刚所说的坑！在绑定事件时，循环变量i一直自加，直到最后加一等于了数组的长度，从而终止了循环。因此在执行完事件绑定后，i的值应为数组的长度，而数组是从下标0开始，以数组长度值-1结束。<br>　　当事件绑定结束后，i一直保持为结束时的值不变。当事件触发后，li[i]就不再是触发事件的元素了，而是<code>li[li.length]</code>这个元素。因此就会出现我们第一次的那个错误，因为<code>li[li.length]</code>是undefined。之后将循环次数减一，不管哪个元素触发事件都会显示<code>li[li.length-1]</code>元素的内容，因此不管点击第一行还是第二行都会显示第三行的内容。  </p>
-<h3 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h3><ol>
-<li>使用this<br>　　将<code>console.log(li[i].innerHTML);</code>更改为<code>console.log(this.innerHTML);</code>。即用<code>this</code>取代<code>li[i]</code>,this是JavaScript中非常重要的关键字，之后会在博客中详细介绍。这里的this代表的是触发事件的对象，我们的事件绑定在<code>li</code>元素上。当事件触发，this会指向这个事件触发的对象，也就是我们需要的li元素了。</li>
-<li>使用闭包   <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> ul = <span class="built_in">document</span>.getElementById(<span class="string">'test'</span>),</div><div class="line">	li = ul.getElementsByTagName(<span class="string">'li'</span>);</div><div class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>;i &lt; li.length;i++)&#123;</div><div class="line">	(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">		<span class="keyword">var</span> j = i;</div><div class="line">		li[j].onclick = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">			<span class="built_in">console</span>.log(li[j].innerHTML);</div><div class="line">		&#125;;</div><div class="line">	&#125;)();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>&emsp;&emsp;作用域的概念十分重要，对于深入了解JavaScript内部的运行原理有很重要的意义。闭包是个神奇而且十分有用的东西，而却不容易理解。所以，打算把我对其的理解写出来，加深自己的印象。</p>
+<h2 id="作用域"><a href="#作用域" class="headerlink" title="作用域"></a>作用域</h2><p>&emsp;&emsp;作用域实际上是根据名称查找变量的一套规则，这套规则用来管理引擎如何在当前作用域以及嵌套的子作用域中根据标识符名称进行变量查找。<br>&emsp;&emsp;可能有点拗口，举个例子：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params">a</span>)</span>&#123;</div><div class="line">  <span class="keyword">var</span> b = a * <span class="number">2</span>;</div><div class="line">  <span class="function"><span class="keyword">function</span> <span class="title">bar</span>(<span class="params">c</span>)</span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(a,b,c);</div><div class="line">  &#125;</div><div class="line">  bar(b * <span class="number">3</span>);</div><div class="line">&#125;</div><div class="line">foo(<span class="number">2</span>);   <span class="comment">//2 4 12</span></div></pre></td></tr></table></figure></p>
+<p>&emsp;&emsp;在这个例子中有三个逐层嵌套的作用域：</p>
+<ol>
+<li>包含着整个全局作用域，只有一个标识符：<code>foo</code>;</li>
+<li>包含着函数foo所创建的作用域，其中有三个标识符：<code>a</code>,<code>bar</code>,<code>b</code>;</li>
+<li>包含着<code>bar</code>所创建的作用域，其中只有一个标识符:<code>c</code>;</li>
 </ol>
-<p>　　在for循环内部，使用一个立即执行函数。一个临时变量j保存i的值，在该函数内部再绑定事件。事件的绑定函数与外层的立即执行函数形成闭包，内部函数可以读取外部函数的变量值，且外部函数会为内部函数保留变量值不清楚。因此，在事件触发后，触发事件的服务函数会通过闭包读取变老了j，而j保留着当时的i值。  </p>
-<h2 id="使用事件代理"><a href="#使用事件代理" class="headerlink" title="使用事件代理"></a>使用事件代理</h2><p>　　在面对我们这个例子的情况时，通常是使用事件代理而非采用循环绑定。那事件代理相比前者的优点在哪呢？<br>　　如果我们的列表项非常多，那么每个li都绑定一个事件，那就非常占用系统的资源和时间。而且如果动态的向ul列表中添加了li的DOM节点，用之前的方法是无法触发事件的。因为新添加的li节点是在绑定事件之后，即新添加的li节点是没有绑定上事件的。事件代理则解决了以上两个问题，具体代码如下：<br>    <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> ul = <span class="built_in">document</span>.getElementById(<span class="string">'test'</span>);</div><div class="line">ul.onclick = <span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>&#123;</div><div class="line">	<span class="keyword">var</span> eve = e || <span class="built_in">window</span>.e;</div><div class="line">	<span class="keyword">if</span>(e.target.tagName == <span class="string">"LI"</span>)&#123;</div><div class="line">		<span class="built_in">console</span>.log(e.target.innerHTML);</div><div class="line">	&#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
-<p>　　事件代理，即把事件绑定在其公共的父元素上。由于事件流的作用，当子节点接收到触发事件，其父节点也会同样接收到该事件。因此我们只需在其父节点上绑定事件，即可侦听其所有子节点的事件，然后只需通过判断事件触发的对象是否为li元素即可。</p>
+<p>&emsp;&emsp;当引擎执行到<code>console.log(a,b,c)</code>时，需要查找a,b,c三个变量的引用。首先会从最内部的作用域开始，也就是从<code>bar</code>的作用域开始查找。该作用域下没有变量a,因此会继续查询上一个作用域，即<code>foo</code>的作用域，在这里找到了a，同理变量b也在这层被找到。变量c在最内层就被找到，因此不会再继续向上查找。</p>
+<p>&emsp;&emsp;作用域查找始终从<strong>运行时所处的最内部作用域</strong>开始，逐级向外进行，直到遇见第一个匹配的标识符为止。这叫做“遮蔽效应”，内部的标识符遮蔽了外部的标识符。<code>foo()</code>函数是在全局作用域中运行，因此会从全局作用域开始查找，而不是从bar的作用域开始查找。</p>
+<h3 id="函数作用域"><a href="#函数作用域" class="headerlink" title="函数作用域"></a>函数作用域</h3><p>&emsp;&emsp;值得注意的是，JavaScript没有<strong>块级作用域</strong>，而是使用了<strong>函数作用域</strong>。这点在上面的例子中就有体现，每个函数内实际上就是一个作用域。属于这个函数的全部变量都可以在整个函数的范围内使用及复用，然而在该函数的作用域外是不能访问其函数内部的变量和定义的函数。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>)</span>&#123;</div><div class="line">  <span class="keyword">var</span> a = <span class="number">3</span>;</div><div class="line">  <span class="built_in">console</span>.log(a);</div><div class="line">&#125;</div><div class="line"></div><div class="line">foo();          <span class="comment">//3</span></div><div class="line"><span class="built_in">console</span>.log(a)  <span class="comment">//ReferenceError: a is not defined</span></div></pre></td></tr></table></figure></p>
+<p>&emsp;&emsp;在上例中，调用<code>foo()</code>函数后正确打印出变量a的值，因为在函数<code>foo</code>的作用域内找到了该变量。而在全局作用域中要打印出变量a的值则会报错，变量a未定义，因为外部的作用域是不能访问内部作用域的属性。</p>
+<h3 id="作用域链"><a href="#作用域链" class="headerlink" title="作用域链"></a>作用域链</h3><p>&emsp;&emsp;当某个函数第一次被调用时，会创建一个执行环境(execution context)及相应的作用域链，并把作用域链复制给一个特殊的内部属性([[Scope]])。这个作用域链是一个对象列表或者链表，这组对象定义了这段代码“作用域中”的变量。当需要查找某变量，它会从链中第一个对象开始查找，如果未找到则查找链上的下一个对象。</p>
+<p>&emsp;&emsp;在全局作用域中，作用域链由一个全局对象组成。在不包含嵌套的函数体内，作用域链上有两个对象，第一个是定义函数参数和局部变量的对象，第二个是全局对象。</p>
+<p><img src="http://7xk5u3.com1.z0.glb.clouddn.com/closure1.jpg" alt="作用域链"><br>&emsp;&emsp;上图就是不包含嵌套的函数体内的作用域链，第一位就是函数的活动对象(activation object)，第二位是全局对象。</p>
+<h2 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h2><p>&emsp;&emsp;函数对象可以通过作用域链相互关联起来，函数体内部的变量都可以保存在函数作用域内，这种特性就称为“闭包”。我们来看个例子：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>)</span>&#123;</div><div class="line">  <span class="keyword">var</span> a = <span class="number">2</span>;</div><div class="line">  <span class="function"><span class="keyword">function</span> <span class="title">bar</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(a);</div><div class="line">  &#125;</div><div class="line">  <span class="keyword">return</span> bar;</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> baz = foo();</div><div class="line">baz();  <span class="comment">//2</span></div></pre></td></tr></table></figure></p>
+<p>&emsp;&emsp;函数<code>bar()</code>的词法作用域能够访问<code>foo()</code>的内部作用域。然后将<code>bar()</code>函数本身作为值类型传递，当函数<code>foo()</code>执行后，其返回值(内部的bar()函数)赋值给变量<code>baz</code>并调用<code>baz()</code>。实际上只是通过不同标识符调用了内部的函数<code>bar()</code>，但它是在自己定义的作用域外地方被执行了。</p>
+<p>&emsp;&emsp;当执行<code>baz()</code>函数时,就会根据作用域链的查找规则，从bar()内部开始查找变量a。如果你了解JavaScript的垃圾回收机制，那么你可能会有疑问。在函数<code>foo()</code>执行结束后，<code>foo()</code>的整个内部作用域都会被销毁，当然包括变量a。但我们却依旧可以在之后通过调用函数<code>baz()</code>访问到变量a，这是为什么呢？这正是因为闭包的作用，由于函数<code>bar()</code>是在函数<code>foo()</code>内部声明的，它拥有涵盖<code>foo()</code>内部作用域的闭包，使得该作用域一直存活不被清除，以供<code>bar()</code>随时引用。</p>
+<p>&emsp;&emsp;<code>bar()</code>这个函数在定义时的作用域以外的地方被调用，正是闭包使得函数可以继续访问定义时的作用域。如果你理解了作用域链，那么闭包可以这样解释：函数定义时的作用域链到函数执行时依然有效。</p>
 
       
     </div>
@@ -418,7 +426,7 @@
           
             <a href="/tags/闭包/" rel="tag">#闭包</a>
           
-            <a href="/tags/事件代理/" rel="tag">#事件代理</a>
+            <a href="/tags/作用域/" rel="tag">#作用域</a>
           
         </div>
       
@@ -427,17 +435,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/07/07/domain/" rel="next" title="为你的博客绑定个性域名">
-                <i class="fa fa-chevron-left"></i> 为你的博客绑定个性域名
+              <a href="/2016/08/07/inherit/" rel="next" title="JS中的继承">
+                <i class="fa fa-chevron-left"></i> JS中的继承
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/07/16/selector/" rel="prev" title="原生JavaScript选择器">
-                原生JavaScript选择器 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -469,8 +473,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/07/10/eventAgent/"
-           data-title="事件绑定的几种方法" data-url="http://gentlemanczh.com/2016/07/10/eventAgent/">
+      <div class="ds-thread" data-thread-key="2016/08/08/ closure/"
+           data-title="关于JavaScript的作用域及闭包" data-url="http://gentlemanczh.com/2016/08/08/ closure/">
       </div>
     
   </div>
@@ -594,7 +598,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#循环绑定事件"><span class="nav-number">1.</span> <span class="nav-text">循环绑定事件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#解决方法"><span class="nav-number">1.1.</span> <span class="nav-text">解决方法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用事件代理"><span class="nav-number">2.</span> <span class="nav-text">使用事件代理</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#作用域"><span class="nav-number">2.</span> <span class="nav-text">作用域</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#函数作用域"><span class="nav-number">2.1.</span> <span class="nav-text">函数作用域</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#作用域链"><span class="nav-number">2.2.</span> <span class="nav-text">作用域链</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#闭包"><span class="nav-number">3.</span> <span class="nav-text">闭包</span></a></li></ol></div>
             
           </div>
         </section>
