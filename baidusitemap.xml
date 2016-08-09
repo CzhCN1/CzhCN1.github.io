@@ -4,6 +4,33 @@
 
     
   <url>
+    <loc>http://gentlemanczh.com/2016/08/09/this/</loc>
+    <lastmod>2016-08-09T08:36:45.106Z</lastmod>
+    <data>
+        <display>
+        <title>What's "this"?</title>
+        <pubTime>2016-08-09T02:32:17.000Z</pubTime>
+        
+        <tag>JavaScript</tag>
+         
+        <tag>作用域</tag>
+         
+        <tag>this</tag>
+         
+         
+           
+             
+              <breadCrumb title="前端" url="http://gentlemanczh.com/categories/%E5%89%8D%E7%AB%AF/"/>
+          
+             
+              <breadCrumb title="JavaScript" url="http://gentlemanczh.com/categories/%E5%89%8D%E7%AB%AF/JavaScript/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://gentlemanczh.com/2016/08/08/%20closure/</loc>
     <lastmod>2016-08-08T15:26:47.856Z</lastmod>
     <data>
