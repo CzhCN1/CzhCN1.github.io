@@ -95,7 +95,7 @@
 <meta property="og:description" content="前言&amp;emsp;&amp;emsp;作用域的概念十分重要，对于深入了解JavaScript内部的运行原理有很重要的意义。闭包是个神奇而且十分有用的东西，而却不容易理解。所以，打算把我对其的理解写出来，加深自己的印象。
 作用域&amp;emsp;&amp;emsp;作用域实际上是根据名称查找变量的一套规则，这套规则用来管理引擎如何在当前作用域以及嵌套的子作用域中根据标识符名称进行变量查找。&amp;emsp;&amp;emsp;可能有点拗">
 <meta property="og:image" content="http://7xk5u3.com1.z0.glb.clouddn.com/closure1.jpg">
-<meta property="og:updated_time" content="2016-08-08T15:26:47.856Z">
+<meta property="og:updated_time" content="2016-08-09T08:44:01.982Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="关于JavaScript的作用域及闭包">
 <meta name="twitter:description" content="前言&amp;emsp;&amp;emsp;作用域的概念十分重要，对于深入了解JavaScript内部的运行原理有很重要的意义。闭包是个神奇而且十分有用的东西，而却不容易理解。所以，打算把我对其的理解写出来，加深自己的印象。
@@ -363,6 +363,7 @@
       
         <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>&emsp;&emsp;作用域的概念十分重要，对于深入了解JavaScript内部的运行原理有很重要的意义。闭包是个神奇而且十分有用的东西，而却不容易理解。所以，打算把我对其的理解写出来，加深自己的印象。</p>
 <h2 id="作用域"><a href="#作用域" class="headerlink" title="作用域"></a>作用域</h2><p>&emsp;&emsp;作用域实际上是根据名称查找变量的一套规则，这套规则用来管理引擎如何在当前作用域以及嵌套的子作用域中根据标识符名称进行变量查找。<br>&emsp;&emsp;可能有点拗口，举个例子：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params">a</span>)</span>&#123;</div><div class="line">  <span class="keyword">var</span> b = a * <span class="number">2</span>;</div><div class="line">  <span class="function"><span class="keyword">function</span> <span class="title">bar</span>(<span class="params">c</span>)</span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(a,b,c);</div><div class="line">  &#125;</div><div class="line">  bar(b * <span class="number">3</span>);</div><div class="line">&#125;</div><div class="line">foo(<span class="number">2</span>);   <span class="comment">//2 4 12</span></div></pre></td></tr></table></figure></p>
+<a id="more"></a>
 <p>&emsp;&emsp;在这个例子中有三个逐层嵌套的作用域：</p>
 <ol>
 <li>包含着整个全局作用域，只有一个标识符：<code>foo</code>;</li>

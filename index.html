@@ -362,7 +362,12 @@
       
         
           <h2 id="this到底是什么？"><a href="#this到底是什么？" class="headerlink" title="this到底是什么？"></a>this到底是什么？</h2><p>&emsp;&emsp;当你深入JavaScript后会发现无处不在的this,但this到底是什么呢？当一个函数被调用时，会创建一个记录活动(执行上下文)。这个记录会包含函数在哪里被调用(调用栈)、函数的调用方式、传入的参数等信息，而this就是这个记录的一个属性。</p>
-<h2 id="this到底指向什么？"><a href="#this到底指向什么？" class="headerlink" title="this到底指向什么？"></a>this到底指向什么？</h2><p>&emsp;&emsp;this实际上是在函数被调用时发生的绑定，它指向什么完全取决于函数在哪里被调用。this的绑定遵循以下的几条规则：<br>
+<h2 id="this到底指向什么？"><a href="#this到底指向什么？" class="headerlink" title="this到底指向什么？"></a>this到底指向什么？</h2><p>&emsp;&emsp;this实际上是在函数被调用时发生的绑定，它指向什么完全取决于函数在哪里被调用。this的绑定遵循以下的几条规则：</p>
+<ol>
+<li>默认绑定</li>
+<li>隐式绑定</li>
+<li>显示绑定</li>
+<li>new绑定
           <div class="post-more-link text-center">
             <a class="btn" href="/2016/08/09/this/#more" rel="contents">
               阅读全文 &raquo;
@@ -496,28 +501,13 @@
 
       
         
-          
-            <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>&emsp;&emsp;作用域的概念十分重要，对于深入了解JavaScript内部的运行原理有很重要的意义。闭包是个神奇而且十分有用的东西，而却不容易理解。所以，打算把我对其的理解写出来，加深自己的印象。</p>
+          <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>&emsp;&emsp;作用域的概念十分重要，对于深入了解JavaScript内部的运行原理有很重要的意义。闭包是个神奇而且十分有用的东西，而却不容易理解。所以，打算把我对其的理解写出来，加深自己的印象。</p>
 <h2 id="作用域"><a href="#作用域" class="headerlink" title="作用域"></a>作用域</h2><p>&emsp;&emsp;作用域实际上是根据名称查找变量的一套规则，这套规则用来管理引擎如何在当前作用域以及嵌套的子作用域中根据标识符名称进行变量查找。<br>&emsp;&emsp;可能有点拗口，举个例子：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params">a</span>)</span>&#123;</div><div class="line">  <span class="keyword">var</span> b = a * <span class="number">2</span>;</div><div class="line">  <span class="function"><span class="keyword">function</span> <span class="title">bar</span>(<span class="params">c</span>)</span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(a,b,c);</div><div class="line">  &#125;</div><div class="line">  bar(b * <span class="number">3</span>);</div><div class="line">&#125;</div><div class="line">foo(<span class="number">2</span>);   <span class="comment">//2 4 12</span></div></pre></td></tr></table></figure></p>
-<p>&emsp;&emsp;在这个例子中有三个逐层嵌套的作用域：</p>
-<ol>
-<li>包含着整个全局作用域，只有一个标识符：<code>foo</code>;</li>
-<li>包含着函数foo所创建的作用域，其中有三个标识符：<code>a</code>,<code>bar</code>,<code>b</code>;</li>
-<li>包含着<code>bar</code>所创建的作用域，其中只有一个标识符:<code>c</code>;</li>
-</ol>
-<p>&emsp;&emsp;当引擎执行到<code>console.log(a,b,c)</code>时，需要查找a,b,c三个变量的引用。首先会从最内部的作用域开始，也就是从<code>bar</code>的作用域开始查找。该作用域下没有变量a,因此会继续查询上一个作用域，即<code>foo</code>的作用域，在这里找到了a，同理变量b也在这层被找到。变量c在最内层就被找到，因此不会再继续向上查找。</p>
-<p>&emsp;&emsp;作用域查找始终从<strong>运行时所处的最内部作用域</strong>开始，逐级向外进行，直到遇见第一个匹配的标识符为止。这叫做“遮蔽效应”，内部的标识符遮蔽了外部的标识符。<code>foo()</code>函数是在全局作用域中运行，因此会从全局作用域开始查找，而不是从bar的作用域开始查找。</p>
-<h3 id="函数作用域"><a href="#函数作用域" class="headerlink" title="函数作用域"></a>函数作用域</h3><p>&emsp;&emsp;值得注意的是，JavaScript没有<strong>块级作用域</strong>，而是使用了<strong>函数作用域</strong>。这点在上面的例子中就有体现，每个函数内实际上就是一个作用域。属于这个函数的全部变量都可以在整个函数的范围内使用及复用，然而在该函数的作用域外是不能访问其函数内部的变量和定义的函数。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>)</span>&#123;</div><div class="line">  <span class="keyword">var</span> a = <span class="number">3</span>;</div><div class="line">  <span class="built_in">console</span>.log(a);</div><div class="line">&#125;</div><div class="line"></div><div class="line">foo();          <span class="comment">//3</span></div><div class="line"><span class="built_in">console</span>.log(a)  <span class="comment">//ReferenceError: a is not defined</span></div></pre></td></tr></table></figure></p>
-<p>&emsp;&emsp;在上例中，调用<code>foo()</code>函数后正确打印出变量a的值，因为在函数<code>foo</code>的作用域内找到了该变量。而在全局作用域中要打印出变量a的值则会报错，变量a未定义，因为外部的作用域是不能访问内部作用域的属性。</p>
-<h3 id="作用域链"><a href="#作用域链" class="headerlink" title="作用域链"></a>作用域链</h3><p>&emsp;&emsp;当某个函数第一次被调用时，会创建一个执行环境(execution context)及相应的作用域链，并把作用域链复制给一个特殊的内部属性([[Scope]])。这个作用域链是一个对象列表或者链表，这组对象定义了这段代码“作用域中”的变量。当需要查找某变量，它会从链中第一个对象开始查找，如果未找到则查找链上的下一个对象。</p>
-<p>&emsp;&emsp;在全局作用域中，作用域链由一个全局对象组成。在不包含嵌套的函数体内，作用域链上有两个对象，第一个是定义函数参数和局部变量的对象，第二个是全局对象。</p>
-<p><img src="http://7xk5u3.com1.z0.glb.clouddn.com/closure1.jpg" alt="作用域链"><br>&emsp;&emsp;上图就是不包含嵌套的函数体内的作用域链，第一位就是函数的活动对象(activation object)，第二位是全局对象。</p>
-<h2 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h2><p>&emsp;&emsp;函数对象可以通过作用域链相互关联起来，函数体内部的变量都可以保存在函数作用域内，这种特性就称为“闭包”。我们来看个例子：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>)</span>&#123;</div><div class="line">  <span class="keyword">var</span> a = <span class="number">2</span>;</div><div class="line">  <span class="function"><span class="keyword">function</span> <span class="title">bar</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(a);</div><div class="line">  &#125;</div><div class="line">  <span class="keyword">return</span> bar;</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> baz = foo();</div><div class="line">baz();  <span class="comment">//2</span></div></pre></td></tr></table></figure></p>
-<p>&emsp;&emsp;函数<code>bar()</code>的词法作用域能够访问<code>foo()</code>的内部作用域。然后将<code>bar()</code>函数本身作为值类型传递，当函数<code>foo()</code>执行后，其返回值(内部的bar()函数)赋值给变量<code>baz</code>并调用<code>baz()</code>。实际上只是通过不同标识符调用了内部的函数<code>bar()</code>，但它是在自己定义的作用域外地方被执行了。</p>
-<p>&emsp;&emsp;当执行<code>baz()</code>函数时,就会根据作用域链的查找规则，从bar()内部开始查找变量a。如果你了解JavaScript的垃圾回收机制，那么你可能会有疑问。在函数<code>foo()</code>执行结束后，<code>foo()</code>的整个内部作用域都会被销毁，当然包括变量a。但我们却依旧可以在之后通过调用函数<code>baz()</code>访问到变量a，这是为什么呢？这正是因为闭包的作用，由于函数<code>bar()</code>是在函数<code>foo()</code>内部声明的，它拥有涵盖<code>foo()</code>内部作用域的闭包，使得该作用域一直存活不被清除，以供<code>bar()</code>随时引用。</p>
-<p>&emsp;&emsp;<code>bar()</code>这个函数在定义时的作用域以外的地方被调用，正是闭包使得函数可以继续访问定义时的作用域。如果你理解了作用域链，那么闭包可以这样解释：函数定义时的作用域链到函数执行时依然有效。</p>
-
-          
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/08/08/ closure/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
@@ -788,22 +778,13 @@
 
       
         
-          
-            <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>&emsp;&emsp;一直对原型和原型链有个大致的了解，日常中也偶尔会用到原型的设计模式。但总是稀里糊涂的，最近刚好在看JS高程时，决定好好深入的理解一下。</p>
-<h2 id="原型"><a href="#原型" class="headerlink" title="原型"></a>原型</h2><p>&emsp;&emsp;只要创建了一个新函数，就会根据一组特定的规则为该函数创建一个<code>prototype</code>属性，它的用途是包含可以由特定类型的所有实例共享的属性和方法。通过关键字<code>new</code>和构造函数调用创建的对象的原型就是构造函数的<code>prototype</code>属性的值，每个对象都是从其原型继承属性。通过<code>new Object()</code>创建的对象继承自<code>Object.prototype</code>，通过<code>new Array()</code>创建的对象继承自<code>Array.prototype</code>。</p>
-<p>&emsp;&emsp;默认情况下，所有<code>prototype</code>属性都会自动获得一个<code>constructor</code>(构造函数)属性，这个属性包含一个指向<code>prototype</code>属性所在函数的指针。创建了自定义的构造函数后，其原型默认只会取得  <code>constructor</code>属性；至于其他方法，则都是从<code>Object.prototype</code>继承来的。当调用构造函数创建一个新实例后，该实例的内部将包含一个指针(<code>__proto__</code>)，指向构造函数的原型属性。</p>
-<p>&emsp;&emsp;下面举个简单的小例子：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params"></span>)</span>&#123;</div><div class="line">&#125;</div><div class="line"></div><div class="line">Person.prototype.name = <span class="string">"rason2008"</span>;</div><div class="line">Person.prototype.age = <span class="number">20</span>;</div><div class="line">Person.prototype.job = <span class="string">"student"</span>;</div><div class="line">Person.prototype.sayName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">  <span class="built_in">console</span>.log(<span class="keyword">this</span>.name);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">var</span> person1 = <span class="keyword">new</span> Person();</div><div class="line">person1.sayName(); <span class="comment">//rason2008</span></div><div class="line"></div><div class="line"><span class="keyword">var</span> person2 = <span class="keyword">new</span> Person();</div><div class="line">person2.sayName(); <span class="comment">//rason2008</span></div></pre></td></tr></table></figure></p>
-<p><img src="http://7xk5u3.com1.z0.glb.clouddn.com/proto1.jpg" alt="原型图例"></p>
-<p>&emsp;&emsp;上图展示了Person构造函数、Person的原型属性以及Person现有的两个实例之间的关系。需要注意的是，虽然两个实例都不包含属性和方法，但我们却可以调用<code>sayName()</code>方法，并且得到正确的结果，这是通过查找对象属性的过程来实现的。</p>
-<h2 id="原型链"><a href="#原型链" class="headerlink" title="原型链"></a>原型链</h2><p>&emsp;&emsp;通过上面的例子，可能已经理解了原型的概念，此时你可能会有疑问。<code>Person.prototype</code>有<code>__proto__</code>属性么？它的原型又是什么呢？所有函数的默认原型都是Object的实例，因此默认原型都会包含一个内部指针，指向Object.portotype。这也正是所有自定义类型都会继承<code>toString()</code>、<code>valueOf()</code>等默认方法的根本原因。</p>
-<p>&emsp;&emsp;如果我们用<code>__proto__</code>来依次将各原型连接起来，一个原型又是另一个原型的实例，如此层层递进就构成了实例与原型的链条，也就形成了所谓的原型链。</p>
-<p>&emsp;&emsp;原型链有什么用呢？ECMAScript只支持实现继承，而且其实现继承主要是依靠原型链来实现的。正如上面的例子，Person的实例可以调用<code>sayName()</code>方法，并且得到正确name值，这就是因为原型链的缘故。当以读取模式访问一个实例的属性时，首先会在实例中搜索该属性。如果没有找到该属性，则会继续探索实例的原型。在通过原型链实现继承的情况下，探索过程就得以沿着原型链继续向上查找。</p>
-<p>&emsp;&emsp;下面介绍一个简单的例子：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//SuperType构造函数</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">SuperType</span>(<span class="params"></span>)</span>&#123;</div><div class="line">  <span class="keyword">this</span>.property = <span class="literal">true</span>;</div><div class="line">&#125;</div><div class="line"><span class="comment">//为SuperType构造函数的原型定义方法</span></div><div class="line">SuperType.prototype.getSuperValue = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">  <span class="keyword">return</span> <span class="keyword">this</span>.property;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">//SubType构造函数</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">SubType</span>(<span class="params"></span>)</span>&#123;</div><div class="line">  <span class="keyword">this</span>.subproperty = <span class="literal">false</span>;</div><div class="line">&#125;</div><div class="line"><span class="comment">//继承了SuperType</span></div><div class="line">SubType.prototype = <span class="keyword">new</span> SuperType();</div><div class="line"><span class="comment">//为SubType构造函数的原型定义方法</span></div><div class="line">SubType.prototype.getSubValue = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">  <span class="keyword">return</span> <span class="keyword">this</span>.subproperty;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">var</span> instance = <span class="keyword">new</span> SubType();</div><div class="line">instance.getSuperValue(); <span class="comment">//true</span></div><div class="line">instance.getSubValue(); <span class="comment">//false</span></div><div class="line"></div><div class="line">instance.constructor == SuperType; <span class="comment">//true</span></div><div class="line">instance.hasOwnProperty(<span class="string">"constructor"</span>); <span class="comment">//false</span></div><div class="line">SubType.prototype.hasOwnProperty(<span class="string">"constructor"</span>);<span class="comment">//false</span></div></pre></td></tr></table></figure></p>
-<p><img src="http://7xk5u3.com1.z0.glb.clouddn.com/proto2.png" alt="原型链图例"></p>
-<p>&emsp;&emsp;上例没有使用<code>SubType</code>默认提供的原型，而是给它换了一个新原型，这个新原型是<code>SuperType</code>的实例。于是，新原型不仅具有作为一个<code>SuperType</code>的实例所拥有的属性和方法，而且其内部有一个指针，指向了<code>SuperType</code>的原型。正如图所示，实例<code>instance</code>指向<code>SubType.prototype</code>,而<code>SubType.prototype</code>又指向<code>SuperType.prototype</code>。实例<code>instance</code>可以通过原型链调用方法<code>getSubValue()</code>和<code>getSuperValue()</code>。</p>
-<p>&emsp;&emsp;值得注意的是，<code>instance.constructor</code>指向了<code>SuperType</code>,这是因为<code>constructor</code>属性并不是<code>instance</code>实例拥有的属性，而是<code>SuperType.prototype</code>的属性。<code>SubType.prototype.constructor</code>本应该指向<code>SubType</code>，可是<code>SubType.prototype</code>被<code>SuperType</code>的实例替换,因此<code>SubType.prototype</code>就没有了<code>constructor</code>属性。当访问<code>instance.constructor</code>，就会一直沿原型链查找到<code>SuperType.prototype</code>的<code>constructor</code>属性。</p>
-
-          
+          <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>&emsp;&emsp;一直对原型和原型链有个大致的了解，日常中也偶尔会用到原型的设计模式。但总是稀里糊涂的，最近刚好在看JS高程时，决定好好深入的理解一下。</p>
+<h2 id="原型"><a href="#原型" class="headerlink" title="原型"></a>原型</h2><p>&emsp;&emsp;只要创建了一个新函数，就会根据一组特定的规则为该函数创建一个<code>prototype</code>属性，它的用途是包含可以由特定类型的所有实例共享的属性和方法。通过关键字<code>new</code>和构造函数调用创建的对象的原型就是构造函数的<code>prototype</code>属性的值，每个对象都是从其原型继承属性。通过<code>new Object()</code>创建的对象继承自<code>Object.prototype</code>，通过<code>new Array()</code>创建的对象继承自<code>Array.prototype</code>。<br>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/08/06/prototype/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
@@ -1500,8 +1481,8 @@
             
               
                 
-                <a class="post-title-link" href="/2016/07/05/HexoSkipRender/" itemprop="url">
-                  设置Hexo不渲染source目录下的部分文件
+                <a class="post-title-link" href="/2016/07/05/ToHexo/" itemprop="url">
+                  迁移你的博客至Hexo
                 </a>
               
             
@@ -1544,8 +1525,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/07/05/HexoSkipRender/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/07/05/HexoSkipRender/" itemprop="commentsCount"></span>
+                <a href="/2016/07/05/ToHexo/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/07/05/ToHexo/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -1569,10 +1550,9 @@
 
       
         
-          <h2 id="遇到的问题？"><a href="#遇到的问题？" class="headerlink" title="遇到的问题？"></a>遇到的问题？</h2><p>　　想上传几个自己写的demo到github pages，于是放到了source文件夹下。生成静态文件后，浏览时却发现这些页面都被渲染了模板样式。  </p>
-<p>　　于是开始搜索答案，如何使某些页面跳过渲染呢？<br>
+          <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>　　之前一直使用<a href="http://jekyll.bootcss.com/">Jekyll</a>+GithubPages做自己的个人博客，这几天偶然机会要重做自己的博客。之前就听说了<a href="https://hexo.io/">Hexo</a>这个博客系统框架，这次决定用它试一试。折腾了一晚上，踩了好多的坑，今天终于搭建成功了。<br>
           <div class="post-more-link text-center">
-            <a class="btn" href="/2016/07/05/HexoSkipRender/#more" rel="contents">
+            <a class="btn" href="/2016/07/05/ToHexo/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
