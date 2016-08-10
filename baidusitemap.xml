@@ -4,6 +4,33 @@
 
     
   <url>
+    <loc>http://gentlemanczh.com/2016/08/10/transmit/</loc>
+    <lastmod>2016-08-10T08:53:48.114Z</lastmod>
+    <data>
+        <display>
+        <title>参数传递的规则</title>
+        <pubTime>2016-08-10T06:56:51.000Z</pubTime>
+        
+        <tag>JavaScript</tag>
+         
+        <tag>作用域</tag>
+         
+        <tag>参数传递</tag>
+         
+         
+           
+             
+              <breadCrumb title="前端" url="http://gentlemanczh.com/categories/%E5%89%8D%E7%AB%AF/"/>
+          
+             
+              <breadCrumb title="JavaScript" url="http://gentlemanczh.com/categories/%E5%89%8D%E7%AB%AF/JavaScript/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://gentlemanczh.com/2016/08/06/prototype/</loc>
     <lastmod>2016-08-09T08:45:52.455Z</lastmod>
     <data>
@@ -271,9 +298,9 @@
         
         <tag>Hexo</tag>
          
-        <tag>Blog</tag>
-         
         <tag>Git</tag>
+         
+        <tag>Blog</tag>
          
          
            
