@@ -4,6 +4,28 @@
 
     
   <url>
+    <loc>http://gentlemanczh.com/2016/08/13/algorithm1/</loc>
+    <lastmod>2016-08-13T05:41:47.870Z</lastmod>
+    <data>
+        <display>
+        <title>回溯算法</title>
+        <pubTime>2016-08-13T04:02:36.000Z</pubTime>
+        
+        <tag>算法</tag>
+         
+        <tag>回溯法</tag>
+         
+         
+           
+             
+              <breadCrumb title="算法" url="http://gentlemanczh.com/categories/%E7%AE%97%E6%B3%95/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://gentlemanczh.com/2016/08/12/react1/</loc>
     <lastmod>2016-08-12T09:33:39.083Z</lastmod>
     <data>
@@ -325,9 +347,9 @@
         
         <tag>Hexo</tag>
          
-        <tag>Git</tag>
-         
         <tag>Blog</tag>
+         
+        <tag>Git</tag>
          
          
            
