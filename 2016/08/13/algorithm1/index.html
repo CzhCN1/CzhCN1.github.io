@@ -92,7 +92,7 @@
  Given a set of candidate numbers C and a target number T, find all unique combinations in C where the candidate numbers sums to T.
  The same re">
 <meta property="og:type" content="article">
-<meta property="og:title" content="回溯算法">
+<meta property="og:title" content="39.Combination Sum">
 <meta property="og:url" content="http://gentlemanczh.com/2016/08/13/algorithm1/index.html">
 <meta property="og:site_name" content="Czh's Blog">
 <meta property="og:description" content="题目&amp;emsp;&amp;emsp;在leetcode上遇到一道题，详细如下：
@@ -101,9 +101,9 @@
  Given a set of candidate numbers C and a target number T, find all unique combinations in C where the candidate numbers sums to T.
  The same re">
 <meta property="og:image" content="http://7xk5u3.com1.z0.glb.clouddn.com/algorithm1-1.png">
-<meta property="og:updated_time" content="2016-08-13T05:41:47.870Z">
+<meta property="og:updated_time" content="2016-08-14T06:57:30.605Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="回溯算法">
+<meta name="twitter:title" content="39.Combination Sum">
 <meta name="twitter:description" content="题目&amp;emsp;&amp;emsp;在leetcode上遇到一道题，详细如下：
 
 39.Combination Sum
@@ -132,7 +132,7 @@
 
   <link rel="canonical" href="http://gentlemanczh.com/2016/08/13/algorithm1/"/>
 
-  <title> 回溯算法 | Czh's Blog </title>
+  <title> 39.Combination Sum | Czh's Blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -292,7 +292,7 @@
             
             
               
-                回溯算法
+                39.Combination Sum
               
             
           </h1>
@@ -383,13 +383,13 @@
 <li>利用限界函数避免移动到不可能产生解的子空间。</li>
 </ol>
 </blockquote>
-<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><p>我使用的是JavaScript，代码效率相比其他语言是真的低。。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div></pre></td><td class="code"><pre><div class="line">/**</div><div class="line"> * @param &#123;number[]&#125; candidates</div><div class="line"> * @param &#123;number&#125; target</div><div class="line"> * @return &#123;number[][]&#125;</div><div class="line"> */</div><div class="line">var combinationSum = function(candidates, target) &#123;</div><div class="line">    var index = 0,</div><div class="line">        res = [],</div><div class="line">        tempList = [];</div><div class="line">    //从大到小排序列表</div><div class="line">    candidates.sort(function(a,b)&#123;return (a-b)&#125;);</div><div class="line">    //回溯计算</div><div class="line">    backtrack(res,tempList,candidates,target,0);</div><div class="line">    return res;</div><div class="line">&#125;;</div><div class="line"></div><div class="line">/**</div><div class="line"> * 回溯算法</div><div class="line"> * @param &#123;number[][]&#125; list     结果数组</div><div class="line"> * @param &#123;number[]&#125; templist   保存当前路径结果</div><div class="line"> * @param &#123;number[]&#125; candidates 整数列表</div><div class="line"> * @param &#123;number&#125; remain       结果差值</div><div class="line"> * @param &#123;number&#125; start        起始坐标</div><div class="line"> * @return</div><div class="line"> */</div><div class="line">function backtrack(list,templist,candidates,remain,start)&#123;</div><div class="line">    if(remain &lt; 0)&#123;</div><div class="line">        return;</div><div class="line">    &#125;else if(remain === 0)&#123;</div><div class="line">        list.push(templist.slice(0));</div><div class="line">    &#125;else&#123;</div><div class="line">        for(var i = start; i &lt; candidates.length; i++)&#123;</div><div class="line">            templist.push(candidates[i]);</div><div class="line">            arguments.callee(list,templist,candidates,remain - candidates[i],i);</div><div class="line">            templist.pop();</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><p>我使用的是JavaScript，代码效率相比其他语言是真的低。。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * @param &#123;number[]&#125; candidates</div><div class="line"> * @param &#123;number&#125; target</div><div class="line"> * @return &#123;number[][]&#125;</div><div class="line"> */</div><div class="line"><span class="keyword">var</span> combinationSum = <span class="function"><span class="keyword">function</span>(<span class="params">candidates, target</span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> index = <span class="number">0</span>,</div><div class="line">        res = [],</div><div class="line">        tempList = [];</div><div class="line">    <span class="comment">//从大到小排序列表</span></div><div class="line">    candidates.sort(<span class="function"><span class="keyword">function</span>(<span class="params">a,b</span>)</span>&#123;<span class="keyword">return</span> (a-b)&#125;);</div><div class="line">    <span class="comment">//回溯计算</span></div><div class="line">    backtrack(res,tempList,candidates,target,<span class="number">0</span>);</div><div class="line">    <span class="keyword">return</span> res;</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"> * 回溯算法</div><div class="line"> * @param &#123;number[][]&#125; list     结果数组</div><div class="line"> * @param &#123;number[]&#125; templist   保存当前路径结果</div><div class="line"> * @param &#123;number[]&#125; candidates 整数列表</div><div class="line"> * @param &#123;number&#125; remain       结果差值</div><div class="line"> * @param &#123;number&#125; start        起始坐标</div><div class="line"> * @return</div><div class="line"> */</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">backtrack</span>(<span class="params">list,templist,candidates,remain,start</span>)</span>&#123;</div><div class="line">    <span class="keyword">if</span>(remain &lt; <span class="number">0</span>)&#123;</div><div class="line">        <span class="keyword">return</span>;</div><div class="line">    &#125;<span class="keyword">else</span> <span class="keyword">if</span>(remain === <span class="number">0</span>)&#123;</div><div class="line">        list.push(templist.slice(<span class="number">0</span>));</div><div class="line">    &#125;<span class="keyword">else</span>&#123;</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">var</span> i = start; i &lt; candidates.length; i++)&#123;</div><div class="line">            templist.push(candidates[i]);</div><div class="line">            <span class="built_in">arguments</span>.callee(list,templist,candidates,remain - candidates[i],i);</div><div class="line">            templist.pop();</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <p>运行结果如下：<br><img src="http://7xk5u3.com1.z0.glb.clouddn.com/algorithm1-1.png" alt="运行结果"></p>
 <p>&emsp;&emsp;在判断结果时，我选择了使用remain保存差值而不是累加值，这样可以减少需要传递的参数。</p>
 <p>&emsp;&emsp;这里有一个小坑，就是当<code>remain === 0</code>时，需要此时的临时数组结果保存在最终结果时，我最初使用了<code>list.push(templist)</code>，最终结果是两个空子数组。子数组的个数没错，但为什么结果为空了？这是因为JavaScript的数组是引用类型的。在程序运行结束后，临时列表中的数据全部pop完，即空数组。所以最终结果也就剩空数组了，如果还不懂原因可以看看我的一篇 <a href="http://gentlemanczh.com/2016/08/10/transmit/">文章</a>。现在我使用<code>list.push(templist.slice(0));</code>代替原程序，因为<code>templist.slice(0)</code>会返回一个新数组，且不会修改原数组。</p>
 <h2 id="思考"><a href="#思考" class="headerlink" title="思考"></a>思考</h2><p>&emsp;&emsp;之后我觉得，这个代码还有优化的空间。因为我先将给定的数组，从小到大进行了排序。因此如果在计算时，结果已经超过了8，就没必要退回再累加之后的值了，因为之后一定都大于8。</p>
 <p>&emsp;&emsp;例如当前的临时列表[2,2,2,2]，在判断结果后，remain明显是小于0的。因此退回，临时列表结果为[2,2,2]。但由于for循环，需要再累加之后的数，临时列表[2,2,2,3]。可之后的数一定大于2，那remain结果自然小于0。如果我在这种情况下直接跳出循环，直接退回到[2,2]，则会得到优化。</p>
-<p>我将代码做了如下改动：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line">/**</div><div class="line"> * 回溯算法</div><div class="line"> * @param &#123;number[][]&#125; list     结果数组</div><div class="line"> * @param &#123;number[]&#125; templist   保存当前路径结果</div><div class="line"> * @param &#123;number[]&#125; candidates 整数列表</div><div class="line"> * @param &#123;number&#125; remain       结果差值</div><div class="line"> * @param &#123;number&#125; start        起始坐标</div><div class="line"> * @return</div><div class="line"> */</div><div class="line">function backtrack(list,templist,candidates,remain,start)&#123;</div><div class="line">    if(remain &lt; 0)&#123;</div><div class="line">        return true;</div><div class="line">    &#125;else if(remain === 0)&#123;</div><div class="line">        list.push(templist.slice(0));</div><div class="line">        return true;</div><div class="line">    &#125;else&#123;</div><div class="line">        for(var i = start; i &lt; candidates.length; i++)&#123;</div><div class="line">            templist.push(candidates[i]);</div><div class="line">            var flag = backtrack(list,templist,candidates,remain - candidates[i],i);</div><div class="line">            templist.pop();</div><div class="line">            if(flag)&#123;</div><div class="line">                break;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    return false;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>我将代码做了如下改动：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * 回溯算法</div><div class="line"> * @param &#123;number[][]&#125; list     结果数组</div><div class="line"> * @param &#123;number[]&#125; templist   保存当前路径结果</div><div class="line"> * @param &#123;number[]&#125; candidates 整数列表</div><div class="line"> * @param &#123;number&#125; remain       结果差值</div><div class="line"> * @param &#123;number&#125; start        起始坐标</div><div class="line"> * @return</div><div class="line"> */</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">backtrack</span>(<span class="params">list,templist,candidates,remain,start</span>)</span>&#123;</div><div class="line">    <span class="keyword">if</span>(remain &lt; <span class="number">0</span>)&#123;</div><div class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</div><div class="line">    &#125;<span class="keyword">else</span> <span class="keyword">if</span>(remain === <span class="number">0</span>)&#123;</div><div class="line">        list.push(templist.slice(<span class="number">0</span>));</div><div class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</div><div class="line">    &#125;<span class="keyword">else</span>&#123;</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">var</span> i = start; i &lt; candidates.length; i++)&#123;</div><div class="line">            templist.push(candidates[i]);</div><div class="line">            <span class="keyword">var</span> flag = <span class="built_in">arguments</span>.callee(list,templist,candidates,remain - candidates[i],i);</div><div class="line">            templist.pop();</div><div class="line">            <span class="keyword">if</span>(flag)&#123;</div><div class="line">                <span class="keyword">break</span>;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> <span class="literal">false</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <p>&emsp;&emsp;此时，backtrack函数会返回一个布尔值。若果remain小于等于0，返回true，否则返回false。如果外层函数，检测到内层嵌套返回true，则说明上次的传入值已经使得累计值超出了目标值，不必再循环传入更大的参数了。因此立即break跳出当前for循环，进行之后的递归。</p>
 <p>&emsp;&emsp;在运行测试后，虽然结果全部通过，但时间并没有得到很明显的优化。我认为由于每次测试所需时间有所浮动，而且可能由于数据长度的原因，没有明显体现出来性能优化。或者是我的思路有问题，如果您有想法可以再当且页面下留言。</p>
 
@@ -453,6 +453,10 @@
 
           <div class="post-nav-prev post-nav-item">
             
+              <a href="/2016/08/14/algorithm2/" rel="prev" title="198.House Robber">
+                198.House Robber <i class="fa fa-chevron-right"></i>
+              </a>
+            
           </div>
         </div>
       
@@ -484,7 +488,7 @@
   <div class="comments" id="comments">
     
       <div class="ds-thread" data-thread-key="2016/08/13/algorithm1/"
-           data-title="回溯算法" data-url="http://gentlemanczh.com/2016/08/13/algorithm1/">
+           data-title="39.Combination Sum" data-url="http://gentlemanczh.com/2016/08/13/algorithm1/">
       </div>
     
   </div>
@@ -529,7 +533,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">17</span>
+              <span class="site-state-item-count">18</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -546,7 +550,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">20</span>
+                <span class="site-state-item-count">21</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

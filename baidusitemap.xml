@@ -4,11 +4,33 @@
 
     
   <url>
-    <loc>http://gentlemanczh.com/2016/08/13/algorithm1/</loc>
-    <lastmod>2016-08-13T05:41:47.870Z</lastmod>
+    <loc>http://gentlemanczh.com/2016/08/14/algorithm2/</loc>
+    <lastmod>2016-08-14T09:22:14.589Z</lastmod>
     <data>
         <display>
-        <title>回溯算法</title>
+        <title>198.House Robber</title>
+        <pubTime>2016-08-14T06:57:20.000Z</pubTime>
+        
+        <tag>算法</tag>
+         
+        <tag>动态规划</tag>
+         
+         
+           
+             
+              <breadCrumb title="算法" url="http://gentlemanczh.com/categories/%E7%AE%97%E6%B3%95/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://gentlemanczh.com/2016/08/13/algorithm1/</loc>
+    <lastmod>2016-08-14T06:57:30.605Z</lastmod>
+    <data>
+        <display>
+        <title>39.Combination Sum</title>
         <pubTime>2016-08-13T04:02:36.000Z</pubTime>
         
         <tag>算法</tag>
