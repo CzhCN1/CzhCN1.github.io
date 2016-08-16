@@ -5,13 +5,15 @@
     
   <url>
     <loc>http://gentlemanczh.com/2016/08/14/algorithm2/</loc>
-    <lastmod>2016-08-14T09:22:14.589Z</lastmod>
+    <lastmod>2016-08-16T07:12:41.006Z</lastmod>
     <data>
         <display>
         <title>198.House Robber</title>
         <pubTime>2016-08-14T06:57:20.000Z</pubTime>
         
         <tag>算法</tag>
+         
+        <tag>Leetcode</tag>
          
         <tag>动态规划</tag>
          
@@ -27,7 +29,7 @@
     
   <url>
     <loc>http://gentlemanczh.com/2016/08/13/algorithm1/</loc>
-    <lastmod>2016-08-14T06:57:30.605Z</lastmod>
+    <lastmod>2016-08-16T07:12:39.939Z</lastmod>
     <data>
         <display>
         <title>39.Combination Sum</title>
@@ -36,6 +38,8 @@
         <tag>算法</tag>
          
         <tag>回溯法</tag>
+         
+        <tag>Leetcode</tag>
          
          
            
@@ -369,9 +373,9 @@
         
         <tag>Hexo</tag>
          
-        <tag>Blog</tag>
-         
         <tag>Git</tag>
+         
+        <tag>Blog</tag>
          
          
            
