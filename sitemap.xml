@@ -2,9 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://gentlemanczh.com/2016/08/21/ES6_2/</loc>
+    
+    <lastmod>2016-08-21T13:26:09.779Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://gentlemanczh.com/2016/08/21/ES6_1/</loc>
+    
+    <lastmod>2016-08-21T10:05:59.053Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://gentlemanczh.com/2016/08/16/algorithm3/</loc>
     
-    <lastmod>2016-08-16T08:48:37.889Z</lastmod>
+    <lastmod>2016-08-16T08:56:39.635Z</lastmod>
     
   </url>
   

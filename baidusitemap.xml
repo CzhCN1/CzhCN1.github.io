@@ -4,8 +4,58 @@
 
     
   <url>
+    <loc>http://gentlemanczh.com/2016/08/21/ES6_2/</loc>
+    <lastmod>2016-08-21T13:26:09.779Z</lastmod>
+    <data>
+        <display>
+        <title>ES6入门(1) let和const</title>
+        <pubTime>2016-08-21T11:35:17.000Z</pubTime>
+        
+        <tag>ES6</tag>
+         
+        <tag>let const</tag>
+         
+         
+           
+             
+              <breadCrumb title="前端" url="http://gentlemanczh.com/categories/%E5%89%8D%E7%AB%AF/"/>
+          
+             
+              <breadCrumb title="JavaScript" url="http://gentlemanczh.com/categories/%E5%89%8D%E7%AB%AF/JavaScript/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://gentlemanczh.com/2016/08/21/ES6_1/</loc>
+    <lastmod>2016-08-21T10:05:59.053Z</lastmod>
+    <data>
+        <display>
+        <title>ES6入门(1) ES6简介和Babel安装</title>
+        <pubTime>2016-08-21T08:37:10.000Z</pubTime>
+        
+        <tag>ES6</tag>
+         
+        <tag>babel</tag>
+         
+         
+           
+             
+              <breadCrumb title="前端" url="http://gentlemanczh.com/categories/%E5%89%8D%E7%AB%AF/"/>
+          
+             
+              <breadCrumb title="JavaScript" url="http://gentlemanczh.com/categories/%E5%89%8D%E7%AB%AF/JavaScript/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://gentlemanczh.com/2016/08/16/algorithm3/</loc>
-    <lastmod>2016-08-16T08:48:37.889Z</lastmod>
+    <lastmod>2016-08-16T08:56:39.635Z</lastmod>
     <data>
         <display>
         <title>169. Majority Element && 229. Majority Element II</title>

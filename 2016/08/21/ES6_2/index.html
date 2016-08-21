@@ -1,0 +1,755 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+  <meta name="baidu-site-verification" content="JdHLQH7yKs" />
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="ES6,let const," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="前言&amp;emsp;&amp;emsp;在ES6中，提出了两种新的变量声明类关键字let和const。let和const的出现是希望取代之前我们使用频率最高的关键var，弥补了JavaScript中缺失块级作用域的不足,也为JavaScript早先设计时的缺陷填坑。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ES6入门(1) let和const">
+<meta property="og:url" content="http://gentlemanczh.com/2016/08/21/ES6_2/index.html">
+<meta property="og:site_name" content="Czh's Blog">
+<meta property="og:description" content="前言&amp;emsp;&amp;emsp;在ES6中，提出了两种新的变量声明类关键字let和const。let和const的出现是希望取代之前我们使用频率最高的关键var，弥补了JavaScript中缺失块级作用域的不足,也为JavaScript早先设计时的缺陷填坑。">
+<meta property="og:image" content="http://7xk5u3.com1.z0.glb.clouddn.com/ES6_2_1.png">
+<meta property="og:updated_time" content="2016-08-21T13:26:09.779Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="ES6入门(1) let和const">
+<meta name="twitter:description" content="前言&amp;emsp;&amp;emsp;在ES6中，提出了两种新的变量声明类关键字let和const。let和const的出现是希望取代之前我们使用频率最高的关键var，弥补了JavaScript中缺失块级作用域的不足,也为JavaScript早先设计时的缺陷填坑。">
+<meta name="twitter:image" content="http://7xk5u3.com1.z0.glb.clouddn.com/ES6_2_1.png">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"always"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 13429857,
+      author: 'Czh'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://gentlemanczh.com/2016/08/21/ES6_2/"/>
+
+  <title> ES6入门(1) let和const | Czh's Blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?675a555ba2a4282ddb42b9028107d56c";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Czh's Blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">闭门造车，出门合辙</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/worklist" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-code"></i> <br />
+            
+            作品库
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                ES6入门(1) let和const
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-08-21T19:35:17+08:00" content="2016-08-21">
+              2016-08-21
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/前端/" itemprop="url" rel="index">
+                    <span itemprop="name">前端</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/前端/JavaScript/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/08/21/ES6_2/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/21/ES6_2/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>&emsp;&emsp;在ES6中，提出了两种新的变量声明类关键字<code>let</code>和<code>const</code>。<code>let</code>和<code>const</code>的出现是希望取代之前我们使用频率最高的关键<code>var</code>，弥补了JavaScript中缺失块级作用域的不足,也为JavaScript早先设计时的缺陷填坑。<br><a id="more"></a></p>
+<h2 id="let关键字"><a href="#let关键字" class="headerlink" title="let关键字"></a>let关键字</h2><h3 id="局部作用域"><a href="#局部作用域" class="headerlink" title="局部作用域"></a>局部作用域</h3><p>&emsp;&emsp;在之前的文章里，曾经讲到JavaScript中没有块级作用域只有函数作用域。因此在<code>if</code>、<code>for</code>中使用关键字<code>var</code>声明的变量会暴露到外部的作用域中，这会造成一些意想不到的问题。在js精粹中也将这点归结为JavaScript的毒瘤。</p>
+<p>&emsp;&emsp;因此在ES6中引入了新的let关键字，let关键字可以将变量绑定到所在的任意作用域中(该作用域为可以是块级作用域，一对大括号<code>{...}</code>之间就是一个块级作用域)，离开这个作用域该变量将无效。</p>
+<p>&emsp;&emsp;下面是<code>let</code>和<code>var</code>对照使用的一个例子(测试环境：Chrome浏览器 console):<br><img src="http://7xk5u3.com1.z0.glb.clouddn.com/ES6_2_1.png" alt="图1"></p>
+<p>&emsp;&emsp;在if的块级作用域中，声明了两个变量a和b。其中a使用<code>let</code>声明、b使用<code>var</code>声明。在if语句结束后，我们分别读取a和b变量，发现变量a未定义，而变量可以正常访问。这就是let和var的最大区别，let声明的变量会被绑定到块级作用域里，在其外部无法访问。</p>
+<h3 id="变量提升"><a href="#变量提升" class="headerlink" title="变量提升"></a>变量提升</h3><p>&emsp;&emsp;还有一个小区别，就是JavaScript的变量提升问题。大家都知道，用var声明的变量会被提升至作用域的前面。而用let声明的变量不再具有这个特点，首先变量由于绑定在块级作用域中不会被提前，而且在块级作用域中也没有被提升。<br>&emsp;&emsp;看下例，加深理解：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">console</span>.log(a);   <span class="comment">//Uncaught ReferenceError: a is not defined</span></div><div class="line"><span class="built_in">console</span>.log(b);   <span class="comment">//undefined</span></div><div class="line"><span class="keyword">if</span>(<span class="literal">true</span>)&#123;</div><div class="line">  <span class="built_in">console</span>.log(a); <span class="comment">//Uncaught ReferenceError: a is not defined</span></div><div class="line">  <span class="built_in">console</span>.log(b); <span class="comment">//undefined</span></div><div class="line">  <span class="keyword">let</span> a = <span class="number">1</span>;</div><div class="line">  <span class="keyword">var</span> b = <span class="number">2</span>;</div><div class="line">  <span class="built_in">console</span>.log(a); <span class="comment">// 1</span></div><div class="line">  <span class="built_in">console</span>.log(b); <span class="comment">// 2</span></div><div class="line">&#125;</div><div class="line"><span class="built_in">console</span>.log(a);   <span class="comment">// Uncaught ReferenceError: a is not defined</span></div><div class="line"><span class="built_in">console</span>.log(b);   <span class="comment">// 2</span></div></pre></td></tr></table></figure></p>
+<p>&emsp;&emsp;我们在程序中多处访问变量a和b，可以看到var和let的区别除了在块级作用域上体现，提升也不一样。var声明的变量会被提升，而let不具有此效果。如果你还不明白什么是变量的提升，可以看下例：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span>(<span class="literal">true</span>)&#123;</div><div class="line">  <span class="keyword">var</span> b = <span class="number">2</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> b;</div><div class="line"><span class="keyword">if</span>(<span class="literal">true</span>)&#123;</div><div class="line">  b = <span class="number">2</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>&emsp;&emsp;使用var声明的变量，变量的声明并不是var所在的位置，而是被提升在作用域的前面，只是在原位置处做赋值操作。因此上面第一段程序中，实际是按第二段程序的流程执行的。</p>
+<h3 id="全局对象的属性"><a href="#全局对象的属性" class="headerlink" title="全局对象的属性"></a>全局对象的属性</h3><p>&emsp;&emsp;全局对象是最顶层的对象，在浏览器环境指的是window对象，在Node.js指的是global对象。ES5之中，全局对象的属性与全局变量是等价的。如果一个变量没有使用var声明就直接赋值，该变量将默认称为全局对象的属性，即全局变量都作为全局对象的属性来保存。而<code>let</code>和<code>const</code>声明的全局变量不属于全局对象的属性。看下例：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> a = <span class="number">1</span>;</div><div class="line"><span class="keyword">var</span> b = <span class="number">2</span>;</div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(a); <span class="comment">// 1</span></div><div class="line"><span class="built_in">console</span>.log(b); <span class="comment">// 2</span></div><div class="line"><span class="built_in">console</span>.log(<span class="built_in">window</span>.a); <span class="comment">//undefined</span></div><div class="line"><span class="built_in">console</span>.log(<span class="built_in">window</span>.b); <span class="comment">// 2</span></div></pre></td></tr></table></figure></p>
+<h3 id="建议"><a href="#建议" class="headerlink" title="建议"></a>建议</h3><p>&emsp;&emsp;在使用for循环时，循环变量的声明我们可以使用let来进行声明，这样循环变量只在循环体中起作用。还有一个意想不到的好处，记得闭包的概念吗？看下面的例子:<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>;i &lt; <span class="number">3</span>; i++)&#123;</div><div class="line">  setTimeout(<span class="function"><span class="keyword">function</span> <span class="title">timer</span>(<span class="params"></span>)</span>&#123;</div><div class="line">      <span class="built_in">console</span>.log(i);</div><div class="line">  &#125;,<span class="number">1000</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>&emsp;&emsp;记得上面的答案吗？没错，是3、3、3。我们当时为了解决这个问题使用了闭包的方法，来保存循环变量的i值。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">for(var i = 0;i &lt; 3; i++)&#123;</div><div class="line">  (function(j)&#123;</div><div class="line">    setTimeout(function timer()&#123;</div><div class="line">      console.log(j);</div><div class="line">    &#125;,1000);</div><div class="line">  &#125;)(i)</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>&emsp;&emsp;我们利用IIFE在每次循环创建一个函数作用域，并将当前的循环变量传入该作用域中,当回调函数执行时会通过闭包访问到当时绑定的循环变量i。</p>
+<p>&emsp;&emsp;如今我们有了let关键字，可以将变量绑定在块级作用域中，再也不需要IIFE来为我们模拟创建块级作用域了。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span>(<span class="keyword">let</span> i = <span class="number">0</span>;i &lt; <span class="number">3</span>; i++)&#123;</div><div class="line">  setTimeout(<span class="function"><span class="keyword">function</span> <span class="title">timer</span>(<span class="params"></span>)</span>&#123;</div><div class="line">      <span class="built_in">console</span>.log(i);</div><div class="line">  &#125;,<span class="number">1000</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>&emsp;&emsp;也就是说，for循环头部的let声明再循环过程中不止被声明一次，每次迭代都会声明，并将其绑定在该块级作用域中。</p>
+<h2 id="const关键字"><a href="#const关键字" class="headerlink" title="const关键字"></a>const关键字</h2><p>&emsp;&emsp;<code>const</code>关键字同样可以用来声明块级作用域变量，但其值是固定的。这意味着const变量一旦声明就要立刻初始化赋值，之后任何试图修改值得操作都会引起操作。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span>(<span class="literal">true</span>)&#123;</div><div class="line">  <span class="keyword">const</span> a = <span class="number">1</span>;</div><div class="line">  <span class="keyword">var</span> b = <span class="number">2</span>;</div><div class="line"></div><div class="line">  a = <span class="number">3</span>;  <span class="comment">//Uncaught TypeError: Assignment to constant variable.</span></div><div class="line">  b = <span class="number">4</span>;</div><div class="line">&#125;</div><div class="line"><span class="built_in">console</span>.log(a); <span class="comment">//Uncaught ReferenceError: a is not defined</span></div><div class="line"><span class="built_in">console</span>.log(b); <span class="comment">// 4</span></div></pre></td></tr></table></figure></p>
+<p>&emsp;&emsp;<code>const</code>的其他特性与<code>let</code>一致，还要注意的就是这俩关键字声明的变量不得重复声明！<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> a = <span class="number">1</span>;</div><div class="line"><span class="keyword">var</span> a = <span class="number">2</span>;  <span class="comment">//正常</span></div><div class="line"></div><div class="line"><span class="keyword">let</span> b = <span class="number">1</span>;</div><div class="line"><span class="keyword">let</span> b = <span class="number">2</span>;  <span class="comment">//Uncaught TypeError: Identifier 'b' has already been declared</span></div></pre></td></tr></table></figure></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="http://7xk5u3.com1.z0.glb.clouddn.com/wechatpay.png" alt="Czh WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="http://7xk5u3.com1.z0.glb.clouddn.com/alipay.jpg" alt="Czh Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/ES6/" rel="tag">#ES6</a>
+          
+            <a href="/tags/let-const/" rel="tag">#let const</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/08/21/ES6_1/" rel="next" title="ES6入门(1) ES6简介和Babel安装">
+                <i class="fa fa-chevron-left"></i> ES6入门(1) ES6简介和Babel安装
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/08/21/ES6_2/"
+           data-title="ES6入门(1) let和const" data-url="http://gentlemanczh.com/2016/08/21/ES6_2/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="http://7xk5u3.com1.z0.glb.clouddn.com/f5e58bb0a39708803bcb60f4bd503798.jpg"
+               alt="Czh" />
+          <p class="site-author-name" itemprop="name">Czh</p>
+          <p class="site-description motion-element" itemprop="description">前端 新手猿</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">21</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">26</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/CzhCN1" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-block">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              友情链接
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://wy-ei.com/" title="wy-ei" target="_blank">wy-ei</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://my.csdn.net/Cooling88" title="Coohx" target="_blank">Coohx</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.ddhigh.com/" title="ddhigh" target="_blank">ddhigh</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#let关键字"><span class="nav-number">2.</span> <span class="nav-text">let关键字</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#局部作用域"><span class="nav-number">2.1.</span> <span class="nav-text">局部作用域</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#变量提升"><span class="nav-number">2.2.</span> <span class="nav-text">变量提升</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#全局对象的属性"><span class="nav-number">2.3.</span> <span class="nav-text">全局对象的属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#建议"><span class="nav-number">2.4.</span> <span class="nav-text">建议</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#const关键字"><span class="nav-number">3.</span> <span class="nav-text">const关键字</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Czh</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"CzhCN1"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    <script src="/vendors/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+  
+  
+  
+
+  
+
+  
+<script type="text/javascript" async src="//push.zhanzhang.baidu.com/push.js">
+</script>
+
+
+</body>
+</html>
