@@ -4,11 +4,36 @@
 
     
   <url>
-    <loc>http://gentlemanczh.com/2016/08/21/ES6_2/</loc>
-    <lastmod>2016-08-21T13:26:09.779Z</lastmod>
+    <loc>http://gentlemanczh.com/2016/08/22/ES6_3/</loc>
+    <lastmod>2016-08-22T13:20:26.522Z</lastmod>
     <data>
         <display>
-        <title>ES6入门(1) let和const</title>
+        <title>ES6入门(3) Arrow Function</title>
+        <pubTime>2016-08-22T08:26:33.000Z</pubTime>
+        
+        <tag>ES6</tag>
+         
+        <tag>箭头函数</tag>
+         
+         
+           
+             
+              <breadCrumb title="前端" url="http://gentlemanczh.com/categories/%E5%89%8D%E7%AB%AF/"/>
+          
+             
+              <breadCrumb title="JavaScript" url="http://gentlemanczh.com/categories/%E5%89%8D%E7%AB%AF/JavaScript/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://gentlemanczh.com/2016/08/21/ES6_2/</loc>
+    <lastmod>2016-08-21T13:30:18.027Z</lastmod>
+    <data>
+        <display>
+        <title>ES6入门(2) let和const</title>
         <pubTime>2016-08-21T11:35:17.000Z</pubTime>
         
         <tag>ES6</tag>
