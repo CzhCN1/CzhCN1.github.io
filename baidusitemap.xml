@@ -4,8 +4,33 @@
 
     
   <url>
+    <loc>http://gentlemanczh.com/2016/08/23/ES6_4/</loc>
+    <lastmod>2016-08-23T13:16:29.607Z</lastmod>
+    <data>
+        <display>
+        <title>ES6入门(4) for...of</title>
+        <pubTime>2016-08-23T12:17:00.000Z</pubTime>
+        
+        <tag>ES6</tag>
+         
+        <tag>遍历</tag>
+         
+         
+           
+             
+              <breadCrumb title="前端" url="http://gentlemanczh.com/categories/%E5%89%8D%E7%AB%AF/"/>
+          
+             
+              <breadCrumb title="JavaScript" url="http://gentlemanczh.com/categories/%E5%89%8D%E7%AB%AF/JavaScript/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://gentlemanczh.com/2016/08/22/ES6_3/</loc>
-    <lastmod>2016-08-22T13:20:26.522Z</lastmod>
+    <lastmod>2016-08-22T13:29:16.078Z</lastmod>
     <data>
         <display>
         <title>ES6入门(3) Arrow Function</title>

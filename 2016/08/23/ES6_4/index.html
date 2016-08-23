@@ -70,7 +70,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="JavaScript,类型检测," />
+  <meta name="keywords" content="ES6,遍历," />
 
 
 
@@ -86,27 +86,19 @@
 
 
 
-<meta name="description" content="前言　　JavaScript中有很多类型检测的方法：　　1. typeof　　2. instanceof　　3. Object.prototype.toString　　4. constructor　　5. duck type  
-　　各种方法都有它的用途和局限，下来我们依次分析各方法。">
+<meta name="description" content="前言&amp;emsp;&amp;emsp;我们都知道for...in循环用于对数组或者对象的属性进行循环操作。ES6中新引入的for...of循环功能与之相似，不同的是每次循环它提供的不是序号而是值。
+&amp;emsp;&amp;emsp;想想我们平常是如何遍历数组中每个元素的呢？我通常习惯这么写：12345678arr = [1,2,3,4,5];for(var i = 0, len = arr.length; i &amp;lt">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Js类型检测">
-<meta property="og:url" content="http://gentlemanczh.com/2016/07/21/typeof/index.html">
+<meta property="og:title" content="ES6入门(4) for...of">
+<meta property="og:url" content="http://gentlemanczh.com/2016/08/23/ES6_4/index.html">
 <meta property="og:site_name" content="Czh's Blog">
-<meta property="og:description" content="前言　　JavaScript中有很多类型检测的方法：　　1. typeof　　2. instanceof　　3. Object.prototype.toString　　4. constructor　　5. duck type  
-　　各种方法都有它的用途和局限，下来我们依次分析各方法。">
-<meta property="og:image" content="http://7xk5u3.com1.z0.glb.clouddn.com/typeof1.png">
-<meta property="og:image" content="http://7xk5u3.com1.z0.glb.clouddn.com/typeof2.png">
-<meta property="og:image" content="http://7xk5u3.com1.z0.glb.clouddn.com/typeof3.png">
-<meta property="og:image" content="http://7xk5u3.com1.z0.glb.clouddn.com/typeof4.png">
-<meta property="og:image" content="http://7xk5u3.com1.z0.glb.clouddn.com/typeof5.png">
-<meta property="og:image" content="http://7xk5u3.com1.z0.glb.clouddn.com/typeof6.png">
-<meta property="og:image" content="http://7xk5u3.com1.z0.glb.clouddn.com/typeof7.png">
-<meta property="og:updated_time" content="2016-07-21T14:03:57.050Z">
+<meta property="og:description" content="前言&amp;emsp;&amp;emsp;我们都知道for...in循环用于对数组或者对象的属性进行循环操作。ES6中新引入的for...of循环功能与之相似，不同的是每次循环它提供的不是序号而是值。
+&amp;emsp;&amp;emsp;想想我们平常是如何遍历数组中每个元素的呢？我通常习惯这么写：12345678arr = [1,2,3,4,5];for(var i = 0, len = arr.length; i &amp;lt">
+<meta property="og:updated_time" content="2016-08-23T13:16:29.607Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Js类型检测">
-<meta name="twitter:description" content="前言　　JavaScript中有很多类型检测的方法：　　1. typeof　　2. instanceof　　3. Object.prototype.toString　　4. constructor　　5. duck type  
-　　各种方法都有它的用途和局限，下来我们依次分析各方法。">
-<meta name="twitter:image" content="http://7xk5u3.com1.z0.glb.clouddn.com/typeof1.png">
+<meta name="twitter:title" content="ES6入门(4) for...of">
+<meta name="twitter:description" content="前言&amp;emsp;&amp;emsp;我们都知道for...in循环用于对数组或者对象的属性进行循环操作。ES6中新引入的for...of循环功能与之相似，不同的是每次循环它提供的不是序号而是值。
+&amp;emsp;&amp;emsp;想想我们平常是如何遍历数组中每个元素的呢？我通常习惯这么写：12345678arr = [1,2,3,4,5];for(var i = 0, len = arr.length; i &amp;lt">
 
 
 
@@ -127,9 +119,9 @@
 
 
 
-  <link rel="canonical" href="http://gentlemanczh.com/2016/07/21/typeof/"/>
+  <link rel="canonical" href="http://gentlemanczh.com/2016/08/23/ES6_4/"/>
 
-  <title> Js类型检测 | Czh's Blog </title>
+  <title> ES6入门(4) for...of | Czh's Blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -289,7 +281,7 @@
             
             
               
-                Js类型检测
+                ES6入门(4) for...of
               
             
           </h1>
@@ -301,8 +293,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-07-21T20:00:04+08:00" content="2016-07-21">
-              2016-07-21
+            <time itemprop="dateCreated" datetime="2016-08-23T20:17:00+08:00" content="2016-08-23">
+              2016-08-23
             </time>
           </span>
 
@@ -343,8 +335,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/07/21/typeof/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/07/21/typeof/" itemprop="commentsCount"></span>
+                <a href="/2016/08/23/ES6_4/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/23/ES6_4/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -367,32 +359,17 @@
       
 
       
-        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>　　JavaScript中有很多类型检测的方法：<br>　　1. typeof<br>　　2. instanceof<br>　　3. Object.prototype.toString<br>　　4. constructor<br>　　5. duck type  </p>
-<p>　　各种方法都有它的用途和局限，下来我们依次分析各方法。<br>    <a id="more"></a></p>
-<h2 id="typeof操作符"><a href="#typeof操作符" class="headerlink" title="typeof操作符"></a>typeof操作符</h2><p>　　typeof是用于判断变量、数值字面量的类型，而且typeof是个操作符，而不是一个方法。对一个值使用typeof操作符，可能返回下列中的某个字符串：  </p>
-<ul>
-<li>“undefined”————如果这个值未定义  </li>
-<li>“booldean” ————如果这个值是布尔值  </li>
-<li>“string”     ————如果这个值是字符串  </li>
-<li>“number”     ————如果这个值是数值  </li>
-<li>“object”     ————如果这个值是对象或null  </li>
-<li>“function” ————如果这个值是函数  </li>
-</ul>
-<p>　　以下是在chrome浏览器控制台下的测试结果：<br><img src="http://7xk5u3.com1.z0.glb.clouddn.com/typeof1.png" alt="">  </p>
-<h3 id="局限"><a href="#局限" class="headerlink" title="局限"></a>局限</h3><p>　　我们可以看到，对于这些基本数据类型、对象和函数可以准确判断。但你可能会发现，少了一个基本数据类型null，我们也可以测试一下看看：<br><img src="http://7xk5u3.com1.z0.glb.clouddn.com/typeof2.png" alt=""><br>　　跟上面讲的一样，null被判断为object类型，这其实是一个历史错误。  </p>
-<p>　　typeof只适用于基本类型检测。</p>
-<h2 id="instanceof操作符"><a href="#instanceof操作符" class="headerlink" title="instanceof操作符"></a>instanceof操作符</h2><p>　　instanceof操作符可以检测引用类型，如果变量是给定引用类型（由构造函数表示）的实例，那么instanceof就会返回true。<br>　　操作符左边的操作数必须是一个对象，而右边的操作数应该是一个函数对象或函数构造器。其原理就是判断左操作数这个对象的原型链上是否有右边这个构造函数的prototype对象属性。也就是说，instanceof是基于原型链判断类型的。<br>　　以下是简单的例子：<br>　　分别判断了正则表达式，数组，日期等类型，可以通过该操作符判断对象的是哪种类型的实例。<br><img src="http://7xk5u3.com1.z0.glb.clouddn.com/typeof3.png" alt="">  </p>
-<p>　　自己定义的构造函数和实例也可以使用该方法：  </p>
-<p><img src="http://7xk5u3.com1.z0.glb.clouddn.com/typeof4.png" alt="">  </p>
-<p>　　要注意的是，根据规定所有引用类型的值都是Object实例。因此在检测一个引用类型值和Object构造函数时，instanceof操作符始终都会返回true。如果你了解原型链，那么就很容易理解这点了。<br><img src="http://7xk5u3.com1.z0.glb.clouddn.com/typeof5.png" alt="">  </p>
-<h3 id="局限-1"><a href="#局限-1" class="headerlink" title="局限"></a>局限</h3><p>　　如果用instanceof操作符检测基本类型的值，则会报错。  </p>
-<h2 id="Object-prototype-toString方法"><a href="#Object-prototype-toString方法" class="headerlink" title="Object.prototype.toString方法"></a>Object.prototype.toString方法</h2><p>　　想要判断某个对象值属于哪种内置类型,最靠谱的做法就是通过Object.prototype.toString方法。该方法可以判断任何对象，并准确的给出其类型。其具体的用法为 <code>Object.prototype.toString.apply( )</code>，需要判断的内容放在括号中即可。下面是一些例子：  </p>
-<p><img src="http://7xk5u3.com1.z0.glb.clouddn.com/typeof6.png" alt="">  </p>
-<h2 id="constructor属性"><a href="#constructor属性" class="headerlink" title="constructor属性"></a>constructor属性</h2><p>　　对象的constructor属性用于返回创建该对象的函数，也就是我们常说的构造函数。在JavaScript中，每个具有原型的对象都会自动获得constructor属性。除了arguments、Enumerator、Error、Global、Math、RegExp、Regular Expression等一些特殊对象之外，其他所有的JavaScript内置对象都具备constructor属性。例如：Array、Boolean、Date、Function、Number、Object、String等。<br>　　因此我们可以通过判断对象的constructor属性来判断其类型，这与第二条instanceof有点类似。<br><img src="http://7xk5u3.com1.z0.glb.clouddn.com/typeof7.png" alt="">  </p>
-<h2 id="duck-type-鸭子类型"><a href="#duck-type-鸭子类型" class="headerlink" title="duck type 鸭子类型"></a>duck type 鸭子类型</h2><blockquote>
-<p>“当看到一只鸟走起来像鸭子、游泳起来像鸭子、叫起来也像鸭子，那么这只鸟就可以被称为鸭子。”  </p>
-</blockquote>
-<p>　　每种数据类型，都有其独有的方法或属性。那我们如果检测到被判断的对象具有这些属性或者方法的话，那我们也就可以认为这个对象的类型。</p>
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>&emsp;&emsp;我们都知道<code>for...in</code>循环用于对数组或者对象的属性进行循环操作。ES6中新引入的<code>for...of</code>循环功能与之相似，不同的是每次循环它提供的不是序号而是值。</p>
+<p>&emsp;&emsp;想想我们平常是如何遍历数组中每个元素的呢？我通常习惯这么写：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">arr = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>];</div><div class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>, len = arr.length; i &lt; len; i++)&#123;</div><div class="line">  <span class="built_in">console</span>.log(arr[i]);</div><div class="line">&#125;</div><div class="line"></div><div class="line">arr.forEach(<span class="function"><span class="keyword">function</span>(<span class="params">item</span>)</span>&#123;</div><div class="line">  <span class="built_in">console</span>.log(item);</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+<p>&emsp;&emsp;第一种方法常用但比较复杂繁琐，第二种方法简洁了，但是你不能用<code>break</code>跳出遍历的过程。</p>
+<p>&emsp;&emsp;因此，在ES6中引入了更加便捷的方法<code>for...of</code>。最近一直在用JavaScript做算法题,自从用了<code>for...of</code>后简直爱不释手。<br><a id="more"></a></p>
+<h2 id="基本语法"><a href="#基本语法" class="headerlink" title="基本语法"></a>基本语法</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>];</div><div class="line"><span class="keyword">for</span>(<span class="keyword">var</span> value <span class="keyword">of</span> arr)&#123;</div><div class="line">  <span class="built_in">console</span>.log(value);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>&emsp;&emsp;使用起来十分的简洁、方便，再也不需要考虑数组长度、结束判定关系了，而且可以在想要中断循环遍历的时候使用<code>break</code>。</p>
+<h2 id="使用对象"><a href="#使用对象" class="headerlink" title="使用对象"></a>使用对象</h2><p>&emsp;&emsp;<code>foo...of</code>不仅可以用来循环遍历数组，也可以用来字符串的遍历,它会从头逐个遍历每一个字符。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">var str = &quot;czh&quot;;</div><div class="line">for(var value of str)&#123;</div><div class="line">  console.log(value);</div><div class="line">&#125;</div><div class="line"></div><div class="line">// c</div><div class="line">// z</div><div class="line">// h</div></pre></td></tr></table></figure></p>
+<p>&emsp;&emsp;除此之外还可以用于Map和Set对象，这两个都是ES6新增的数据结构，之后会有详细讲解。</p>
+<h2 id="in和of的区别"><a href="#in和of的区别" class="headerlink" title="in和of的区别"></a>in和of的区别</h2><p>&emsp;&emsp;那么<code>for...in</code>和<code>for...of</code>有什么区别吗？当然有。我们通常用<code>for...in</code>遍历对象的所有可枚举属性，例如:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">var obj= &#123;</div><div class="line">  a:1,</div><div class="line">  b:2,</div><div class="line">  c:3</div><div class="line">&#125;;</div><div class="line">for(var key in obj)&#123;</div><div class="line">  console.log(key);</div><div class="line">&#125;</div><div class="line"></div><div class="line">//a</div><div class="line">//b</div><div class="line">//c</div></pre></td></tr></table></figure></p>
+<p>&emsp;&emsp;上例中就是用<code>for...in</code>循环，遍历了对象中的所有<strong>属性名</strong>，而非属性值！如果我们要<code>for...of</code>直接遍历对象会怎么样？会直接报错！<br>&emsp;&emsp;我们都知道数组实际上是一个特殊的对象，因此也可以使用<code>for...in</code>。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> arr = [<span class="string">'a'</span>,<span class="string">'b'</span>,<span class="string">'c'</span>];</div><div class="line"><span class="keyword">for</span>(<span class="keyword">var</span> key <span class="keyword">in</span> arr)&#123;</div><div class="line">  <span class="built_in">console</span>.log(key);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// 0</span></div><div class="line"><span class="comment">// 1</span></div><div class="line"><span class="comment">// 2</span></div></pre></td></tr></table></figure></p>
+<p>&emsp;&emsp;我们看到结果并不是数组中的内容，而是其索引下标。这是因为数组对象它的属性名就是每个索引，属性值为对应下标下的数组元素。也就说明了，<code>for...in</code>是对数组的索引进行遍历，<code>for...of</code>是对数组的值进行遍历。</p>
 
       
     </div>
@@ -435,9 +412,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/JavaScript/" rel="tag">#JavaScript</a>
+            <a href="/tags/ES6/" rel="tag">#ES6</a>
           
-            <a href="/tags/类型检测/" rel="tag">#类型检测</a>
+            <a href="/tags/遍历/" rel="tag">#遍历</a>
           
         </div>
       
@@ -446,17 +423,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/07/16/selector/" rel="next" title="原生JavaScript选择器">
-                <i class="fa fa-chevron-left"></i> 原生JavaScript选择器
+              <a href="/2016/08/22/ES6_3/" rel="next" title="ES6入门(3) Arrow Function">
+                <i class="fa fa-chevron-left"></i> ES6入门(3) Arrow Function
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/08/06/prototype/" rel="prev" title="对原型链的简单理解">
-                对原型链的简单理解 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -488,8 +461,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/07/21/typeof/"
-           data-title="Js类型检测" data-url="http://gentlemanczh.com/2016/07/21/typeof/">
+      <div class="ds-thread" data-thread-key="2016/08/23/ES6_4/"
+           data-title="ES6入门(4) for...of" data-url="http://gentlemanczh.com/2016/08/23/ES6_4/">
       </div>
     
   </div>
@@ -613,7 +586,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#typeof操作符"><span class="nav-number">2.</span> <span class="nav-text">typeof操作符</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#局限"><span class="nav-number">2.1.</span> <span class="nav-text">局限</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#instanceof操作符"><span class="nav-number">3.</span> <span class="nav-text">instanceof操作符</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#局限-1"><span class="nav-number">3.1.</span> <span class="nav-text">局限</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Object-prototype-toString方法"><span class="nav-number">4.</span> <span class="nav-text">Object.prototype.toString方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#constructor属性"><span class="nav-number">5.</span> <span class="nav-text">constructor属性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#duck-type-鸭子类型"><span class="nav-number">6.</span> <span class="nav-text">duck type 鸭子类型</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#基本语法"><span class="nav-number">2.</span> <span class="nav-text">基本语法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用对象"><span class="nav-number">3.</span> <span class="nav-text">使用对象</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#in和of的区别"><span class="nav-number">4.</span> <span class="nav-text">in和of的区别</span></a></li></ol></div>
             
           </div>
         </section>

@@ -280,6 +280,143 @@
             
               
                 
+                <a class="post-title-link" href="/2016/08/23/ES6_4/" itemprop="url">
+                  ES6入门(4) for...of
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-08-23T20:17:00+08:00" content="2016-08-23">
+              2016-08-23
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/前端/" itemprop="url" rel="index">
+                    <span itemprop="name">前端</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/前端/JavaScript/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/08/23/ES6_4/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/23/ES6_4/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>&emsp;&emsp;我们都知道<code>for...in</code>循环用于对数组或者对象的属性进行循环操作。ES6中新引入的<code>for...of</code>循环功能与之相似，不同的是每次循环它提供的不是序号而是值。</p>
+<p>&emsp;&emsp;想想我们平常是如何遍历数组中每个元素的呢？我通常习惯这么写：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">arr = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>];</div><div class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>, len = arr.length; i &lt; len; i++)&#123;</div><div class="line">  <span class="built_in">console</span>.log(arr[i]);</div><div class="line">&#125;</div><div class="line"></div><div class="line">arr.forEach(<span class="function"><span class="keyword">function</span>(<span class="params">item</span>)</span>&#123;</div><div class="line">  <span class="built_in">console</span>.log(item);</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+<p>&emsp;&emsp;第一种方法常用但比较复杂繁琐，第二种方法简洁了，但是你不能用<code>break</code>跳出遍历的过程。</p>
+<p>&emsp;&emsp;因此，在ES6中引入了更加便捷的方法<code>for...of</code>。最近一直在用JavaScript做算法题,自从用了<code>for...of</code>后简直爱不释手。<br>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/08/23/ES6_4/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/08/22/ES6_3/" itemprop="url">
                   ES6入门(3) Arrow Function
                 </a>
@@ -361,27 +498,12 @@
 
       
         
-          
-            <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>&emsp;&emsp;ES6中除了变量有了新的生命吗方式，函数也有了新的定义方法。ES6允许用“胖箭头<code>=&gt;</code>”定义函数。<code>var f = v =&gt; v;</code>，这样的一条语句就定义了一个函数。等价的ES5代码如下：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> f = <span class="function"><span class="keyword">function</span>(<span class="params">v</span>)</span>&#123;</div><div class="line">  <span class="keyword">return</span> v;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<h2 id="出现的意义"><a href="#出现的意义" class="headerlink" title="出现的意义"></a>出现的意义</h2><p>&emsp;&emsp;在JavaScript中需要大量的使用回调函数，之前的回调函数通常是以匿名函数的方式来写，总要写一个function。当引入箭头操作符后就可以很方便的写回调函数了。下面是一组对照例子：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//ES5写法</span></div><div class="line">[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>].map(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">return</span> x * x;</div><div class="line">&#125;);</div><div class="line"></div><div class="line"><span class="comment">//ES6写法</span></div><div class="line">[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>].map(x =&gt; x * x);</div></pre></td></tr></table></figure></p>
-<p>&emsp;&emsp;是不是简化了很多，但个人感觉要是回调函数比较复杂，这样的写法可能没有之前的结构清晰。</p>
-<h2 id="箭头函数的语法"><a href="#箭头函数的语法" class="headerlink" title="箭头函数的语法"></a>箭头函数的语法</h2><h4 id="1-具有一个参数的简单函数"><a href="#1-具有一个参数的简单函数" class="headerlink" title="1. 具有一个参数的简单函数"></a>1. 具有一个参数的简单函数</h4><p>胖箭头前的变量a为传入函数的参数，胖箭头后面为函数要返回的参数。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> foo = a =&gt; a;</div><div class="line"></div><div class="line"><span class="comment">//对应ES5代码</span></div><div class="line"><span class="keyword">var</span> foo = <span class="function"><span class="keyword">function</span>(<span class="params">a</span>)</span>&#123;</div><div class="line">  <span class="keyword">return</span> a;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<h4 id="2-没有参数的函数"><a href="#2-没有参数的函数" class="headerlink" title="2. 没有参数的函数"></a>2. 没有参数的函数</h4><p>没有参数的需要用在箭头前加上小括号<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> foo = () =&gt; <span class="literal">true</span>;</div><div class="line"></div><div class="line"><span class="comment">//对应ES5代码</span></div><div class="line"><span class="keyword">var</span> foo = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">  <span class="keyword">return</span> <span class="literal">true</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<h4 id="3-多个参数的函数"><a href="#3-多个参数的函数" class="headerlink" title="3. 多个参数的函数"></a>3. 多个参数的函数</h4><p>多个参数需要用到小括号，参数间逗号间隔<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> foo = (a , b) =&gt; a + b;</div><div class="line"></div><div class="line"><span class="comment">//对应ES5代码</span></div><div class="line"><span class="keyword">var</span> foo = <span class="function"><span class="keyword">function</span>(<span class="params">a , b</span>)</span>&#123;</div><div class="line">  <span class="keyword">return</span> a + b;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<h4 id="4-函数体包含多条语句"><a href="#4-函数体包含多条语句" class="headerlink" title="4. 函数体包含多条语句"></a>4. 函数体包含多条语句</h4><p>当函数体有多条语句，则需要用到大括号。这样就和以前的写法很类似了。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> foo = (a , b) =&gt; &#123;</div><div class="line">  <span class="keyword">if</span>(a &gt; b)&#123;</div><div class="line">    <span class="keyword">return</span> a;</div><div class="line">  &#125;<span class="keyword">else</span>&#123;</div><div class="line">    <span class="keyword">return</span> b;</div><div class="line">  &#125;</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="comment">//对应ES5代码</span></div><div class="line"><span class="keyword">var</span> foo = <span class="function"><span class="keyword">function</span>(<span class="params">a , b</span>)</span>&#123;</div><div class="line">  <span class="keyword">if</span>(a &gt; b)&#123;</div><div class="line">    <span class="keyword">return</span> a;</div><div class="line">  &#125;<span class="keyword">else</span>&#123;</div><div class="line">    <span class="keyword">return</span> b;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<h4 id="5-函数返回值为一个对象"><a href="#5-函数返回值为一个对象" class="headerlink" title="5. 函数返回值为一个对象"></a>5. 函数返回值为一个对象</h4><p>当返回对象时需要用小括号包起来，因为大括号被占用解释为代码块了。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> foo = (name,age) =&gt; &#123;</div><div class="line">  <span class="keyword">return</span> (&#123;</div><div class="line">      name: name,</div><div class="line">      age : age</div><div class="line">  &#125;)</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">//对应ES5代码</span></div><div class="line"><span class="keyword">var</span> foo = <span class="function"><span class="keyword">function</span>(<span class="params">name,age</span>)</span>&#123;</div><div class="line">  <span class="keyword">return</span> &#123;</div><div class="line">    name : name,</div><div class="line">    age : age</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<h4 id="6-作为回调的匿名函数"><a href="#6-作为回调的匿名函数" class="headerlink" title="6. 作为回调的匿名函数"></a>6. 作为回调的匿名函数</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//ES6写法</span></div><div class="line">[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>].map(x =&gt; x * x);</div><div class="line"></div><div class="line"><span class="comment">//ES5写法</span></div><div class="line">[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>].map(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">return</span> x * x;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
-<h2 id="与function的不同！"><a href="#与function的不同！" class="headerlink" title="与function的不同！"></a>与function的不同！</h2><p>&emsp;&emsp;箭头关键字定义的函数与用传统function定义的函数不止是结构上不同，还有些值得注意的区别！</p>
-<h4 id="1-函数体内的this对象，就是定义时所在的对象，而不是使用时所在的对象。"><a href="#1-函数体内的this对象，就是定义时所在的对象，而不是使用时所在的对象。" class="headerlink" title="1. 函数体内的this对象，就是定义时所在的对象，而不是使用时所在的对象。"></a>1. 函数体内的this对象，就是定义时所在的对象，而不是使用时所在的对象。</h4><p>&emsp;&emsp;在使用回调函数时，我们通常要非常小心的处理this，因为this不一定就是当时回调函数定义的作用域。必要时我们需要用bind、call、apply来硬绑定this。<br>&emsp;&emsp;而箭头函数内的this对象，就是定义所在的对象。看例子：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//ES5 使用function定义函数</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.id);</div><div class="line">  &#125;, <span class="number">100</span>);</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> id = <span class="number">21</span>;</div><div class="line"></div><div class="line">foo.call(&#123; id: <span class="number">42</span> &#125;);   <span class="comment">// 21</span></div></pre></td></tr></table></figure></p>
-<p>&emsp;&emsp;在foo函数内部有一个定时器，它的回调函数会打印出<code>this.id</code>。我们将foo函数的this绑定到id为42的对象上,其最终结果是21，这并不出乎我们的意料。因为setTimeout是被window对象所调用，因此其回调函数的this自然指向的是window对象。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//ES6 使用箭头函数</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  setTimeout(() =&gt; &#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">'id:'</span>, <span class="keyword">this</span>.id);</div><div class="line">  &#125;, <span class="number">100</span>);</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> id = <span class="number">21</span>;</div><div class="line"></div><div class="line">foo.call(&#123; id: <span class="number">42</span> &#125;);   <span class="comment">//42</span></div></pre></td></tr></table></figure>
-<p>&emsp;&emsp;最终的结果是42，而非21。这也就说明了，箭头函数体内的this对象，就是定义时所在的对象。这个函数是在foo内部定义的，因此回调函数的this就绑定为foo函数的this。</p>
-<p>&emsp;&emsp;然而这样的说法并不准确，this指向的固定化，并不是因为箭头函数内部有绑定this的机制，实际原因是箭头函数根本没有自己的this，导致内部的this就是外层代码块的this。</p>
-<p>&emsp;&emsp;由于箭头函数没有自己的this，所以当然也就不能用call()、apply()、bind()这些方法去改变this的指向。</p>
-<h4 id="2-不可以当作构造函数，也就是说，不可以使用new命令，否则会抛出一个错误。"><a href="#2-不可以当作构造函数，也就是说，不可以使用new命令，否则会抛出一个错误。" class="headerlink" title="2. 不可以当作构造函数，也就是说，不可以使用new命令，否则会抛出一个错误。"></a>2. 不可以当作构造函数，也就是说，不可以使用new命令，否则会抛出一个错误。</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> Foo = a =&gt; &#123;<span class="keyword">this</span>.a = a&#125;;</div><div class="line"><span class="keyword">var</span> f = <span class="keyword">new</span> Foo(<span class="number">2</span>);   <span class="comment">//Uncaught TypeError: Foo is not a constructor</span></div></pre></td></tr></table></figure>
-<h4 id="3-不可以使用arguments对象，该对象在箭头函数体内不存在。如果要用，可以用Rest参数代替。rest是ES6带来的一个新的对象，可以拿到除开始参数外的剩余参数，之后会再详细讲解。"><a href="#3-不可以使用arguments对象，该对象在箭头函数体内不存在。如果要用，可以用Rest参数代替。rest是ES6带来的一个新的对象，可以拿到除开始参数外的剩余参数，之后会再详细讲解。" class="headerlink" title="3. 不可以使用arguments对象，该对象在箭头函数体内不存在。如果要用，可以用Rest参数代替。rest是ES6带来的一个新的对象，可以拿到除开始参数外的剩余参数，之后会再详细讲解。"></a>3. 不可以使用arguments对象，该对象在箭头函数体内不存在。如果要用，可以用Rest参数代替。rest是ES6带来的一个新的对象，可以拿到除开始参数外的剩余参数，之后会再详细讲解。</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> func = () =&gt; &#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="built_in">arguments</span>)</div><div class="line">&#125;</div><div class="line">func(<span class="number">2</span>);  <span class="comment">//Uncaught ReferenceError: arguments is not defined</span></div></pre></td></tr></table></figure>
-
-          
+          <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>&emsp;&emsp;ES6中除了变量有了新的生命吗方式，函数也有了新的定义方法。ES6允许用“胖箭头<code>=&gt;</code>”定义函数。<code>var f = v =&gt; v;</code>，这样的一条语句就定义了一个函数。等价的ES5代码如下：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> f = <span class="function"><span class="keyword">function</span>(<span class="params">v</span>)</span>&#123;</div><div class="line">  <span class="keyword">return</span> v;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/08/22/ES6_3/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
@@ -1478,141 +1600,6 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/08/08/ closure/" itemprop="url">
-                  关于JavaScript的作用域及闭包
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-08-08T20:44:37+08:00" content="2016-08-08">
-              2016-08-08
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/前端/" itemprop="url" rel="index">
-                    <span itemprop="name">前端</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/前端/JavaScript/" itemprop="url" rel="index">
-                    <span itemprop="name">JavaScript</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/08/08/ closure/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/08/ closure/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>&emsp;&emsp;作用域的概念十分重要，对于深入了解JavaScript内部的运行原理有很重要的意义。闭包是个神奇而且十分有用的东西，而却不容易理解。所以，打算把我对其的理解写出来，加深自己的印象。</p>
-<h2 id="作用域"><a href="#作用域" class="headerlink" title="作用域"></a>作用域</h2><p>&emsp;&emsp;作用域实际上是根据名称查找变量的一套规则，这套规则用来管理引擎如何在当前作用域以及嵌套的子作用域中根据标识符名称进行变量查找。<br>&emsp;&emsp;可能有点拗口，举个例子：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params">a</span>)</span>&#123;</div><div class="line">  <span class="keyword">var</span> b = a * <span class="number">2</span>;</div><div class="line">  <span class="function"><span class="keyword">function</span> <span class="title">bar</span>(<span class="params">c</span>)</span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(a,b,c);</div><div class="line">  &#125;</div><div class="line">  bar(b * <span class="number">3</span>);</div><div class="line">&#125;</div><div class="line">foo(<span class="number">2</span>);   <span class="comment">//2 4 12</span></div></pre></td></tr></table></figure></p>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/08/08/ closure/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1658,7 +1645,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">22</span>
+              <span class="site-state-item-count">23</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -1675,7 +1662,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">27</span>
+                <span class="site-state-item-count">28</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

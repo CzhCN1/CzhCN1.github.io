@@ -2,9 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://gentlemanczh.com/2016/08/23/ES6_4/</loc>
+    
+    <lastmod>2016-08-23T13:16:29.607Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://gentlemanczh.com/2016/08/22/ES6_3/</loc>
     
-    <lastmod>2016-08-22T13:20:26.522Z</lastmod>
+    <lastmod>2016-08-22T13:29:16.078Z</lastmod>
     
   </url>
   
@@ -170,14 +177,14 @@
   </url>
   
   <url>
-    <loc>http://gentlemanczh.com/worklist/worklist.css</loc>
+    <loc>http://gentlemanczh.com/about/about.css</loc>
     
     <lastmod>2016-07-05T09:46:27.582Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://gentlemanczh.com/about/about.css</loc>
+    <loc>http://gentlemanczh.com/worklist/worklist.css</loc>
     
     <lastmod>2016-07-05T09:46:27.582Z</lastmod>
     
