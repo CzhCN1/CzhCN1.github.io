@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://gentlemanczh.com/2016/08/24/ES6_6/</loc>
+    
+    <lastmod>2016-08-24T12:23:23.558Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://gentlemanczh.com/2016/08/24/ES6_5/</loc>
+    
+    <lastmod>2016-08-24T10:52:00.335Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://gentlemanczh.com/2016/08/23/ES6_4/</loc>
     
     <lastmod>2016-08-23T13:16:29.607Z</lastmod>
@@ -177,14 +191,14 @@
   </url>
   
   <url>
-    <loc>http://gentlemanczh.com/about/about.css</loc>
+    <loc>http://gentlemanczh.com/worklist/worklist.css</loc>
     
     <lastmod>2016-07-05T09:46:27.582Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://gentlemanczh.com/worklist/worklist.css</loc>
+    <loc>http://gentlemanczh.com/about/about.css</loc>
     
     <lastmod>2016-07-05T09:46:27.582Z</lastmod>
     

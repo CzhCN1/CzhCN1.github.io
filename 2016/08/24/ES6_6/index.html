@@ -70,7 +70,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="算法,Leetcode,动态规划," />
+  <meta name="keywords" content="ES6,rest参数,扩展运算符," />
 
 
 
@@ -86,19 +86,19 @@
 
 
 
-<meta name="description" content="题目：
-You are a professional robber planning to rob houses along a street. Each house has a certain amount of money stashed, the only constraint stopping you from robbing each of them is that adjacent h">
+<meta name="description" content="rest参数&amp;emsp;&amp;emsp;ES6引入rest参数（形式为“…变量名”），用于获取函数的多余参数，这样就不需要使用arguments对象了。rest参数搭配的变量是一个数组，该变量将多余的参数放入数组中。
+基本用法12345678910111213//不一定是...rest,也可以用其他变量名function foo(a, ...rest) &amp;#123;  console.log(a);">
 <meta property="og:type" content="article">
-<meta property="og:title" content="198.House Robber">
-<meta property="og:url" content="http://gentlemanczh.com/2016/08/14/algorithm2/index.html">
+<meta property="og:title" content="ES6入门(6) rest参数和扩展运算符">
+<meta property="og:url" content="http://gentlemanczh.com/2016/08/24/ES6_6/index.html">
 <meta property="og:site_name" content="Czh's Blog">
-<meta property="og:description" content="题目：
-You are a professional robber planning to rob houses along a street. Each house has a certain amount of money stashed, the only constraint stopping you from robbing each of them is that adjacent h">
-<meta property="og:updated_time" content="2016-08-16T07:12:41.006Z">
+<meta property="og:description" content="rest参数&amp;emsp;&amp;emsp;ES6引入rest参数（形式为“…变量名”），用于获取函数的多余参数，这样就不需要使用arguments对象了。rest参数搭配的变量是一个数组，该变量将多余的参数放入数组中。
+基本用法12345678910111213//不一定是...rest,也可以用其他变量名function foo(a, ...rest) &amp;#123;  console.log(a);">
+<meta property="og:updated_time" content="2016-08-24T12:23:23.558Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="198.House Robber">
-<meta name="twitter:description" content="题目：
-You are a professional robber planning to rob houses along a street. Each house has a certain amount of money stashed, the only constraint stopping you from robbing each of them is that adjacent h">
+<meta name="twitter:title" content="ES6入门(6) rest参数和扩展运算符">
+<meta name="twitter:description" content="rest参数&amp;emsp;&amp;emsp;ES6引入rest参数（形式为“…变量名”），用于获取函数的多余参数，这样就不需要使用arguments对象了。rest参数搭配的变量是一个数组，该变量将多余的参数放入数组中。
+基本用法12345678910111213//不一定是...rest,也可以用其他变量名function foo(a, ...rest) &amp;#123;  console.log(a);">
 
 
 
@@ -119,9 +119,9 @@ You are a professional robber planning to rob houses along a street. Each house 
 
 
 
-  <link rel="canonical" href="http://gentlemanczh.com/2016/08/14/algorithm2/"/>
+  <link rel="canonical" href="http://gentlemanczh.com/2016/08/24/ES6_6/"/>
 
-  <title> 198.House Robber | Czh's Blog </title>
+  <title> ES6入门(6) rest参数和扩展运算符 | Czh's Blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -281,7 +281,7 @@ You are a professional robber planning to rob houses along a street. Each house 
             
             
               
-                198.House Robber
+                ES6入门(6) rest参数和扩展运算符
               
             
           </h1>
@@ -293,8 +293,8 @@ You are a professional robber planning to rob houses along a street. Each house 
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-08-14T14:57:20+08:00" content="2016-08-14">
-              2016-08-14
+            <time itemprop="dateCreated" datetime="2016-08-24T18:54:59+08:00" content="2016-08-24">
+              2016-08-24
             </time>
           </span>
 
@@ -307,8 +307,20 @@ You are a professional robber planning to rob houses along a street. Each house 
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/算法/" itemprop="url" rel="index">
-                    <span itemprop="name">算法</span>
+                  <a href="/categories/前端/" itemprop="url" rel="index">
+                    <span itemprop="name">前端</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/前端/JavaScript/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript</span>
                   </a>
                 </span>
 
@@ -323,8 +335,8 @@ You are a professional robber planning to rob houses along a street. Each house 
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/08/14/algorithm2/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/14/algorithm2/" itemprop="commentsCount"></span>
+                <a href="/2016/08/24/ES6_6/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/24/ES6_6/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -347,29 +359,28 @@ You are a professional robber planning to rob houses along a street. Each house 
       
 
       
-        <h2 id="题目："><a href="#题目：" class="headerlink" title="题目："></a>题目：</h2><blockquote>
-<p>You are a professional robber planning to rob houses along a street. Each house has a certain amount of money stashed, the only constraint stopping you from robbing each of them is that adjacent houses have security system connected and it will automatically contact the police if two adjacent houses were broken into on the same night.<br>Given a list of non-negative integers representing the amount of money of each house, determine the maximum amount of money you can rob tonight without alerting the police.</p>
-</blockquote>
-<p>&emsp;&emsp;太拗口了，说白点就是找数组不相邻组合最大值。</p>
-<p>&emsp;&emsp;例子:原数组为[1,6,2,3,7,4,9,8];<br>&emsp;&emsp;最大结果为：22 –&gt; 6 + 7 + 9;<br><a id="more"></a></p>
-<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>&emsp;&emsp;讲道理，我第一时间没想到咋做….与求最大连续子数组和不同，这个题需要考虑不能相邻的问题，因此想用暴力解法都没写出来。刚接触各种算法，不是很了解。看到讨论里都在说DP，我查了下才知道这题用动态规划算法很容易。</p>
-<h3 id="动态规划"><a href="#动态规划" class="headerlink" title="动态规划"></a>动态规划</h3><p>&emsp;&emsp;动态规划一般用来求解最优化问题，其适用的条件是要求待求解的最优化问题具备两个因素：最优子结构和子问题重叠。即当前子问题的解将由上一次子问题的解推出。动态规划解决最优化问题的关键在于以下几点。</p>
-<ul>
-<li>状态的定义</li>
-<li>方案的枚举</li>
-<li>最优子问题和无后效性保证</li>
-<li>子问题有重叠</li>
-<li>编写状态转移方程</li>
-</ul>
-<p>&emsp;&emsp;我的理解，动态规划就是一种递推，用前面得到的最优解去规划下一步的最优解，而且下一步的解不能影响到之前的结果。动态规划最重要的就是总结出状态的转移方程，从最小子问题开始解决。</p>
-<p>&emsp;&emsp;回到我们的问题上，要想求出一个数组不相邻组合最大值。那我们可以求出数组前1个值不相邻组合最大值、求出数组前2个值不相邻组合最大值、求出数组前3个值不相邻组合最大值…一直求到最后一个元素，那么这些结果中最大的值就是我们最终的结果了。这样我们就把一个大问题的最优解问题，分解为一个个更小问题的解了。</p>
-<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * @param &#123;number[]&#125; nums</div><div class="line"> * @return &#123;number&#125;</div><div class="line"> */</div><div class="line"><span class="keyword">var</span> rob = <span class="function"><span class="keyword">function</span>(<span class="params">nums</span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> len = nums.length,</div><div class="line">        maxArr = [];</div><div class="line">    <span class="keyword">if</span>(len === <span class="number">0</span>)&#123;</div><div class="line">        <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">    &#125;<span class="keyword">else</span> <span class="keyword">if</span>(len == <span class="number">1</span>)&#123;</div><div class="line">        <span class="keyword">return</span> nums[<span class="number">0</span>]</div><div class="line">    &#125;<span class="keyword">else</span>&#123;</div><div class="line">        maxArr[<span class="number">0</span>] = nums[<span class="number">0</span>];</div><div class="line">        maxArr[<span class="number">1</span>] = <span class="built_in">Math</span>.max(nums[<span class="number">0</span>],nums[<span class="number">1</span>]);</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">2</span>;i&lt;len;i++)&#123;</div><div class="line">            maxArr[i] = <span class="built_in">Math</span>.max(maxArr[i<span class="number">-2</span>] + nums[i],maxArr[i<span class="number">-1</span>]);</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> maxArr[len<span class="number">-1</span>];</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> <span class="built_in">Math</span>.max(best0,best1);</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
-<p>&emsp;&emsp;我们用数组[1,6,2,3,7,4,9,8]这例子结合代码继续分析。</p>
-<p>&emsp;&emsp;首先，我们分析前一个值不相邻组合最大值，因为只有一个数，当然是1了。前两个值不相邻组合最大值呢？就是前两个中最大的一个值。前三个值不相邻组合最大值呢？我们理解想到的就是 (nums[0]+nums[1])和nums[2]中较大的一个。可我们已经求出了分别到数组索引一和二的两个最优解了，此时最优解的数组<code>maxArr</code>为[1,6]。我们能否用之前的最优解，推出当前的最优解呢？</p>
-<p>&emsp;&emsp;如果最优解数组<code>maxArr</code>中，当前下标的前两个数不一样，则说明最最大值计算使用了前一个数。例如当前<code>maxArr</code>下标为2，可是<code>maxArr[0]</code>和<code>maxArr[1]</code>的值不一样，则说明最大值计算中一定用到了<code>nums[1]</code>即6这个数，那其相邻的数就不能使用。我们在递推计算时最重要的规划就是是否累加当前的这个值，能否累加则受到之前最优解的影响。</p>
-<p>&emsp;&emsp;我脑子还是有点绕…先列出递推关系吧：<code>maxArr[i] = Math.max(maxArr[i-2] + nums[i],maxArr[i-1]);</code><br>在循环到数组中的某个值时只有两种情况，加上这个值还是不加这个值。如果maxArr[i-2] == maxArr[i-1]，则说明nums[i-1]这个值没有参与累加，那么nums[i]就可以参与累加,而且此时max[i-2]+nums[i]一定大于max[i-1]，所以max[i-1] = max[i-2]+nums[i];如果maxArr[i-2] &lt; maxArr[i-1],则说明nums[i-1]这个值参与了累加，所有在该状态下nums[i]不能参与运算。可是，那是上一状态的最优解，并不是这一状态的最优解，因此我们需要比较max[i-2]+nums[i]和max[i-1]到底哪个大，大的那个就是这一状态的最优解。</p>
-<p>&emsp;&emsp;我理解的还不是很深刻，解释起来不是很清楚，看来还是需要再做几道同样的题加深理解。</p>
-<h2 id="思考"><a href="#思考" class="headerlink" title="思考"></a>思考</h2><p>&emsp;&emsp;在这里还有另一种动态规划的程序写法，它只用两个变量来保存状态，空间复杂度更低，速度也更快。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * @param &#123;number[]&#125; nums</div><div class="line"> * @return &#123;number&#125;</div><div class="line"> */</div><div class="line"><span class="keyword">var</span> rob = <span class="function"><span class="keyword">function</span>(<span class="params">nums</span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> best0 = <span class="number">0</span>,</div><div class="line">        best1 = <span class="number">0</span>,</div><div class="line">        temp;</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> i =<span class="number">0</span>,len = nums.length;i&lt;len;i++)&#123;</div><div class="line">        temp = best0;</div><div class="line">        best0 = <span class="built_in">Math</span>.max(best0,best1);</div><div class="line">        best1 = temp + nums[i];</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> <span class="built_in">Math</span>.max(best0,best1);</div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
+        <h2 id="rest参数"><a href="#rest参数" class="headerlink" title="rest参数"></a>rest参数</h2><p>&emsp;&emsp;ES6引入rest参数（形式为“…变量名”），用于获取函数的多余参数，这样就不需要使用arguments对象了。rest参数搭配的变量是一个数组，该变量将多余的参数放入数组中。</p>
+<h3 id="基本用法"><a href="#基本用法" class="headerlink" title="基本用法"></a>基本用法</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//不一定是...rest,也可以用其他变量名</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params">a, ...rest</span>) </span>&#123;</div><div class="line">  <span class="built_in">console</span>.log(a);</div><div class="line">  <span class="built_in">console</span>.log(rest);</div><div class="line">&#125;</div><div class="line"></div><div class="line">foo(<span class="number">1</span>);</div><div class="line"><span class="comment">//  1</span></div><div class="line"><span class="comment">//  []</span></div><div class="line"></div><div class="line">foo(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>);</div><div class="line"><span class="comment">//   1</span></div><div class="line"><span class="comment">//   [2,3,4]</span></div></pre></td></tr></table></figure>
+<p>&emsp;&emsp;我们知道，在JavaScript中调用函数时，无论你传递的参数比定义时多或者少都不会报错。每个函数有一个arguments对象保存着传入函数的所有参数，我们可以通过访问该对象得到所有的参数。而rest参数就是在arguments中除去定义时设定的参数外的剩余参数。</p>
+<p>&emsp;&emsp;rest参数不改变函数的length属性！</p>
+<h2 id="扩展运算符"><a href="#扩展运算符" class="headerlink" title="扩展运算符"></a>扩展运算符</h2><p>&emsp;&emsp;扩展运算符（spread）是三个点（…）。它好比rest参数的逆运算，将一个数组转为用逗号分隔的参数序列。</p>
+<h3 id="基本用法-1"><a href="#基本用法-1" class="headerlink" title="基本用法"></a>基本用法</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">console</span>.log(<span class="number">1</span>, ...[<span class="number">2</span>,<span class="number">3</span>], <span class="number">4</span>);</div><div class="line"><span class="comment">//  1 2 3 4</span></div></pre></td></tr></table></figure>
+<h3 id="妙用"><a href="#妙用" class="headerlink" title="妙用"></a>妙用</h3><p>&emsp;&emsp;当我看到这个新特性时，忍不住的兴奋，脑子了都是各种的骚操作。在平常有很多情况下需要这种转换，而再之前不得不使用apply实现，现在只用三个点就可以，不能再方便。</p>
+<ol>
+<li>替换apply</li>
+</ol>
+<p>&emsp;&emsp;我们经常需要得到一个数组中的最大值，而数组对象并没有提供相应的方法，因此需要用到Math.max()方法。但是该方法的参数是逗号分隔的参数序列，因此还需要将数组转换为该序列。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//传统方法</span></div><div class="line"><span class="built_in">Math</span>.max.apply(<span class="literal">null</span>,[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>]);</div><div class="line"></div><div class="line"><span class="comment">//扩展运算符</span></div><div class="line"><span class="built_in">Math</span>.max(...[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>]);</div></pre></td></tr></table></figure></p>
+<ol>
+<li><p>合并数组</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> arr1 = [<span class="number">1</span>,<span class="number">2</span>],</div><div class="line">    arr2 = [<span class="number">3</span>,<span class="number">4</span>],</div><div class="line">    arr3 = [<span class="number">5</span>,<span class="number">6</span>];</div><div class="line"></div><div class="line"><span class="comment">//ES5</span></div><div class="line"><span class="keyword">var</span> arr = arr1.concat(arr2,arr3);</div><div class="line"></div><div class="line"><span class="comment">//ES6</span></div><div class="line"><span class="keyword">var</span> arr = [...arr1, ...arr2, ...arr3];</div><div class="line"></div><div class="line"><span class="comment">// push用起来也方便了</span></div><div class="line">arr1.push(...arr2, ...arr3);</div></pre></td></tr></table></figure>
+</li>
+<li><p>分割字符串</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// ES6</span></div><div class="line">[...<span class="string">'hello'</span>];</div><div class="line"><span class="comment">//["h", "e", "l", "l", "o"]</span></div><div class="line"></div><div class="line"><span class="comment">// ES5</span></div><div class="line"><span class="string">'hello'</span>.split(<span class="string">''</span>);</div><div class="line"><span class="comment">//["h", "e", "l", "l", "o"]</span></div></pre></td></tr></table></figure>
+</li>
+<li><p>其他</p>
+</li>
+</ol>
+<p>&emsp;&emsp;扩展运算符内部调用的是数据结构的Iterator接口，因此只要具有Iterator接口的对象，都可以使用扩展运算符，比如Map结构。<br>&emsp;&emsp;什么是Iterator接口，我们会在之后详细讲解。感觉ES6是一次系统性的全面升级，很多新特性之间彼此联系，刚填一个坑却又挖了一个新坑，加油吧！</p>
 
       
     </div>
@@ -412,11 +423,11 @@ You are a professional robber planning to rob houses along a street. Each house 
       
         <div class="post-tags">
           
-            <a href="/tags/算法/" rel="tag">#算法</a>
+            <a href="/tags/ES6/" rel="tag">#ES6</a>
           
-            <a href="/tags/Leetcode/" rel="tag">#Leetcode</a>
+            <a href="/tags/rest参数/" rel="tag">#rest参数</a>
           
-            <a href="/tags/动态规划/" rel="tag">#动态规划</a>
+            <a href="/tags/扩展运算符/" rel="tag">#扩展运算符</a>
           
         </div>
       
@@ -425,17 +436,13 @@ You are a professional robber planning to rob houses along a street. Each house 
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/08/13/algorithm1/" rel="next" title="39.Combination Sum">
-                <i class="fa fa-chevron-left"></i> 39.Combination Sum
+              <a href="/2016/08/24/ES6_5/" rel="next" title="ES6入门(5) 解构赋值">
+                <i class="fa fa-chevron-left"></i> ES6入门(5) 解构赋值
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/08/16/algorithm3/" rel="prev" title="169. Majority Element && 229. Majority Element II">
-                169. Majority Element && 229. Majority Element II <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -467,8 +474,8 @@ You are a professional robber planning to rob houses along a street. Each house 
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/08/14/algorithm2/"
-           data-title="198.House Robber" data-url="http://gentlemanczh.com/2016/08/14/algorithm2/">
+      <div class="ds-thread" data-thread-key="2016/08/24/ES6_6/"
+           data-title="ES6入门(6) rest参数和扩展运算符" data-url="http://gentlemanczh.com/2016/08/24/ES6_6/">
       </div>
     
   </div>
@@ -592,7 +599,7 @@ You are a professional robber planning to rob houses along a street. Each house 
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#题目："><span class="nav-number">1.</span> <span class="nav-text">题目：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#思路"><span class="nav-number">2.</span> <span class="nav-text">思路</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#动态规划"><span class="nav-number">2.1.</span> <span class="nav-text">动态规划</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代码"><span class="nav-number">3.</span> <span class="nav-text">代码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#思考"><span class="nav-number">4.</span> <span class="nav-text">思考</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#rest参数"><span class="nav-number">1.</span> <span class="nav-text">rest参数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基本用法"><span class="nav-number">1.1.</span> <span class="nav-text">基本用法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#扩展运算符"><span class="nav-number">2.</span> <span class="nav-text">扩展运算符</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基本用法-1"><span class="nav-number">2.1.</span> <span class="nav-text">基本用法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#妙用"><span class="nav-number">2.2.</span> <span class="nav-text">妙用</span></a></li></ol></li></ol></div>
             
           </div>
         </section>

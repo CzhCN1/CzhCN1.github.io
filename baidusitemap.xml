@@ -4,6 +4,58 @@
 
     
   <url>
+    <loc>http://gentlemanczh.com/2016/08/24/ES6_6/</loc>
+    <lastmod>2016-08-24T12:23:23.558Z</lastmod>
+    <data>
+        <display>
+        <title>ES6入门(6) rest参数和扩展运算符</title>
+        <pubTime>2016-08-24T10:54:59.000Z</pubTime>
+        
+        <tag>ES6</tag>
+         
+        <tag>rest参数</tag>
+         
+        <tag>扩展运算符</tag>
+         
+         
+           
+             
+              <breadCrumb title="前端" url="http://gentlemanczh.com/categories/%E5%89%8D%E7%AB%AF/"/>
+          
+             
+              <breadCrumb title="JavaScript" url="http://gentlemanczh.com/categories/%E5%89%8D%E7%AB%AF/JavaScript/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://gentlemanczh.com/2016/08/24/ES6_5/</loc>
+    <lastmod>2016-08-24T10:52:00.335Z</lastmod>
+    <data>
+        <display>
+        <title>ES6入门(5) 解构赋值</title>
+        <pubTime>2016-08-24T07:04:55.000Z</pubTime>
+        
+        <tag>ES6</tag>
+         
+        <tag>解构</tag>
+         
+         
+           
+             
+              <breadCrumb title="前端" url="http://gentlemanczh.com/categories/%E5%89%8D%E7%AB%AF/"/>
+          
+             
+              <breadCrumb title="JavaScript" url="http://gentlemanczh.com/categories/%E5%89%8D%E7%AB%AF/JavaScript/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://gentlemanczh.com/2016/08/23/ES6_4/</loc>
     <lastmod>2016-08-23T13:16:29.607Z</lastmod>
     <data>
