@@ -361,31 +361,15 @@
 
       
         
-          
-            <h2 id="rest参数"><a href="#rest参数" class="headerlink" title="rest参数"></a>rest参数</h2><p>&emsp;&emsp;ES6引入rest参数（形式为“…变量名”），用于获取函数的多余参数，这样就不需要使用arguments对象了。rest参数搭配的变量是一个数组，该变量将多余的参数放入数组中。</p>
+          <h2 id="rest参数"><a href="#rest参数" class="headerlink" title="rest参数"></a>rest参数</h2><p>&emsp;&emsp;ES6引入rest参数（形式为“…变量名”），用于获取函数的多余参数，这样就不需要使用arguments对象了。rest参数搭配的变量是一个数组，该变量将多余的参数放入数组中。</p>
 <h3 id="基本用法"><a href="#基本用法" class="headerlink" title="基本用法"></a>基本用法</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//不一定是...rest,也可以用其他变量名</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params">a, ...rest</span>) </span>&#123;</div><div class="line">  <span class="built_in">console</span>.log(a);</div><div class="line">  <span class="built_in">console</span>.log(rest);</div><div class="line">&#125;</div><div class="line"></div><div class="line">foo(<span class="number">1</span>);</div><div class="line"><span class="comment">//  1</span></div><div class="line"><span class="comment">//  []</span></div><div class="line"></div><div class="line">foo(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>);</div><div class="line"><span class="comment">//   1</span></div><div class="line"><span class="comment">//   [2,3,4]</span></div></pre></td></tr></table></figure>
 <p>&emsp;&emsp;我们知道，在JavaScript中调用函数时，无论你传递的参数比定义时多或者少都不会报错。每个函数有一个arguments对象保存着传入函数的所有参数，我们可以通过访问该对象得到所有的参数。而rest参数就是在arguments中除去定义时设定的参数外的剩余参数。</p>
-<p>&emsp;&emsp;rest参数不改变函数的length属性！</p>
-<h2 id="扩展运算符"><a href="#扩展运算符" class="headerlink" title="扩展运算符"></a>扩展运算符</h2><p>&emsp;&emsp;扩展运算符（spread）是三个点（…）。它好比rest参数的逆运算，将一个数组转为用逗号分隔的参数序列。</p>
-<h3 id="基本用法-1"><a href="#基本用法-1" class="headerlink" title="基本用法"></a>基本用法</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">console</span>.log(<span class="number">1</span>, ...[<span class="number">2</span>,<span class="number">3</span>], <span class="number">4</span>);</div><div class="line"><span class="comment">//  1 2 3 4</span></div></pre></td></tr></table></figure>
-<h3 id="妙用"><a href="#妙用" class="headerlink" title="妙用"></a>妙用</h3><p>&emsp;&emsp;当我看到这个新特性时，忍不住的兴奋，脑子了都是各种的骚操作。在平常有很多情况下需要这种转换，而再之前不得不使用apply实现，现在只用三个点就可以，不能再方便。</p>
-<ol>
-<li>替换apply</li>
-</ol>
-<p>&emsp;&emsp;我们经常需要得到一个数组中的最大值，而数组对象并没有提供相应的方法，因此需要用到Math.max()方法。但是该方法的参数是逗号分隔的参数序列，因此还需要将数组转换为该序列。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//传统方法</span></div><div class="line"><span class="built_in">Math</span>.max.apply(<span class="literal">null</span>,[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>]);</div><div class="line"></div><div class="line"><span class="comment">//扩展运算符</span></div><div class="line"><span class="built_in">Math</span>.max(...[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>]);</div></pre></td></tr></table></figure></p>
-<ol>
-<li><p>合并数组</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> arr1 = [<span class="number">1</span>,<span class="number">2</span>],</div><div class="line">    arr2 = [<span class="number">3</span>,<span class="number">4</span>],</div><div class="line">    arr3 = [<span class="number">5</span>,<span class="number">6</span>];</div><div class="line"></div><div class="line"><span class="comment">//ES5</span></div><div class="line"><span class="keyword">var</span> arr = arr1.concat(arr2,arr3);</div><div class="line"></div><div class="line"><span class="comment">//ES6</span></div><div class="line"><span class="keyword">var</span> arr = [...arr1, ...arr2, ...arr3];</div><div class="line"></div><div class="line"><span class="comment">// push用起来也方便了</span></div><div class="line">arr1.push(...arr2, ...arr3);</div></pre></td></tr></table></figure>
-</li>
-<li><p>分割字符串</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// ES6</span></div><div class="line">[...<span class="string">'hello'</span>];</div><div class="line"><span class="comment">//["h", "e", "l", "l", "o"]</span></div><div class="line"></div><div class="line"><span class="comment">// ES5</span></div><div class="line"><span class="string">'hello'</span>.split(<span class="string">''</span>);</div><div class="line"><span class="comment">//["h", "e", "l", "l", "o"]</span></div></pre></td></tr></table></figure>
-</li>
-<li><p>其他</p>
-</li>
-</ol>
-<p>&emsp;&emsp;扩展运算符内部调用的是数据结构的Iterator接口，因此只要具有Iterator接口的对象，都可以使用扩展运算符，比如Map结构。<br>&emsp;&emsp;什么是Iterator接口，我们会在之后详细讲解。感觉ES6是一次系统性的全面升级，很多新特性之间彼此联系，刚填一个坑却又挖了一个新坑，加油吧！</p>
-
-          
+<p>&emsp;&emsp;rest参数不改变函数的length属性！<br>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/08/24/ES6_6/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
       
     </div>

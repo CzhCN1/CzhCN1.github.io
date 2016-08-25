@@ -3,9 +3,11 @@
 
 
     
+    
+    
   <url>
     <loc>http://gentlemanczh.com/2016/08/24/ES6_6/</loc>
-    <lastmod>2016-08-24T12:23:23.558Z</lastmod>
+    <lastmod>2016-08-24T12:35:33.102Z</lastmod>
     <data>
         <display>
         <title>ES6入门(6) rest参数和扩展运算符</title>
@@ -32,7 +34,7 @@
     
   <url>
     <loc>http://gentlemanczh.com/2016/08/24/ES6_5/</loc>
-    <lastmod>2016-08-24T10:52:00.335Z</lastmod>
+    <lastmod>2016-08-24T12:35:11.332Z</lastmod>
     <data>
         <display>
         <title>ES6入门(5) 解构赋值</title>
@@ -253,7 +255,6 @@
     </data>
     </url>
 
-    
     
   <url>
     <loc>http://gentlemanczh.com/2016/08/10/transmit/</loc>
@@ -612,7 +613,6 @@
     </data>
     </url>
 
-    
     
     
     

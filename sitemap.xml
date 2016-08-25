@@ -2,16 +2,30 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://gentlemanczh.com/worklist/worklist.css</loc>
+    
+    <lastmod>2016-08-25T08:46:42.305Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://gentlemanczh.com/worklist/index.html</loc>
+    
+    <lastmod>2016-08-25T08:44:34.775Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://gentlemanczh.com/2016/08/24/ES6_6/</loc>
     
-    <lastmod>2016-08-24T12:23:23.558Z</lastmod>
+    <lastmod>2016-08-24T12:35:33.102Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://gentlemanczh.com/2016/08/24/ES6_5/</loc>
     
-    <lastmod>2016-08-24T10:52:00.335Z</lastmod>
+    <lastmod>2016-08-24T12:35:11.332Z</lastmod>
     
   </url>
   
@@ -68,13 +82,6 @@
     <loc>http://gentlemanczh.com/2016/08/12/react1/</loc>
     
     <lastmod>2016-08-12T09:33:39.083Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://gentlemanczh.com/worklist/index.html</loc>
-    
-    <lastmod>2016-08-12T03:11:36.544Z</lastmod>
     
   </url>
   
@@ -187,13 +194,6 @@
     <loc>http://gentlemanczh.com/about/index.html</loc>
     
     <lastmod>2016-07-07T12:35:53.189Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://gentlemanczh.com/worklist/worklist.css</loc>
-    
-    <lastmod>2016-07-05T09:46:27.582Z</lastmod>
     
   </url>
   

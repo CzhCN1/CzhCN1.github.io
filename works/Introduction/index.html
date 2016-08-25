@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, minimum-scale=1, maximum-scale=1">
-	<title>My Fullpage</title>
+	<title>前端工程师-CZH</title>
 	<style>
 		body{
 			margin: 0;
@@ -53,7 +53,7 @@
 			50% {bottom:0px}
 		}
 
-		/* 返回首页 上下震荡动画 */		
+		/* 返回首页 上下震荡动画 */
 		.name_goBack{
 			top:30px;
 			-webkit-animation:upAndDown 2s infinite 2s;
@@ -67,12 +67,13 @@
 	<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
 	<script src="http://libs.baidu.com/jqueryui/1.8.22/jquery-ui.min.js "></script>
 	<script src="js/lib/jquery.fullPage.js"></script>
-	
-	
+
+
 	<link rel="stylesheet" href="css/h5.css">
 	<link rel="stylesheet" href="css/loading.css">
+	<link rel="stylesheet" href="css/H5_Component.css">
 	<script src="js/H5.js"></script>
-	<script src="js/loading.js"></script>
+	<script src="js/H5_Component.js"></script>
 </head>
 <body>
 	<div class="loading">
@@ -82,17 +83,6 @@
 	</div>
 
 
-
-	<!-- 载入H5组件资源 -->
-	<script>
-		var res = ['base','bar','bar_v','point','polyline','rader','pie'],
-			html = [];
-		for(var i = 0;i<res.length;i++){
-			html.push('<link rel="stylesheet" type="text/css" href="css/'+ res[i] +'.css">');
-			html.push('<script src="js/'+ res[i] +'.js"><\/script>');
-		}
-		document.write(html.join(''));
-	</script>
 	<!-- 页面主逻辑 -->
 	<script>
 		$(function () {
@@ -107,7 +97,7 @@
 						bg:'img/face_slogan.png',
 						css:{opacity:0},
 						animateIn:{top:'16%',opacity:1},
-						animateOut:{top:'0%',opacity:0},			
+						animateOut:{top:'0%',opacity:0},
 					})
 					.addComponent('slogan',{
 						center:true,
@@ -299,9 +289,56 @@
 						delayIn: 0,
 						animateOut:{bottom:'10%',opacity:0},
 						delayOut: 0,
-						
+
 						center: true,
 
+					})
+				.addPage('project1')
+					.addComponent('caption',{text:'苒朵音乐Web应用'})
+					.addComponent('music',{
+						center:true,
+						width:308,
+						height:141,
+						bg:'img/music.png',
+						css:{
+							bottom:0,
+							opacity:0,
+						},
+						animateIn:{opacity:1,bottom:"5%"},
+						delayIn:500,
+						animateOut:{opacity:0,bottom:0},
+					})
+					.addComponent('text',{
+						width:500,
+						height:30,
+						center:true,
+						text:'苒朵音乐是一款网络音乐推荐的WEB应用，采用React+ES6的组件开发方法。在项目初设计结构时，考虑到应用结构决定使用React框架，组件化开发的思路。根据项目需要，将项目分为核心组件、歌曲组件、H5Audio组件、控制条组件、引导页组件。组件之间独立开发，由核心组件负责统筹个组件的porps,控制应用的state。',
+						css:{
+							opacity:0,
+							textAlign:'center',
+							color:'#FF4500',
+							fontSize:'16px',
+							top:"45%",
+						},
+						animateIn:{opacity:1,top:"25%"},
+						delayIn:0,
+						animateOut:{opacity:0,top:"45%"},
+					})
+					.addComponent('text',{
+						width:500,
+						height:30,
+						center:true,
+						text:'苒朵音乐:http://ran-dom.top',
+						css:{
+							opacity:0,
+							textAlign:'center',
+							color:'rgb(239, 65, 54)',
+							fontSize:'18px',
+							bottom:"-15%",
+						},
+						animateIn:{opacity:1,bottom:"25%"},
+						delayIn:200,
+						animateOut:{opacity:0,bottom:"-15%"},
 					})
 				.addPage('tail')
 					.addComponent('logo',{
@@ -360,7 +397,7 @@
 						animateOut:{opacity:0,right:-50,bottom:-50},
 					})
 				.loader(['img/face_img_left.png','img/face_img_right.png','img/tail_back.png','img/tail_share.png','img/contact.png','img/tail_slogan.png','img/p1_people.png','img/description_bg.gif','img/face_logo.png','img/face_slogan.png','img/slide1.png']);
-		});
+		},7);
 
 	</script>
 </body>

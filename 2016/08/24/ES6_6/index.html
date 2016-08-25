@@ -94,7 +94,7 @@
 <meta property="og:site_name" content="Czh's Blog">
 <meta property="og:description" content="rest参数&amp;emsp;&amp;emsp;ES6引入rest参数（形式为“…变量名”），用于获取函数的多余参数，这样就不需要使用arguments对象了。rest参数搭配的变量是一个数组，该变量将多余的参数放入数组中。
 基本用法12345678910111213//不一定是...rest,也可以用其他变量名function foo(a, ...rest) &amp;#123;  console.log(a);">
-<meta property="og:updated_time" content="2016-08-24T12:23:23.558Z">
+<meta property="og:updated_time" content="2016-08-24T12:35:33.102Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ES6入门(6) rest参数和扩展运算符">
 <meta name="twitter:description" content="rest参数&amp;emsp;&amp;emsp;ES6引入rest参数（形式为“…变量名”），用于获取函数的多余参数，这样就不需要使用arguments对象了。rest参数搭配的变量是一个数组，该变量将多余的参数放入数组中。
@@ -362,7 +362,7 @@
         <h2 id="rest参数"><a href="#rest参数" class="headerlink" title="rest参数"></a>rest参数</h2><p>&emsp;&emsp;ES6引入rest参数（形式为“…变量名”），用于获取函数的多余参数，这样就不需要使用arguments对象了。rest参数搭配的变量是一个数组，该变量将多余的参数放入数组中。</p>
 <h3 id="基本用法"><a href="#基本用法" class="headerlink" title="基本用法"></a>基本用法</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//不一定是...rest,也可以用其他变量名</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params">a, ...rest</span>) </span>&#123;</div><div class="line">  <span class="built_in">console</span>.log(a);</div><div class="line">  <span class="built_in">console</span>.log(rest);</div><div class="line">&#125;</div><div class="line"></div><div class="line">foo(<span class="number">1</span>);</div><div class="line"><span class="comment">//  1</span></div><div class="line"><span class="comment">//  []</span></div><div class="line"></div><div class="line">foo(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>);</div><div class="line"><span class="comment">//   1</span></div><div class="line"><span class="comment">//   [2,3,4]</span></div></pre></td></tr></table></figure>
 <p>&emsp;&emsp;我们知道，在JavaScript中调用函数时，无论你传递的参数比定义时多或者少都不会报错。每个函数有一个arguments对象保存着传入函数的所有参数，我们可以通过访问该对象得到所有的参数。而rest参数就是在arguments中除去定义时设定的参数外的剩余参数。</p>
-<p>&emsp;&emsp;rest参数不改变函数的length属性！</p>
+<p>&emsp;&emsp;rest参数不改变函数的length属性！<br><a id="more"></a></p>
 <h2 id="扩展运算符"><a href="#扩展运算符" class="headerlink" title="扩展运算符"></a>扩展运算符</h2><p>&emsp;&emsp;扩展运算符（spread）是三个点（…）。它好比rest参数的逆运算，将一个数组转为用逗号分隔的参数序列。</p>
 <h3 id="基本用法-1"><a href="#基本用法-1" class="headerlink" title="基本用法"></a>基本用法</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">console</span>.log(<span class="number">1</span>, ...[<span class="number">2</span>,<span class="number">3</span>], <span class="number">4</span>);</div><div class="line"><span class="comment">//  1 2 3 4</span></div></pre></td></tr></table></figure>
 <h3 id="妙用"><a href="#妙用" class="headerlink" title="妙用"></a>妙用</h3><p>&emsp;&emsp;当我看到这个新特性时，忍不住的兴奋，脑子了都是各种的骚操作。在平常有很多情况下需要这种转换，而再之前不得不使用apply实现，现在只用三个点就可以，不能再方便。</p>
