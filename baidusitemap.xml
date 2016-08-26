@@ -3,6 +3,34 @@
 
 
     
+  <url>
+    <loc>http://gentlemanczh.com/2016/08/26/ES6_7/</loc>
+    <lastmod>2016-08-26T07:11:31.532Z</lastmod>
+    <data>
+        <display>
+        <title>ES6入门(7) Set和Map数据结构</title>
+        <pubTime>2016-08-26T05:29:42.000Z</pubTime>
+        
+        <tag>ES6</tag>
+         
+        <tag>Set和Map</tag>
+         
+        <tag>数据结构</tag>
+         
+         
+           
+             
+              <breadCrumb title="前端" url="http://gentlemanczh.com/categories/%E5%89%8D%E7%AB%AF/"/>
+          
+             
+              <breadCrumb title="JavaScript" url="http://gentlemanczh.com/categories/%E5%89%8D%E7%AB%AF/JavaScript/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+    
     
     
   <url>
@@ -167,9 +195,9 @@
         
         <tag>算法</tag>
          
-        <tag>Leetcode</tag>
-         
         <tag>摩尔投票法</tag>
+         
+        <tag>Leetcode</tag>
          
          
            
@@ -215,9 +243,9 @@
         
         <tag>算法</tag>
          
-        <tag>回溯法</tag>
-         
         <tag>Leetcode</tag>
+         
+        <tag>回溯法</tag>
          
          
            
@@ -613,7 +641,6 @@
     </data>
     </url>
 
-    
     
     
     
