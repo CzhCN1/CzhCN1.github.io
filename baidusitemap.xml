@@ -4,6 +4,33 @@
 
     
   <url>
+    <loc>http://gentlemanczh.com/2016/08/29/ES6_9/</loc>
+    <lastmod>2016-08-30T01:32:42.112Z</lastmod>
+    <data>
+        <display>
+        <title>ES6入门(9) 类(Class)</title>
+        <pubTime>2016-08-29T12:26:10.000Z</pubTime>
+        
+        <tag>ES6</tag>
+         
+        <tag>继承</tag>
+         
+        <tag>class</tag>
+         
+         
+           
+             
+              <breadCrumb title="前端" url="http://gentlemanczh.com/categories/%E5%89%8D%E7%AB%AF/"/>
+          
+             
+              <breadCrumb title="JavaScript" url="http://gentlemanczh.com/categories/%E5%89%8D%E7%AB%AF/JavaScript/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://gentlemanczh.com/2016/08/28/ES6_8/</loc>
     <lastmod>2016-08-28T13:20:22.235Z</lastmod>
     <data>
@@ -244,9 +271,9 @@
         
         <tag>算法</tag>
          
-        <tag>Leetcode</tag>
-         
         <tag>动态规划</tag>
+         
+        <tag>Leetcode</tag>
          
          
            
@@ -268,9 +295,9 @@
         
         <tag>算法</tag>
          
-        <tag>回溯法</tag>
-         
         <tag>Leetcode</tag>
+         
+        <tag>回溯法</tag>
          
          
            
@@ -425,9 +452,9 @@
         
         <tag>JavaScript</tag>
          
-        <tag>原型链</tag>
-         
         <tag>继承</tag>
+         
+        <tag>原型链</tag>
          
          
            

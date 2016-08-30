@@ -1,0 +1,769 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+  <meta name="baidu-site-verification" content="JdHLQH7yKs" />
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="ES6,继承,class," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="类(Class)&amp;emsp;&amp;emsp;类(Class)是ES6中最振奋人心的一个新特性，还记得在之前讲解JavaScript继承的文章里说过JavaScript并不存在真正的类，只是使用prototype别扭的实现了类。在ES6中，正式引入了类的概念，JavaScript真的是越来越像一门后端语言了。
+用法&amp;emsp;&amp;emsp;通过下面的例子，简单了解这个新特性：1234567891011cl">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ES6入门(9) 类(Class)">
+<meta property="og:url" content="http://gentlemanczh.com/2016/08/29/ES6_9/index.html">
+<meta property="og:site_name" content="Czh's Blog">
+<meta property="og:description" content="类(Class)&amp;emsp;&amp;emsp;类(Class)是ES6中最振奋人心的一个新特性，还记得在之前讲解JavaScript继承的文章里说过JavaScript并不存在真正的类，只是使用prototype别扭的实现了类。在ES6中，正式引入了类的概念，JavaScript真的是越来越像一门后端语言了。
+用法&amp;emsp;&amp;emsp;通过下面的例子，简单了解这个新特性：1234567891011cl">
+<meta property="og:image" content="http://img.keenwon.com/2016/01/20160116201909_44777.png">
+<meta property="og:image" content="http://img.keenwon.com/2016/03/20160314212504_39150.png">
+<meta property="og:updated_time" content="2016-08-30T01:32:42.112Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="ES6入门(9) 类(Class)">
+<meta name="twitter:description" content="类(Class)&amp;emsp;&amp;emsp;类(Class)是ES6中最振奋人心的一个新特性，还记得在之前讲解JavaScript继承的文章里说过JavaScript并不存在真正的类，只是使用prototype别扭的实现了类。在ES6中，正式引入了类的概念，JavaScript真的是越来越像一门后端语言了。
+用法&amp;emsp;&amp;emsp;通过下面的例子，简单了解这个新特性：1234567891011cl">
+<meta name="twitter:image" content="http://img.keenwon.com/2016/01/20160116201909_44777.png">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"always"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 13429857,
+      author: 'Czh'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://gentlemanczh.com/2016/08/29/ES6_9/"/>
+
+  <title> ES6入门(9) 类(Class) | Czh's Blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?675a555ba2a4282ddb42b9028107d56c";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Czh's Blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">闭门造车，出门合辙</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/worklist" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-code"></i> <br />
+            
+            作品库
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                ES6入门(9) 类(Class)
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-08-29T20:26:10+08:00" content="2016-08-29">
+              2016-08-29
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/前端/" itemprop="url" rel="index">
+                    <span itemprop="name">前端</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/前端/JavaScript/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/08/29/ES6_9/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/29/ES6_9/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="类-Class"><a href="#类-Class" class="headerlink" title="类(Class)"></a>类(Class)</h2><p>&emsp;&emsp;类(Class)是ES6中最振奋人心的一个新特性，还记得在之前讲解JavaScript继承的文章里说过JavaScript并不存在真正的类，只是使用<code>prototype</code>别扭的实现了类。在ES6中，正式引入了类的概念，JavaScript真的是越来越像一门后端语言了。</p>
+<h3 id="用法"><a href="#用法" class="headerlink" title="用法"></a>用法</h3><p>&emsp;&emsp;通过下面的例子，简单了解这个新特性：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Point</span></span>&#123;</div><div class="line">  <span class="keyword">constructor</span>(x, y)&#123;</div><div class="line">    <span class="keyword">this</span>.x = x;</div><div class="line">    <span class="keyword">this</span>.y = y;</div><div class="line">  &#125;</div><div class="line">  where() &#123;</div><div class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.x + <span class="string">','</span> + <span class="keyword">this</span>.y;</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">var</span> a = <span class="keyword">new</span> Point(<span class="number">1</span>,<span class="number">2</span>);</div></pre></td></tr></table></figure></p>
+<p>&emsp;&emsp;上面的例子实现了一个简单的类定义，看样子与ES5中提到的构造函数有些像。其中有两个方法，一个是constructor,一个是where方法。其中constructor方法是构造方法，this在这里指向实例对象。而where方法则是这个类的公有方法。</p>
+<p>&emsp;&emsp;虽然在class中看不见熟悉的prototype，但其实class的实现机制仍然是通过prototype及<strong>proto</strong>实现的，而且类的所有方法也是定义在prototype上的，与ES5中实现的方法类似。<br><a id="more"></a></p>
+<h3 id="constructor方法"><a href="#constructor方法" class="headerlink" title="constructor方法"></a>constructor方法</h3><p>&emsp;&emsp;当我们使用new来构建一个实例时，会自动调用constructor方法，constructor方法是类的默认方法。一个类必须要有constructor方法，如果没有显示定义，则会默认添加一个空的constructor方法。</p>
+<p>&emsp;&emsp;constructor方法会默认返回this,即实例对象。当然也可以重新定义一个返回对象，这与ES5中的构造函数蛮像的。</p>
+<p>&emsp;&emsp;类的构造函数，不使用new是没法调用的，会报错。这是它跟普通构造函数的一个主要区别，后者不用new也可以执行。</p>
+<h3 id="类的实例对象"><a href="#类的实例对象" class="headerlink" title="类的实例对象"></a>类的实例对象</h3><p>&emsp;&emsp;与构造函数一样，要创建实例就必须使用new操作。因为构建实例会默认调用constructor函数，因此构建实例时的参数也就被传入了constructor中。我们在上面的例子中创建了一个一个实例<code>a</code>，我们可以调用其方法。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">class Point&#123;</div><div class="line">  constructor(x, y)&#123;</div><div class="line">    this.x = x;</div><div class="line">    this.y = y;</div><div class="line">  &#125;</div><div class="line">  where() &#123;</div><div class="line">    return this.x + &apos;,&apos; + this.y;</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">var a = new Point(1,2);</div><div class="line"></div><div class="line">a.where();                // 1,2</div><div class="line">a.hasOwnProperty(&apos;x&apos;);    // true</div><div class="line">a.hasOwnProperty(&apos;where&apos;);// false</div><div class="line">Point.prototype.hasOwnProperty(&apos;where&apos;);   //true</div></pre></td></tr></table></figure></p>
+<p>&emsp;&emsp;通过上面的例子我们就可以更清楚的理解了Class的实现方法了，类似于ES5中组合继承的写法。属性都是实例的属性，方法则通过原型链实现继承。</p>
+<h3 id="不存在变量提升"><a href="#不存在变量提升" class="headerlink" title="不存在变量提升"></a>不存在变量提升</h3><p>&emsp;&emsp;ES6不会把变量声明提升到代码头部，因此对类的实例化或者继承必须放在该类定义之后，否则会报错。</p>
+<h2 id="Class继承"><a href="#Class继承" class="headerlink" title="Class继承"></a>Class继承</h2><p>&emsp;&emsp;我们之前讲过js继承的六种方法，即通过原型链和构造函数的方法实现。如今我们有了Class的相关概念，来看看如何实现继承。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//定义超类</span></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Super</span> </span>&#123;&#125;</div><div class="line"><span class="comment">//子类继承超类</span></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Sub</span> <span class="keyword">extends</span> <span class="title">Super</span> </span>&#123;&#125;</div><div class="line"><span class="comment">//创建一个子类的实例</span></div><div class="line"><span class="keyword">var</span> sub = <span class="keyword">new</span> Sub();</div></pre></td></tr></table></figure></p>
+<p>&emsp;&emsp;上例很简单的就实现了类的继承，妈妈再也不要担心我搞不清prototype了！</p>
+<h3 id="基本用法"><a href="#基本用法" class="headerlink" title="基本用法"></a>基本用法</h3><p>&emsp;&emsp;Class之间继承通过<code>extends</code>关键字实现，关键字前面的类会继承关键字后面的类。上面讲的例子是一个简写的形式，下面给出一个较完整结果的实例：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">ColorPoint</span> <span class="keyword">extends</span> <span class="title">Point</span> </span>&#123;</div><div class="line">  <span class="keyword">constructor</span>(x, y, color) &#123;</div><div class="line">    <span class="keyword">super</span>(x, y); <span class="comment">// 调用父类的constructor(x, y)</span></div><div class="line">    <span class="keyword">this</span>.color = color;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  what() &#123;</div><div class="line">    <span class="comment">//通过super调用超类中的方法</span></div><div class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.color + <span class="string">' '</span> + <span class="keyword">super</span>.where();</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  who()&#123;</div><div class="line">    <span class="keyword">return</span> <span class="keyword">typeof</span> <span class="keyword">super</span>;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>&emsp;&emsp;这个例子中的类继承了我们前面所讲的Point类，我们可以发现该例子中与之前类的定义时有些不同，在constructor方法中多出了一个super()方法，在what()方法里除了this还出现了一个super关键字。</p>
+<p>&emsp;&emsp;规定是这样的，子类必须在constructor方法中调用super()方法，否则在新建实例的时候会出错。这是因为子类没有自己的this对象，而是继承父类的this对象并对其加工。如果不调用super方法，子类就得不到this对象。你可能会疑问了，我们继承一开始的那个例子什么都没有，不也照样新建了实例吗？这个是因为一个类如果没有显示定义constructor方法，则会默认添加一个空的constructor方法，继承的子类还会在constructor中添加一个super()方法。</p>
+<p>&emsp;&emsp;想想我们在ES5中的继承是如何处理子类的this呢？我们是用借用构造函数的方法，通过call或apply将子类的this硬绑定<br>在了超类上。</p>
+<p>&emsp;&emsp;至于what()方法中出现的super,它的作用是调用超类中的方法。我是这么理解的，这里的super就是超类的实例中的this。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">ColorPoint</span> <span class="keyword">extends</span> <span class="title">Point</span> </span>&#123;</div><div class="line">  <span class="keyword">constructor</span>(x, y, color) &#123;</div><div class="line">    <span class="keyword">super</span>(x, y); <span class="comment">// 调用父类的constructor(x, y)</span></div><div class="line">    <span class="keyword">this</span>.color = color;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  what() &#123;</div><div class="line">    <span class="comment">//通过super调用超类中的方法</span></div><div class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.color + <span class="string">' '</span> + <span class="keyword">super</span>.where();</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  hasProp()&#123;</div><div class="line">    <span class="keyword">return</span> <span class="keyword">super</span>.hasOwnProperty(<span class="string">'x'</span>);</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  hasFunc()&#123;</div><div class="line">    <span class="keyword">return</span> <span class="keyword">super</span>.hasOwnProperty(<span class="string">'where'</span>);</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  onProto()&#123;</div><div class="line">    <span class="keyword">return</span> <span class="keyword">super</span>.prototype.hasOwnProperty(<span class="string">'where'</span>);</div><div class="line">  &#125;</div><div class="line"></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">var</span> p = <span class="keyword">new</span> ColorPoint(<span class="number">1</span>,<span class="number">2</span>,<span class="string">'red'</span>);</div><div class="line"></div><div class="line">p.what();       <span class="comment">// red 1,2</span></div><div class="line"></div><div class="line">p.hasProp();    <span class="comment">//true</span></div><div class="line">p.hasFunc();    <span class="comment">//false</span></div><div class="line">p.onProto();    <span class="comment">//Cannot read property 'hasOwnProperty' of undefined</span></div></pre></td></tr></table></figure></p>
+<p>&emsp;&emsp;通过上面的例子我们可以看到，属性是super的属性。方法不在super上但却可以调用，说明是原型链上的方法，我们已经了解该方法应该位于超类的prototype上。然后我试着访问super的prototype属性，报错因为super.prototype是undefined。因此我们也就可以判断，这里的super并不是超类本身，而是它的一个实例。</p>
+<h3 id="继承原理"><a href="#继承原理" class="headerlink" title="继承原理"></a>继承原理</h3><p>&emsp;&emsp;刚才没有详细讲解class类的实现原理，因为有张图很形象的描述了其原理，不多说先上图(图片出处见水印):</p>
+<p><img src="http://img.keenwon.com/2016/01/20160116201909_44777.png" alt="图片1"></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//定义超类</span></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Super</span> </span>&#123;&#125;</div><div class="line"><span class="comment">//子类继承超类</span></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Sub</span> <span class="keyword">extends</span> <span class="title">Super</span> </span>&#123;&#125;</div><div class="line"><span class="comment">//创建一个子类的实例</span></div><div class="line"><span class="keyword">var</span> sub = <span class="keyword">new</span> Sub();</div><div class="line"></div><div class="line">Sub.__proto__ === Super;    <span class="comment">//true</span></div><div class="line">Sub.prototype.__proto__ === Super.prototype;    <span class="comment">//true</span></div><div class="line">sub.__proto__ === Sub.prototype;    <span class="comment">//true</span></div></pre></td></tr></table></figure>
+<p>&emsp;&emsp;其实从图上就已经能直观的看出各种关系了，class实现继承依然是靠prototype原型链来实现的。单看不是很清楚，我们可以对照看看ES5的继承实现图例。</p>
+<p><img src="http://img.keenwon.com/2016/03/20160314212504_39150.png" alt="图片2"></p>
+<p>&emsp;&emsp;上图是ES5使用原型链实现继承，即用超类的实例替换掉子类的prototype实现继承。对比两幅图唯一不同的地方也就是子类构造函数和父类构造函数那里的区别了。</p>
+<p>&emsp;&emsp;这里我想再提一下prototype和<strong>proto</strong>属性。<code>__proto__</code>是每一个对象都有的，不仅局限于函数。我们说的“原型链”指的就是这个<code>__proto__</code>,可以用Object.getPrototypeOf(foo)来获得。<code>prototype</code>是函数特有的，将这个函数用new运算符生成实例后，实例的<code>__proto__</code>就是这个函数的prototype。</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="http://7xk5u3.com1.z0.glb.clouddn.com/wechatpay.png" alt="Czh WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="http://7xk5u3.com1.z0.glb.clouddn.com/alipay.jpg" alt="Czh Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/ES6/" rel="tag">#ES6</a>
+          
+            <a href="/tags/继承/" rel="tag">#继承</a>
+          
+            <a href="/tags/class/" rel="tag">#class</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/08/28/ES6_8/" rel="next" title="ES6入门(8) 遍历器(Iterator)">
+                <i class="fa fa-chevron-left"></i> ES6入门(8) 遍历器(Iterator)
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/08/29/ES6_9/"
+           data-title="ES6入门(9) 类(Class)" data-url="http://gentlemanczh.com/2016/08/29/ES6_9/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="http://7xk5u3.com1.z0.glb.clouddn.com/f5e58bb0a39708803bcb60f4bd503798.jpg"
+               alt="Czh" />
+          <p class="site-author-name" itemprop="name">Czh</p>
+          <p class="site-description motion-element" itemprop="description">前端 新手猿</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">28</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">35</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/CzhCN1" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-block">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              友情链接
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://wy-ei.com/" title="wy-ei" target="_blank">wy-ei</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://my.csdn.net/Cooling88" title="Coohx" target="_blank">Coohx</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.ddhigh.com/" title="ddhigh" target="_blank">ddhigh</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#类-Class"><span class="nav-number">1.</span> <span class="nav-text">类(Class)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#用法"><span class="nav-number">1.1.</span> <span class="nav-text">用法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#constructor方法"><span class="nav-number">1.2.</span> <span class="nav-text">constructor方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#类的实例对象"><span class="nav-number">1.3.</span> <span class="nav-text">类的实例对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#不存在变量提升"><span class="nav-number">1.4.</span> <span class="nav-text">不存在变量提升</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Class继承"><span class="nav-number">2.</span> <span class="nav-text">Class继承</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基本用法"><span class="nav-number">2.1.</span> <span class="nav-text">基本用法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#继承原理"><span class="nav-number">2.2.</span> <span class="nav-text">继承原理</span></a></li></ol></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Czh</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"CzhCN1"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    <script src="/vendors/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+  
+  
+  
+
+  
+
+  
+<script type="text/javascript" async src="//push.zhanzhang.baidu.com/push.js">
+</script>
+
+
+</body>
+</html>
