@@ -70,7 +70,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="JavaScript,类型检测," />
+  <meta name="keywords" content="浏览器," />
 
 
 
@@ -86,27 +86,19 @@
 
 
 
-<meta name="description" content="前言　　JavaScript中有很多类型检测的方法：　　1. typeof　　2. instanceof　　3. Object.prototype.toString　　4. constructor　　5. duck type  
-　　各种方法都有它的用途和局限，下来我们依次分析各方法。">
+<meta name="description" content="前言&amp;emsp;&amp;emsp;刚做完某东的在线笔试，答得一塌糊涂。有个问题是渐进增强和优雅降级的概念，甚至之前都似乎没听过，于是赶紧查了资料补一下。
+概念渐进增强 (progressive enhancement)：针对低版本浏览器进行构建页面，保证最基本的功能，然后再针对高级浏览器进行效果、交互等改进和追加功能达到更好的用户体验。12345.transition&amp;#123;    transiti">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Js类型检测">
-<meta property="og:url" content="http://gentlemanczh.com/2016/07/21/typeof/index.html">
+<meta property="og:title" content="渐进增强和优雅降级">
+<meta property="og:url" content="http://gentlemanczh.com/2016/09/05/enhance/index.html">
 <meta property="og:site_name" content="Czh's Blog">
-<meta property="og:description" content="前言　　JavaScript中有很多类型检测的方法：　　1. typeof　　2. instanceof　　3. Object.prototype.toString　　4. constructor　　5. duck type  
-　　各种方法都有它的用途和局限，下来我们依次分析各方法。">
-<meta property="og:image" content="http://7xk5u3.com1.z0.glb.clouddn.com/typeof1.png">
-<meta property="og:image" content="http://7xk5u3.com1.z0.glb.clouddn.com/typeof2.png">
-<meta property="og:image" content="http://7xk5u3.com1.z0.glb.clouddn.com/typeof3.png">
-<meta property="og:image" content="http://7xk5u3.com1.z0.glb.clouddn.com/typeof4.png">
-<meta property="og:image" content="http://7xk5u3.com1.z0.glb.clouddn.com/typeof5.png">
-<meta property="og:image" content="http://7xk5u3.com1.z0.glb.clouddn.com/typeof6.png">
-<meta property="og:image" content="http://7xk5u3.com1.z0.glb.clouddn.com/typeof7.png">
-<meta property="og:updated_time" content="2016-07-21T14:03:57.050Z">
+<meta property="og:description" content="前言&amp;emsp;&amp;emsp;刚做完某东的在线笔试，答得一塌糊涂。有个问题是渐进增强和优雅降级的概念，甚至之前都似乎没听过，于是赶紧查了资料补一下。
+概念渐进增强 (progressive enhancement)：针对低版本浏览器进行构建页面，保证最基本的功能，然后再针对高级浏览器进行效果、交互等改进和追加功能达到更好的用户体验。12345.transition&amp;#123;    transiti">
+<meta property="og:updated_time" content="2016-09-05T14:55:47.737Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Js类型检测">
-<meta name="twitter:description" content="前言　　JavaScript中有很多类型检测的方法：　　1. typeof　　2. instanceof　　3. Object.prototype.toString　　4. constructor　　5. duck type  
-　　各种方法都有它的用途和局限，下来我们依次分析各方法。">
-<meta name="twitter:image" content="http://7xk5u3.com1.z0.glb.clouddn.com/typeof1.png">
+<meta name="twitter:title" content="渐进增强和优雅降级">
+<meta name="twitter:description" content="前言&amp;emsp;&amp;emsp;刚做完某东的在线笔试，答得一塌糊涂。有个问题是渐进增强和优雅降级的概念，甚至之前都似乎没听过，于是赶紧查了资料补一下。
+概念渐进增强 (progressive enhancement)：针对低版本浏览器进行构建页面，保证最基本的功能，然后再针对高级浏览器进行效果、交互等改进和追加功能达到更好的用户体验。12345.transition&amp;#123;    transiti">
 
 
 
@@ -127,9 +119,9 @@
 
 
 
-  <link rel="canonical" href="http://gentlemanczh.com/2016/07/21/typeof/"/>
+  <link rel="canonical" href="http://gentlemanczh.com/2016/09/05/enhance/"/>
 
-  <title> Js类型检测 | Czh's Blog </title>
+  <title> 渐进增强和优雅降级 | Czh's Blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -289,7 +281,7 @@
             
             
               
-                Js类型检测
+                渐进增强和优雅降级
               
             
           </h1>
@@ -301,8 +293,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-07-21T20:00:04+08:00" content="2016-07-21">
-              2016-07-21
+            <time itemprop="dateCreated" datetime="2016-09-05T22:32:14+08:00" content="2016-09-05">
+              2016-09-05
             </time>
           </span>
 
@@ -322,18 +314,6 @@
 
                 
                 
-                  ， 
-                
-
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/前端/JavaScript/" itemprop="url" rel="index">
-                    <span itemprop="name">JavaScript</span>
-                  </a>
-                </span>
-
-                
-                
 
               
             </span>
@@ -343,8 +323,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/07/21/typeof/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/07/21/typeof/" itemprop="commentsCount"></span>
+                <a href="/2016/09/05/enhance/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/09/05/enhance/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -367,32 +347,10 @@
       
 
       
-        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>　　JavaScript中有很多类型检测的方法：<br>　　1. typeof<br>　　2. instanceof<br>　　3. Object.prototype.toString<br>　　4. constructor<br>　　5. duck type  </p>
-<p>　　各种方法都有它的用途和局限，下来我们依次分析各方法。<br>    <a id="more"></a></p>
-<h2 id="typeof操作符"><a href="#typeof操作符" class="headerlink" title="typeof操作符"></a>typeof操作符</h2><p>　　typeof是用于判断变量、数值字面量的类型，而且typeof是个操作符，而不是一个方法。对一个值使用typeof操作符，可能返回下列中的某个字符串：  </p>
-<ul>
-<li>“undefined”————如果这个值未定义  </li>
-<li>“booldean” ————如果这个值是布尔值  </li>
-<li>“string”     ————如果这个值是字符串  </li>
-<li>“number”     ————如果这个值是数值  </li>
-<li>“object”     ————如果这个值是对象或null  </li>
-<li>“function” ————如果这个值是函数  </li>
-</ul>
-<p>　　以下是在chrome浏览器控制台下的测试结果：<br><img src="http://7xk5u3.com1.z0.glb.clouddn.com/typeof1.png" alt="">  </p>
-<h3 id="局限"><a href="#局限" class="headerlink" title="局限"></a>局限</h3><p>　　我们可以看到，对于这些基本数据类型、对象和函数可以准确判断。但你可能会发现，少了一个基本数据类型null，我们也可以测试一下看看：<br><img src="http://7xk5u3.com1.z0.glb.clouddn.com/typeof2.png" alt=""><br>　　跟上面讲的一样，null被判断为object类型，这其实是一个历史错误。  </p>
-<p>　　typeof只适用于基本类型检测。</p>
-<h2 id="instanceof操作符"><a href="#instanceof操作符" class="headerlink" title="instanceof操作符"></a>instanceof操作符</h2><p>　　instanceof操作符可以检测引用类型，如果变量是给定引用类型（由构造函数表示）的实例，那么instanceof就会返回true。<br>　　操作符左边的操作数必须是一个对象，而右边的操作数应该是一个函数对象或函数构造器。其原理就是判断左操作数这个对象的原型链上是否有右边这个构造函数的prototype对象属性。也就是说，instanceof是基于原型链判断类型的。<br>　　以下是简单的例子：<br>　　分别判断了正则表达式，数组，日期等类型，可以通过该操作符判断对象的是哪种类型的实例。<br><img src="http://7xk5u3.com1.z0.glb.clouddn.com/typeof3.png" alt="">  </p>
-<p>　　自己定义的构造函数和实例也可以使用该方法：  </p>
-<p><img src="http://7xk5u3.com1.z0.glb.clouddn.com/typeof4.png" alt="">  </p>
-<p>　　要注意的是，根据规定所有引用类型的值都是Object实例。因此在检测一个引用类型值和Object构造函数时，instanceof操作符始终都会返回true。如果你了解原型链，那么就很容易理解这点了。<br><img src="http://7xk5u3.com1.z0.glb.clouddn.com/typeof5.png" alt="">  </p>
-<h3 id="局限-1"><a href="#局限-1" class="headerlink" title="局限"></a>局限</h3><p>　　如果用instanceof操作符检测基本类型的值，则会报错。  </p>
-<h2 id="Object-prototype-toString方法"><a href="#Object-prototype-toString方法" class="headerlink" title="Object.prototype.toString方法"></a>Object.prototype.toString方法</h2><p>　　想要判断某个对象值属于哪种内置类型,最靠谱的做法就是通过Object.prototype.toString方法。该方法可以判断任何对象，并准确的给出其类型。其具体的用法为 <code>Object.prototype.toString.apply( )</code>，需要判断的内容放在括号中即可。下面是一些例子：  </p>
-<p><img src="http://7xk5u3.com1.z0.glb.clouddn.com/typeof6.png" alt="">  </p>
-<h2 id="constructor属性"><a href="#constructor属性" class="headerlink" title="constructor属性"></a>constructor属性</h2><p>　　对象的constructor属性用于返回创建该对象的函数，也就是我们常说的构造函数。在JavaScript中，每个具有原型的对象都会自动获得constructor属性。除了arguments、Enumerator、Error、Global、Math、RegExp、Regular Expression等一些特殊对象之外，其他所有的JavaScript内置对象都具备constructor属性。例如：Array、Boolean、Date、Function、Number、Object、String等。<br>　　因此我们可以通过判断对象的constructor属性来判断其类型，这与第二条instanceof有点类似。<br><img src="http://7xk5u3.com1.z0.glb.clouddn.com/typeof7.png" alt="">  </p>
-<h2 id="duck-type-鸭子类型"><a href="#duck-type-鸭子类型" class="headerlink" title="duck type 鸭子类型"></a>duck type 鸭子类型</h2><blockquote>
-<p>“当看到一只鸟走起来像鸭子、游泳起来像鸭子、叫起来也像鸭子，那么这只鸟就可以被称为鸭子。”  </p>
-</blockquote>
-<p>　　每种数据类型，都有其独有的方法或属性。那我们如果检测到被判断的对象具有这些属性或者方法的话，那我们也就可以认为这个对象的类型。</p>
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>&emsp;&emsp;刚做完某东的在线笔试，答得一塌糊涂。有个问题是渐进增强和优雅降级的概念，甚至之前都似乎没听过，于是赶紧查了资料补一下。</p>
+<h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><p><strong>渐进增强 (progressive enhancement)</strong>：针对低版本浏览器进行构建页面，保证最基本的功能，然后再针对高级浏览器进行效果、交互等改进和追加功能达到更好的用户体验。<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.transition</span>&#123;</div><div class="line">    <span class="attribute">transition</span>: all .<span class="number">5s</span>;          <span class="comment">/* 标准写法 */</span></div><div class="line">    <span class="attribute">-moz-transition</span>: all .<span class="number">5s</span>;     <span class="comment">/* firefox 内核 */</span></div><div class="line">    <span class="attribute">-webkit-transition</span>: all .<span class="number">5s</span>;  <span class="comment">/* webkit 内核 */</span></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p><strong>优雅降级 (graceful degradation)</strong>：一开始就构建完整的功能，然后再针对低版本浏览器进行兼容。<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.transition</span>&#123;</div><div class="line">    <span class="attribute">-webkit-transition</span>: all .<span class="number">5s</span>;  <span class="comment">/* webkit 内核 */</span></div><div class="line">    <span class="attribute">-moz-transition</span>: all .<span class="number">5s</span>;     <span class="comment">/* firefox 内核 */</span></div><div class="line">    <span class="attribute">transition</span>: all .<span class="number">5s</span>;          <span class="comment">/* 标准写法 */</span></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h2 id="区别"><a href="#区别" class="headerlink" title="区别"></a>区别</h2><p>&emsp;&emsp;优雅降级是从复杂的现状开始，并试图减少用户体验的供给，而渐进增强则是从一个非常基础的，能够起作用的版本开始，并不断扩充，以适应未来环境的需要。<br>&emsp;&emsp;除此之外，我认为两者没有太大的区别。随着CSS3等技术在各个浏览器都得到更好的兼容和支持后，这两种方式也会被逐级淡化。然而渐进增强和优雅降级是两种优秀的思想，无论哪种都使得页面尽量兼容更多的浏览器，得到更好的表现效果。</p>
 
       
     </div>
@@ -435,9 +393,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/JavaScript/" rel="tag">#JavaScript</a>
-          
-            <a href="/tags/类型检测/" rel="tag">#类型检测</a>
+            <a href="/tags/浏览器/" rel="tag">#浏览器</a>
           
         </div>
       
@@ -446,17 +402,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/07/16/selector/" rel="next" title="原生JavaScript选择器">
-                <i class="fa fa-chevron-left"></i> 原生JavaScript选择器
+              <a href="/2016/08/29/ES6_9/" rel="next" title="ES6入门(9) 类(Class)">
+                <i class="fa fa-chevron-left"></i> ES6入门(9) 类(Class)
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/08/06/prototype/" rel="prev" title="对原型链的简单理解">
-                对原型链的简单理解 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -488,8 +440,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/07/21/typeof/"
-           data-title="Js类型检测" data-url="http://gentlemanczh.com/2016/07/21/typeof/">
+      <div class="ds-thread" data-thread-key="2016/09/05/enhance/"
+           data-title="渐进增强和优雅降级" data-url="http://gentlemanczh.com/2016/09/05/enhance/">
       </div>
     
   </div>
@@ -613,7 +565,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#typeof操作符"><span class="nav-number">2.</span> <span class="nav-text">typeof操作符</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#局限"><span class="nav-number">2.1.</span> <span class="nav-text">局限</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#instanceof操作符"><span class="nav-number">3.</span> <span class="nav-text">instanceof操作符</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#局限-1"><span class="nav-number">3.1.</span> <span class="nav-text">局限</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Object-prototype-toString方法"><span class="nav-number">4.</span> <span class="nav-text">Object.prototype.toString方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#constructor属性"><span class="nav-number">5.</span> <span class="nav-text">constructor属性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#duck-type-鸭子类型"><span class="nav-number">6.</span> <span class="nav-text">duck type 鸭子类型</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#概念"><span class="nav-number">2.</span> <span class="nav-text">概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#区别"><span class="nav-number">3.</span> <span class="nav-text">区别</span></a></li></ol></div>
             
           </div>
         </section>

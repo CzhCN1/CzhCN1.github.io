@@ -4,6 +4,26 @@
 
     
   <url>
+    <loc>http://gentlemanczh.com/2016/09/05/enhance/</loc>
+    <lastmod>2016-09-05T14:55:47.737Z</lastmod>
+    <data>
+        <display>
+        <title>渐进增强和优雅降级</title>
+        <pubTime>2016-09-05T14:32:14.000Z</pubTime>
+        
+        <tag>浏览器</tag>
+         
+         
+           
+             
+              <breadCrumb title="前端" url="http://gentlemanczh.com/categories/%E5%89%8D%E7%AB%AF/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://gentlemanczh.com/2016/08/29/ES6_9/</loc>
     <lastmod>2016-08-30T01:32:42.112Z</lastmod>
     <data>
@@ -271,9 +291,9 @@
         
         <tag>算法</tag>
          
-        <tag>动态规划</tag>
-         
         <tag>Leetcode</tag>
+         
+        <tag>动态规划</tag>
          
          
            
@@ -295,9 +315,9 @@
         
         <tag>算法</tag>
          
-        <tag>Leetcode</tag>
-         
         <tag>回溯法</tag>
+         
+        <tag>Leetcode</tag>
          
          
            
