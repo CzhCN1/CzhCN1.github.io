@@ -4,6 +4,33 @@
 
     
   <url>
+    <loc>http://gentlemanczh.com/2016/09/07/ES6_10/</loc>
+    <lastmod>2016-09-07T15:25:22.543Z</lastmod>
+    <data>
+        <display>
+        <title>ES6入门(10) Promise对象</title>
+        <pubTime>2016-09-07T13:58:56.000Z</pubTime>
+        
+        <tag>ES6</tag>
+         
+        <tag>Promise对象</tag>
+         
+        <tag>异步操作</tag>
+         
+         
+           
+             
+              <breadCrumb title="前端" url="http://gentlemanczh.com/categories/%E5%89%8D%E7%AB%AF/"/>
+          
+             
+              <breadCrumb title="JavaScript" url="http://gentlemanczh.com/categories/%E5%89%8D%E7%AB%AF/JavaScript/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://gentlemanczh.com/2016/09/05/enhance/</loc>
     <lastmod>2016-09-05T14:55:47.737Z</lastmod>
     <data>
