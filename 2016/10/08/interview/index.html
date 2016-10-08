@@ -1,0 +1,855 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+  <meta name="baidu-site-verification" content="JdHLQH7yKs" />
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="面经," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="&amp;emsp;&amp;emsp;校招基本结束了，感觉自己面试没参加几场，基本都倒在了笔试里。。。但还是决定总结一下遇到的面试题，写成面经分享给大家。总的来说面试给我的体验很棒，很喜欢面试时的感觉，而且遇到的面试官大都很棒很专业。
+
+腾讯实习一面：
+最近在看哪些前端方面的书？
+js的基本数据类型有哪些？
+解释下什么是闭包？
+CSS常用的样式有哪些？
+了解CSS3么？
+知道哪些HTML5的新特性？
+了解AJA">
+<meta property="og:type" content="article">
+<meta property="og:title" content="我的前端面经">
+<meta property="og:url" content="http://czhcn.top/2016/10/08/interview/index.html">
+<meta property="og:site_name" content="Czh's Blog">
+<meta property="og:description" content="&amp;emsp;&amp;emsp;校招基本结束了，感觉自己面试没参加几场，基本都倒在了笔试里。。。但还是决定总结一下遇到的面试题，写成面经分享给大家。总的来说面试给我的体验很棒，很喜欢面试时的感觉，而且遇到的面试官大都很棒很专业。
+
+腾讯实习一面：
+最近在看哪些前端方面的书？
+js的基本数据类型有哪些？
+解释下什么是闭包？
+CSS常用的样式有哪些？
+了解CSS3么？
+知道哪些HTML5的新特性？
+了解AJA">
+<meta property="og:image" content="http://7xk5u3.com1.z0.glb.clouddn.com/IMG_20160927_012215.jpg">
+<meta property="og:updated_time" content="2016-10-08T03:29:03.297Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="我的前端面经">
+<meta name="twitter:description" content="&amp;emsp;&amp;emsp;校招基本结束了，感觉自己面试没参加几场，基本都倒在了笔试里。。。但还是决定总结一下遇到的面试题，写成面经分享给大家。总的来说面试给我的体验很棒，很喜欢面试时的感觉，而且遇到的面试官大都很棒很专业。
+
+腾讯实习一面：
+最近在看哪些前端方面的书？
+js的基本数据类型有哪些？
+解释下什么是闭包？
+CSS常用的样式有哪些？
+了解CSS3么？
+知道哪些HTML5的新特性？
+了解AJA">
+<meta name="twitter:image" content="http://7xk5u3.com1.z0.glb.clouddn.com/IMG_20160927_012215.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"always"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 13429857,
+      author: 'Czh'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://czhcn.top/2016/10/08/interview/"/>
+
+  <title> 我的前端面经 | Czh's Blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?675a555ba2a4282ddb42b9028107d56c";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Czh's Blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">闭门造车，出门合辙</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/worklist" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-code"></i> <br />
+            
+            作品库
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                我的前端面经
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-10-08T11:29:00+08:00" content="2016-10-08">
+              2016-10-08
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/前端/" itemprop="url" rel="index">
+                    <span itemprop="name">前端</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/10/08/interview/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/08/interview/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>&emsp;&emsp;校招基本结束了，感觉自己面试没参加几场，基本都倒在了笔试里。。。但还是决定总结一下遇到的面试题，写成面经分享给大家。总的来说面试给我的体验很棒，很喜欢面试时的感觉，而且遇到的面试官大都很棒很专业。</p>
+<hr>
+<h2 id="腾讯实习一面："><a href="#腾讯实习一面：" class="headerlink" title="腾讯实习一面："></a>腾讯实习一面：</h2><ol>
+<li>最近在看哪些前端方面的书？</li>
+<li>js的基本数据类型有哪些？</li>
+<li>解释下什么是闭包？</li>
+<li>CSS常用的样式有哪些？</li>
+<li>了解CSS3么？</li>
+<li>知道哪些HTML5的新特性？</li>
+<li>了解AJAX么，如何实现跨域？</li>
+<li>对jQuery了解多少？看过源码么？</li>
+<li>在浏览器中输入域名到显示，其背后是怎样的一系列流程？</li>
+<li>如何优化页面的显示速度？</li>
+<li>了解数据结构么？常用的数据结构有哪些？</li>
+<li>用C语言的数组实现一个队列(手撕代码)</li>
+</ol>
+<p>&emsp;&emsp;腾讯是四月实习生的面试，是我第一次面试。体验不错，有点紧张，准备不足，答得糟糕。最后手写C的代码真没有想到，简单的写了点东西，被面试官说离数据结构还有一定差距。。</p>
+<hr>
+<h2 id="阿里内推电话一面："><a href="#阿里内推电话一面：" class="headerlink" title="阿里内推电话一面："></a>阿里内推电话一面：</h2><ol>
+<li>简单介绍一下双向循环链表。</li>
+<li>介绍一下树的前中后三种遍历方式。</li>
+<li>简单说一下最短路径算法。</li>
+<li>随便列举出五个状态码。</li>
+<li>讲述一下域名到页面的过程。</li>
+<li>HTTP方法除了GET和POST还有哪些？</li>
+<li>头信息中与HTTP缓存有关的信息有哪些？</li>
+<li>CSS中的position属性有哪些值？</li>
+<li>如何水平垂直居中一个div？</li>
+<li>解释闭包。</li>
+<li>哪些操作会造成内存泄漏？</li>
+<li>前端的安全性问题有哪些？</li>
+<li>JS实现继承有哪几种方法？</li>
+<li>有涉及后端的项目么？</li>
+<li>了解React、Angular、Node么？</li>
+</ol>
+<p>&emsp;&emsp;唯一的一场电话面试，当时正在许昌实习，突然接到电话被吓到了的。面试全程都是被碾压的，完全被问懵了。当时7月多还没开始准备校招，还是自己当时准备不足。</p>
+<hr>
+<h2 id="CVTE校招一面"><a href="#CVTE校招一面" class="headerlink" title="CVTE校招一面"></a>CVTE校招一面</h2><ol>
+<li>Canvas画饼状图(个人项目)</li>
+<li>js如何实现定时器？简述定时器原理。</li>
+<li>左固定右自适应的两列布局(手撕)</li>
+<li>了解HTTP协议么?</li>
+<li>为什么HTTP协议基于TCP协议？TCP与UDP的区别。</li>
+<li>HTTPS和HTTP的端口号各是多少？HTTPS中的S是什么？</li>
+<li>了解跨域么？详细讲述一下JSONP的原理。</li>
+<li>简单实现一个原型继承(手撕)</li>
+<li>实现一个方法，输入为若干个数组，合并、去重、排序并返回(手撕)</li>
+<li>写一个快速排序算法(手撕)</li>
+<li>前端学习多久了？</li>
+</ol>
+<h2 id="CVTE校招二面"><a href="#CVTE校招二面" class="headerlink" title="CVTE校招二面"></a>CVTE校招二面</h2><ol>
+<li>项目吹牛</li>
+</ol>
+<p>&emsp;&emsp;第一场正式校招面试，本应该一天三面面完，但当时已经太晚了，所以只面了两面，第二天补得HR面。一面中规中矩吧，手撕了很多代码。自己把问题都回答出来了，问了一些简历上的项目。<br>&emsp;&emsp;二面是三场校招面试里感觉最好的一场，面试官是50岁左右头发花白的大叔，有气场也很和蔼。第二面确实没有问什么详细的技术问题，完全是跟我聊项目。大叔应该不是专业前端，我多次想深入都被拽了回来。一直停留在架构和设计模式层面，然后讨论怎么增加应用的用户粘性，怎样从用户的角度改善我的项目。在知识面上有了很大的收获，聊得很投缘。<br>&emsp;&emsp;在平时学习之余，也可以多看看其他的互联网知识，说不定面试时就能用到，为你增色不少。我之前看过一些产品和项目相关的东西，二面时我都以为自己在应聘产品经理了。</p>
+<hr>
+<h2 id="趣医网校招一面"><a href="#趣医网校招一面" class="headerlink" title="趣医网校招一面"></a>趣医网校招一面</h2><ol>
+<li>SQL语句(笔试题)</li>
+<li>jQuery的选择器有哪些？</li>
+<li>了解Angular么？</li>
+<li>常用的排序算法有哪些？哪些是稳定的？</li>
+<li>项目吹牛</li>
+</ol>
+<h2 id="趣医网校招二面"><a href="#趣医网校招二面" class="headerlink" title="趣医网校招二面"></a>趣医网校招二面</h2><ol>
+<li>SQL语句(笔试题)</li>
+<li>对jQuery熟悉么？</li>
+<li>介绍一下Node</li>
+<li>项目吹牛</li>
+<li>未来个人职业发展</li>
+<li>优秀的前端页面是怎样的？</li>
+</ol>
+<p>&emsp;&emsp;趣医的面试很仓促，每一面的时间都很短，而且技术不够深入。面试官的态度都非常nice，但从技术角度看不是特别好。一面面试官非专业前端，二面主管对前端应该也不是足够了解。笔试时做的题会和简历一起送到面试官前，所以被问了好几次我没写的那道SQL题，确实不会。。不会直接大方的说就好了，没有关系的。</p>
+<hr>
+<h2 id="京东校招一面"><a href="#京东校招一面" class="headerlink" title="京东校招一面"></a>京东校招一面</h2><ol>
+<li>现场看项目提问细节 Canvas如何实现雷达图。</li>
+<li>项目吹牛</li>
+<li>display有哪些属性值？</li>
+<li>什么是inline-block，inline-block的间隙问题。</li>
+<li>行内元素float:left后是否变为块级元素？</li>
+<li>如果想隐藏页面中的一段文字，有哪些方法可以实现？</li>
+<li>Z-index可以设置为负数么？设为负数有什么用？</li>
+<li>调出了笔试时中的一道算法题，讲解思路。</li>
+<li>实现一个效果，当鼠标移动，在移动的路径上有从小到大变化后消失的心形动画。简述实现的思路。</li>
+<li>了解SVG么？Canvas和SVG有什么区别？</li>
+<li>Cookies有什么用？</li>
+<li>了解CSS预处理么？</li>
+</ol>
+<h2 id="京东校招二面"><a href="#京东校招二面" class="headerlink" title="京东校招二面"></a>京东校招二面</h2><ol>
+<li>项目吹牛</li>
+<li>DOCTYPE声明的作用</li>
+<li>页面导入样式时，使用link和@import有什么区别？</li>
+<li>指定img标签的宽高有什么好处？ </li>
+<li>关于js类型转换的问题</li>
+<li>什么是闭包？</li>
+<li>什么是JSON?什么是AJAX？什么是JSONP？</li>
+<li>为什么大型应用需要从多个域名请求资源？</li>
+<li>什么样的页面具有良好的用户体验？</li>
+</ol>
+<p>&emsp;&emsp;京东的一面给了我很大的惊喜，是最棒的一次面试。我还没有坐稳，面试官说我看了你的项目和GitHub，挺好玩的还不错。虽说可能只是安慰我的话，但还是非常的感动，觉得面试官真的很用心。面试开始就打开了我的另一个移动端项目，拿着手机和我探讨技术难点。面试全程感觉是技术交流而非面试，我不清楚的地方给我适当的引导，我觉得需要补充就会大胆说出来。没有太大的压力，却不知不觉的讲了好多。<br>&emsp;&emsp;对于二面有点失望，可能是我的期望有点高了。二面面试官也看了我的项目，并给我提了些改进的建议。可后面直接在电脑打开了一个前端面试题的文档，照着文档抽题提问我。他问一个，我答一个，他再帮我补充回答。虽说都是基础题，但还是有些失落，总觉得二面应该是淡化基础，而是在项目整体和架构上进行讨论。<br>&emsp;&emsp;之后问了他一个问题：前端发展如此之快，在之后的学习中应该紧跟发展并学习新框架和技术么？他说他不反对盲目追求新技术，而是应该在有需要的时候选择使用最适合的框架，更应该注重基础。因此可能这个面试官更看重基础，现在我也能理解他了。但总觉得他应该不是部门的leader,感觉有点年轻，气场有些弱。</p>
+<hr>
+<h3 id="知识准备"><a href="#知识准备" class="headerlink" title="知识准备"></a>知识准备</h3><p>&emsp;&emsp;在准备面试的时候首先要打好自己的基础，多看一些书。前端最重要的还是JavaScript，所以首推《js高级程序设计》。不需要太多的书，这一本足够。如果有其他的精力和时间推荐《高性能JavaScript》这本书，里面提到了很多前端的优化和细节，在面试时吹牛总能用上。至于HTML和CSS,多刷刷前端面试题就可以了，一般不会有太难的问题。关于其他设计模式、react、node之类的书，有时间看是最好的，但还是要以基础为主。尤其是一线的互联网公司，更注重你的数据结构、算法、网络基础等知识。<br><img src="http://7xk5u3.com1.z0.glb.clouddn.com/IMG_20160927_012215.jpg" alt="书单"></p>
+<h3 id="项目准备"><a href="#项目准备" class="headerlink" title="项目准备"></a>项目准备</h3><p>&emsp;&emsp;项目在面试中也十分的重要，是你和面试官重要的谈资。尽量有一两个高水平的项目或作品，而且要对项目的所有细节都足够的熟悉。提前考虑这样的问题：你的项目中技术难点是什么？遇到了什么问题？你是怎么解决的？ 一定要提前准备好这几个问题的答案，到时才不会紧张的说没有难点和问题，面试官主要是在考察你是否有发现问题和解决问题的能力。<br>&emsp;&emsp;对于本科生来说，没有什么课题和项目怎么办？如果你自己有好的想法和创意，试着去实现出来。面试了一些公司，觉得今年大公司似乎都对node.js很感兴趣，如果你有nodejs的项目也是非常不错的。但尽量要有前端相关的项目，不要把什么无关痛痒的项目都写在你的简历上。</p>
+<h3 id="其他准备"><a href="#其他准备" class="headerlink" title="其他准备"></a>其他准备</h3><p>&emsp;&emsp;至于其他的加分项有很多，你也可以提前准备。例如个人技术博客、GitHub、参与了某些大型的开源项目、活跃于某些技术论坛或社区都是你的加分项。要提前对面试公司有一定的了解，例如看看该公司前端团队的项目和文章，公司的主页、新产品、新动态等。F12看看公司主页用了哪些框架或者类库，比如趣医网官网用的就是Angular，面试时就问了我对Angular是否熟悉。</p>
+<h3 id="面试中的经验"><a href="#面试中的经验" class="headerlink" title="面试中的经验"></a>面试中的经验</h3><p>&emsp;&emsp;面试时要有一定的眼色，遇到比较年轻阳光的面试官可以油一点，试着掌控面试的节奏，尽量不要陷入你问我答的模式。在回答问题时，可以向你熟悉的方向进行深度和广度的扩展。切勿不懂装懂，挖坑自己跳。面试官非常喜欢根据你的回答来继续追问你，所以一定要组织好语言再回答。<br>&emsp;&emsp;遇到严肃和较年长的面试官，通常会给你较大的压力，你基本没有什么发挥的空间。这时候就只要沉着冷静的接受一波波的问题就好，完全是考察你的技术基础和能力了。<br>&emsp;&emsp;态度一定要友善，不管面试官怎样对你，记得保持微笑和积极的心态。可以对面试官提出建议和疑问，但不要质疑面试官和钻牛角尖。不需要特别的谦卑，应该做到自然大方，要记住你们是在做技术交流而不是在考试，回答问题时应直视面试官。</p>
+<h3 id="写在最后"><a href="#写在最后" class="headerlink" title="写在最后"></a>写在最后</h3><p>&emsp;&emsp;根据前端摩尔定律，每十八个月，前端的难度翻一番。层出不穷的框架和技术，不一定要做走在最前面的人，但绝不能掉队。首先要掌握扎实的基础，但不要就此满足。试着了解其他技术，比如HTML5、CSS3、React、Node等，通过面试感觉对ES6的考察不多，但也应该注意这方面的学习，还包括HTTP2。除这些之外，如果你还懂NPM、WebPack、测试、扎实的后端基础、数据库等知识那自然是更好的。</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="http://7xk5u3.com1.z0.glb.clouddn.com/wechatpay.png" alt="Czh WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="http://7xk5u3.com1.z0.glb.clouddn.com/alipay.jpg" alt="Czh Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/面经/" rel="tag">#面经</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/09/07/ES6_10/" rel="next" title="ES6入门(10) Promise对象">
+                <i class="fa fa-chevron-left"></i> ES6入门(10) Promise对象
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/10/08/interview/"
+           data-title="我的前端面经" data-url="http://czhcn.top/2016/10/08/interview/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="http://7xk5u3.com1.z0.glb.clouddn.com/f5e58bb0a39708803bcb60f4bd503798.jpg"
+               alt="Czh" />
+          <p class="site-author-name" itemprop="name">Czh</p>
+          <p class="site-description motion-element" itemprop="description">前端 新手猿</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">31</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">39</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/CzhCN1" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-block">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              友情链接
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://wy-ei.com/" title="wy-ei" target="_blank">wy-ei</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://my.csdn.net/Cooling88" title="Coohx" target="_blank">Coohx</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.ddhigh.com/" title="ddhigh" target="_blank">ddhigh</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#腾讯实习一面："><span class="nav-number">1.</span> <span class="nav-text">腾讯实习一面：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#阿里内推电话一面："><span class="nav-number">2.</span> <span class="nav-text">阿里内推电话一面：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CVTE校招一面"><span class="nav-number">3.</span> <span class="nav-text">CVTE校招一面</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CVTE校招二面"><span class="nav-number">4.</span> <span class="nav-text">CVTE校招二面</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#趣医网校招一面"><span class="nav-number">5.</span> <span class="nav-text">趣医网校招一面</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#趣医网校招二面"><span class="nav-number">6.</span> <span class="nav-text">趣医网校招二面</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#京东校招一面"><span class="nav-number">7.</span> <span class="nav-text">京东校招一面</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#京东校招二面"><span class="nav-number">8.</span> <span class="nav-text">京东校招二面</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#知识准备"><span class="nav-number">8.1.</span> <span class="nav-text">知识准备</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#项目准备"><span class="nav-number">8.2.</span> <span class="nav-text">项目准备</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#其他准备"><span class="nav-number">8.3.</span> <span class="nav-text">其他准备</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#面试中的经验"><span class="nav-number">8.4.</span> <span class="nav-text">面试中的经验</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#写在最后"><span class="nav-number">8.5.</span> <span class="nav-text">写在最后</span></a></li></ol></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Czh</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"CzhCN1"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    <script src="/vendors/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+  
+  
+  
+
+  
+
+  
+<script type="text/javascript" async src="//push.zhanzhang.baidu.com/push.js">
+</script>
+
+
+</body>
+</html>
