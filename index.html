@@ -280,6 +280,145 @@
             
               
                 
+                <a class="post-title-link" href="/2016/10/23/rebase/" itemprop="url">
+                  Git压缩历史
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-10-23T21:03:27+08:00" content="2016-10-23">
+              2016-10-23
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/GIT/" itemprop="url" rel="index">
+                    <span itemprop="name">GIT</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/10/23/rebase/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/23/rebase/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>&emsp;&emsp;在使用github时，偶尔会遇到刚上传的代码有几个由于疏忽的小BUG。如果修改bug后再次推送，就会造成一个很尴尬的历史记录。在看了书之后，发现原来有压缩历史这么一个黑科技。<br>&emsp;&emsp;压缩历史就是在修改提交后，将这个修改包含到前一个提交之中，压缩成一个历史记录。</p>
+<h2 id="具体过程："><a href="#具体过程：" class="headerlink" title="具体过程："></a>具体过程：</h2><p>&emsp;&emsp;首先我们已经上提交了一个文件，文件的内容是<code>我是hzc</code>。<br><img src="http://7xk5u3.com1.z0.glb.clouddn.com/rebase2.png" alt=""></p>
+<p>&emsp;&emsp;此时的查看git的提交日志如下图：<br><img src="http://7xk5u3.com1.z0.glb.clouddn.com/rebase3.png" alt=""></p>
+<ol>
+<li><p>在本地修改文件中的BUG  </p>
+<p> &emsp;&emsp;随后我们在本地仓库中修改错误的内容为<code>我是czh</code>，确定修改正确后，再次添加后提交。 </p>
+<p> <img src="http://7xk5u3.com1.z0.glb.clouddn.com/rebase4.png" alt=""></p>
+<p> 此时的提交历史如下图所示，很显然fix name这次提交是没必要出现在历史中的，我们因此要对其进行压缩处理：<br> <img src="http://7xk5u3.com1.z0.glb.clouddn.com/rebase5.png" alt=""></p>
+</li>
+<li><p>更改历史  </p>
+<p> &emsp;&emsp;我们需要将<code>fix name</code>与<code>add content</code>两次提交合并为一个完美的提交，在此需要使用<code>git rebase</code>命令。  </p>
+<p> 执行下列指令,选定当前HEAD和上一个提交对象，并在编辑器中打开：</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git rebase -i HEAD~2</div></pre></td></tr></table></figure>
+<p> 命令执行后如下图所示：<br> <img src="http://7xk5u3.com1.z0.glb.clouddn.com/rebase6.png" alt=""></p>
+<p> 将要压缩的提交前的 <code>pick</code>修改为<code>fixup</code>,修改好后保存退出。<br> <img src="http://7xk5u3.com1.z0.glb.clouddn.com/rebase7.png" alt=""></p>
+</li>
+<li><p>修改完成</p>
+<p> &emsp;&emsp;短暂的等待后就可以压缩完成，再次用查看提交日志，可以发现<code>fix name</code>的提交已经不见了。两次提交记录合并为了一个新的提交记录，并且有一个新的commit编号。<br> <img src="http://7xk5u3.com1.z0.glb.clouddn.com/rebase8.png" alt=""></p>
+</li>
+</ol>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/10/08/interview/" itemprop="url">
                   我的前端面经
                 </a>
@@ -1455,140 +1594,6 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/08/22/ES6_3/" itemprop="url">
-                  ES6入门(3) Arrow Function
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-08-22T16:26:33+08:00" content="2016-08-22">
-              2016-08-22
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/前端/" itemprop="url" rel="index">
-                    <span itemprop="name">前端</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/前端/JavaScript/" itemprop="url" rel="index">
-                    <span itemprop="name">JavaScript</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/08/22/ES6_3/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/22/ES6_3/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>&emsp;&emsp;ES6中除了变量有了新的生命吗方式，函数也有了新的定义方法。ES6允许用“胖箭头<code>=&gt;</code>”定义函数。<code>var f = v =&gt; v;</code>，这样的一条语句就定义了一个函数。等价的ES5代码如下：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> f = <span class="function"><span class="keyword">function</span>(<span class="params">v</span>)</span>&#123;</div><div class="line">  <span class="keyword">return</span> v;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/08/22/ES6_3/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1634,7 +1639,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">31</span>
+              <span class="site-state-item-count">32</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -1642,7 +1647,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-count">7</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -1651,7 +1656,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">39</span>
+                <span class="site-state-item-count">40</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

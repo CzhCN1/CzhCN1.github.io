@@ -93,7 +93,7 @@
 <meta property="og:site_name" content="Czh's Blog">
 <meta property="og:description" content="&amp;emsp;&amp;emsp;校招基本结束了，感觉自己面试没参加几场，基本都倒在了笔试里。。。但还是决定总结一下遇到的面试题，写成面经分享给大家。总的来说面试给我的体验很棒，很喜欢面试时的感觉，而且遇到的面试官大都很棒很专业。">
 <meta property="og:image" content="http://7xk5u3.com1.z0.glb.clouddn.com/IMG_20160927_012215.jpg">
-<meta property="og:updated_time" content="2016-10-08T04:14:22.983Z">
+<meta property="og:updated_time" content="2016-10-12T12:41:24.978Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="我的前端面经">
 <meta name="twitter:description" content="&amp;emsp;&amp;emsp;校招基本结束了，感觉自己面试没参加几场，基本都倒在了笔试里。。。但还是决定总结一下遇到的面试题，写成面经分享给大家。总的来说面试给我的体验很棒，很喜欢面试时的感觉，而且遇到的面试官大都很棒很专业。">
@@ -371,6 +371,7 @@
 <li>随便列举出五个状态码。</li>
 <li>讲述一下域名到页面的过程。</li>
 <li>HTTP方法除了GET和POST还有哪些？</li>
+<li>GET请求和POST请求有长度限制么？</li>
 <li>头信息中与HTTP缓存有关的信息有哪些？</li>
 <li>CSS中的position属性有哪些值？</li>
 <li>如何水平垂直居中一个div？</li>
@@ -445,7 +446,7 @@
 </ol>
 <p>&emsp;&emsp;京东的一面给了我很大的惊喜，是最棒的一次面试。我还没有坐稳，面试官说我看了你的项目和GitHub，挺好玩的还不错。虽说可能只是安慰我的话，但还是非常的感动，觉得面试官真的很用心。面试开始就打开了我的另一个移动端项目，拿着手机和我探讨技术难点。面试全程感觉是技术交流而非面试，我不清楚的地方给我适当的引导，我觉得需要补充就会大胆说出来。没有太大的压力，却不知不觉的讲了好多。<br>&emsp;&emsp;对于二面有点失望，可能是我的期望有点高了。二面面试官也看了我的项目，并给我提了些改进的建议。可后面直接在电脑打开了一个前端面试题的文档，照着文档抽题提问我。他问一个，我答一个，他再帮我补充回答。虽说都是基础题，但还是有些失落，总觉得二面应该是淡化基础，而是在项目整体和架构上进行讨论。<br>&emsp;&emsp;之后问了他一个问题：前端发展如此之快，在之后的学习中应该紧跟发展并学习新框架和技术么？他说他不反对盲目追求新技术，而是应该在有需要的时候选择使用最适合的框架，更应该注重基础。因此可能这个面试官更看重基础，现在我也能理解他了。但总觉得他应该不是部门的leader,感觉有点年轻，气场有些弱。</p>
 <hr>
-<h3 id="知识准备"><a href="#知识准备" class="headerlink" title="知识准备"></a>知识准备</h3><p>&emsp;&emsp;在准备面试的时候首先要打好自己的基础，多看一些书。前端最重要的还是JavaScript，所以首推《js高级程序设计》。不需要太多的书，这一本足够。如果有其他的精力和时间推荐《高性能JavaScript》这本书，里面提到了很多前端的优化和细节，在面试时吹牛总能用上。至于HTML和CSS,多刷刷前端面试题就可以了，一般不会有太难的问题。关于其他设计模式、react、node之类的书，有时间看是最好的，但还是要以基础为主。尤其是一线的互联网公司，更注重你的数据结构、算法、网络基础等知识。<br><img src="http://7xk5u3.com1.z0.glb.clouddn.com/IMG_20160927_012215.jpg" alt="书单"></p>
+<h2 id="经验总结"><a href="#经验总结" class="headerlink" title="经验总结"></a>经验总结</h2><h3 id="知识准备"><a href="#知识准备" class="headerlink" title="知识准备"></a>知识准备</h3><p>&emsp;&emsp;在准备面试的时候首先要打好自己的基础，多看一些书。前端最重要的还是JavaScript，所以首推《js高级程序设计》。不需要太多的书，这一本足够。如果有其他的精力和时间推荐《高性能JavaScript》这本书，里面提到了很多前端的优化和细节，在面试时吹牛总能用上。至于HTML和CSS,多刷刷前端面试题就可以了，一般不会有太难的问题。关于其他设计模式、react、node之类的书，有时间看是最好的，但还是要以基础为主。尤其是一线的互联网公司，更注重你的数据结构、算法、网络基础等知识。<br><img src="http://7xk5u3.com1.z0.glb.clouddn.com/IMG_20160927_012215.jpg" alt="书单"></p>
 <h3 id="项目准备"><a href="#项目准备" class="headerlink" title="项目准备"></a>项目准备</h3><p>&emsp;&emsp;项目在面试中也十分的重要，是你和面试官重要的谈资。尽量有一两个高水平的项目或作品，而且要对项目的所有细节都足够的熟悉。提前考虑这样的问题：你的项目中技术难点是什么？遇到了什么问题？你是怎么解决的？ 一定要提前准备好这几个问题的答案，到时才不会紧张的说没有难点和问题，面试官主要是在考察你是否有发现问题和解决问题的能力。<br>&emsp;&emsp;对于本科生来说，没有什么课题和项目怎么办？如果你自己有好的想法和创意，试着去实现出来。面试了一些公司，觉得今年大公司似乎都对node.js很感兴趣，如果你有nodejs的项目也是非常不错的。但尽量要有前端相关的项目，不要把什么无关痛痒的项目都写在你的简历上。</p>
 <h3 id="其他准备"><a href="#其他准备" class="headerlink" title="其他准备"></a>其他准备</h3><p>&emsp;&emsp;至于其他的加分项有很多，你也可以提前准备。例如个人技术博客、GitHub、参与了某些大型的开源项目、活跃于某些技术论坛或社区都是你的加分项。要提前对面试公司有一定的了解，例如看看该公司前端团队的项目和文章，公司的主页、新产品、新动态等。F12看看公司主页用了哪些框架或者类库，比如趣医网官网用的就是Angular，面试时就问了我对Angular是否熟悉。</p>
 <h3 id="面试中的经验"><a href="#面试中的经验" class="headerlink" title="面试中的经验"></a>面试中的经验</h3><p>&emsp;&emsp;面试时要有一定的眼色，遇到比较年轻阳光的面试官可以油一点，试着掌控面试的节奏，尽量不要陷入你问我答的模式。在回答问题时，可以向你熟悉的方向进行深度和广度的扩展。切勿不懂装懂，挖坑自己跳。面试官非常喜欢根据你的回答来继续追问你，所以一定要组织好语言再回答。<br>&emsp;&emsp;遇到严肃和较年长的面试官，通常会给你较大的压力，你基本没有什么发挥的空间。这时候就只要沉着冷静的接受一波波的问题就好，完全是考察你的技术基础和能力了。<br>&emsp;&emsp;态度一定要友善，不管面试官怎样对你，记得保持微笑和积极的心态。可以对面试官提出建议和疑问，但不要质疑面试官和钻牛角尖。不需要特别的谦卑，应该做到自然大方，要记住你们是在做技术交流而不是在考试，回答问题时应直视面试官。<br>&emsp;&emsp;如果面试官在面试最后问你是否有其他的问题要问时，你最好能提出一个有意义的问题，而不是回答没有了。切忌不要问工资什么的，会显得你非常的蠢。。可以问问面试官所在的部门和部门职责，进入公司后的培训计划和任务安排，公司前端的技术栈，未来前端发展的方向，对于自己的评价和建议等等。<br>&emsp;&emsp;我并没有写HR面的经验，但HR面也蛮重要的。常见的问题也就是：家庭情况，家人的期望，工作地点，加班，薪酬，职业发展，有没有男女朋友等常规问题。该诚实的时候诚实，不该说的别说。尤其是加班和工作地点，回答要谨慎。</p>
@@ -508,6 +509,10 @@
           </div>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/10/23/rebase/" rel="prev" title="Git压缩历史">
+                Git压缩历史 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -585,7 +590,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">31</span>
+              <span class="site-state-item-count">32</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -593,7 +598,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-count">7</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -602,7 +607,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">39</span>
+                <span class="site-state-item-count">40</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -664,7 +669,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#腾讯实习一面："><span class="nav-number">1.</span> <span class="nav-text">腾讯实习一面：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#阿里内推电话一面："><span class="nav-number">2.</span> <span class="nav-text">阿里内推电话一面：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CVTE校招一面"><span class="nav-number">3.</span> <span class="nav-text">CVTE校招一面</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CVTE校招二面"><span class="nav-number">4.</span> <span class="nav-text">CVTE校招二面</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#趣医网校招一面"><span class="nav-number">5.</span> <span class="nav-text">趣医网校招一面</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#趣医网校招二面"><span class="nav-number">6.</span> <span class="nav-text">趣医网校招二面</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#京东校招一面"><span class="nav-number">7.</span> <span class="nav-text">京东校招一面</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#京东校招二面"><span class="nav-number">8.</span> <span class="nav-text">京东校招二面</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#知识准备"><span class="nav-number">8.1.</span> <span class="nav-text">知识准备</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#项目准备"><span class="nav-number">8.2.</span> <span class="nav-text">项目准备</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#其他准备"><span class="nav-number">8.3.</span> <span class="nav-text">其他准备</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#面试中的经验"><span class="nav-number">8.4.</span> <span class="nav-text">面试中的经验</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#写在最后"><span class="nav-number">8.5.</span> <span class="nav-text">写在最后</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#腾讯实习一面："><span class="nav-number">1.</span> <span class="nav-text">腾讯实习一面：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#阿里内推电话一面："><span class="nav-number">2.</span> <span class="nav-text">阿里内推电话一面：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CVTE校招一面"><span class="nav-number">3.</span> <span class="nav-text">CVTE校招一面</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CVTE校招二面"><span class="nav-number">4.</span> <span class="nav-text">CVTE校招二面</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#趣医网校招一面"><span class="nav-number">5.</span> <span class="nav-text">趣医网校招一面</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#趣医网校招二面"><span class="nav-number">6.</span> <span class="nav-text">趣医网校招二面</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#京东校招一面"><span class="nav-number">7.</span> <span class="nav-text">京东校招一面</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#京东校招二面"><span class="nav-number">8.</span> <span class="nav-text">京东校招二面</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#经验总结"><span class="nav-number">9.</span> <span class="nav-text">经验总结</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#知识准备"><span class="nav-number">9.1.</span> <span class="nav-text">知识准备</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#项目准备"><span class="nav-number">9.2.</span> <span class="nav-text">项目准备</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#其他准备"><span class="nav-number">9.3.</span> <span class="nav-text">其他准备</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#面试中的经验"><span class="nav-number">9.4.</span> <span class="nav-text">面试中的经验</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#写在最后"><span class="nav-number">9.5.</span> <span class="nav-text">写在最后</span></a></li></ol></li></ol></div>
             
           </div>
         </section>
