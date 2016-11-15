@@ -280,6 +280,136 @@
             
               
                 
+                <a class="post-title-link" href="/2016/11/15/hexo404/" itemprop="url">
+                  HEXO博客系统静态资源迷之404
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-11-15T16:34:05+08:00" content="2016-11-15">
+              2016-11-15
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/技术/" itemprop="url" rel="index">
+                    <span itemprop="name">技术</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/11/15/hexo404/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/15/hexo404/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="遇到的问题"><a href="#遇到的问题" class="headerlink" title="遇到的问题"></a>遇到的问题</h2><p>&emsp;&emsp;好久没有看自己的博客了，在更新一篇文章后访问网站，发现内容区域全部为空白。我有点慌，赶快使用<code>hexo s</code>在本地测试，发现一切正常呀。打开控制台后发现，许多的静态资源文件请求404，多是<code>vender</code>路径下的css和js文件。登上了github，检查了仓库并没有任何问题。</p>
+<h2 id="出现问题的原因-个人臆测"><a href="#出现问题的原因-个人臆测" class="headerlink" title="出现问题的原因(个人臆测)"></a>出现问题的原因(个人臆测)</h2><p>&emsp;&emsp;在搜索相关情况后，原来是最近Github Pages更新jekyll了至3.3版本，详细信息可以<a href="https://github.com/blog/2277-what-s-new-in-github-pages-with-jekyll-3-3" target="_blank" rel="external">点击查看</a>。其中有一段话如下：</p>
+<blockquote>
+<p>Finally, to make it easier to vendor third-party dependencies via package managers like Bundler or NPM (or Yarn), Jekyll now ignores the vendor and node_modules directories by default, speeding up build times and avoiding potential errors. If you need those directories included in your site, set exclude: [] in your site’s configuration file.</p>
+</blockquote>
+<p>&emsp;&emsp;Github Pages更新后，默认忽略<code>vendor</code>和<code>node_modules</code>目录，如果需要这些目录则需要在配置文件中设置。但明显这个更新是针对jekyll的，使用Hexo模板的明显是躺枪呀。</p>
+<h2 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h2><p>&emsp;&emsp;最终在知乎上找到了一个解决方法，经测试后问题确实得到了解决。在这感谢原方法的作者王诚，<a href="https://www.zhihu.com/question/52268353" target="_blank" rel="external">看原文点此处</a>。  </p>
+<p>&emsp;&emsp;在Github Pages的Help也有该问题的解决方法，<a href="https://help.github.com/articles/files-that-start-with-an-underscore-are-missing/" target="_blank" rel="external">点击查看</a>。</p>
+<p>&emsp;&emsp;总的来说，只需要在github仓库的根目录添加一个<code>.nojekyll</code>文件，内容为<code>!vendors/*</code>。即让github pages在处理时忽略掉<code>vendors</code>文件夹，就可以解决该问题正常访问了。</p>
+<p>&emsp;&emsp;当然，你也可以重新安装一遍hexo，最新版的hexo似乎已经修复了该问题。还有一个修改配置信息的方法，感兴趣可以<a href="https://huac0921.github.io/2016/11/14/aboutNext/" target="_blank" rel="external">点击查看</a>。</p>
+<h2 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h2><p>&emsp;&emsp;突然发现，原来Jekyll才是GithubPages的亲儿子呀，hexo什么的都只是野孩子XD。</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/11/13/save-dev/" itemprop="url">
                   save-dev和save的区别
                 </a>
@@ -1438,143 +1568,6 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/08/24/ES6_6/" itemprop="url">
-                  ES6入门(6) rest参数和扩展运算符
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-08-24T18:54:59+08:00" content="2016-08-24">
-              2016-08-24
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/前端/" itemprop="url" rel="index">
-                    <span itemprop="name">前端</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/前端/JavaScript/" itemprop="url" rel="index">
-                    <span itemprop="name">JavaScript</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/08/24/ES6_6/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/24/ES6_6/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="rest参数"><a href="#rest参数" class="headerlink" title="rest参数"></a>rest参数</h2><p>&emsp;&emsp;ES6引入rest参数（形式为“…变量名”），用于获取函数的多余参数，这样就不需要使用arguments对象了。rest参数搭配的变量是一个数组，该变量将多余的参数放入数组中。</p>
-<h3 id="基本用法"><a href="#基本用法" class="headerlink" title="基本用法"></a>基本用法</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//不一定是...rest,也可以用其他变量名</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params">a, ...rest</span>) </span>&#123;</div><div class="line">  <span class="built_in">console</span>.log(a);</div><div class="line">  <span class="built_in">console</span>.log(rest);</div><div class="line">&#125;</div><div class="line"></div><div class="line">foo(<span class="number">1</span>);</div><div class="line"><span class="comment">//  1</span></div><div class="line"><span class="comment">//  []</span></div><div class="line"></div><div class="line">foo(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>);</div><div class="line"><span class="comment">//   1</span></div><div class="line"><span class="comment">//   [2,3,4]</span></div></pre></td></tr></table></figure>
-<p>&emsp;&emsp;我们知道，在JavaScript中调用函数时，无论你传递的参数比定义时多或者少都不会报错。每个函数有一个arguments对象保存着传入函数的所有参数，我们可以通过访问该对象得到所有的参数。而rest参数就是在arguments中除去定义时设定的参数外的剩余参数。</p>
-<p>&emsp;&emsp;rest参数不改变函数的length属性！<br>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/08/24/ES6_6/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1620,7 +1613,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">34</span>
+              <span class="site-state-item-count">35</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
