@@ -3,6 +3,7 @@
 
 
     
+    
   <url>
     <loc>http://czhcn.top/2016/11/15/hexo404/</loc>
     <lastmod>2016-11-15T09:48:00.436Z</lastmod>
@@ -599,9 +600,9 @@
         <title>JS中的继承</title>
         <pubTime>2016-08-07T02:00:01.000Z</pubTime>
         
-        <tag>JavaScript</tag>
-         
         <tag>继承</tag>
+         
+        <tag>JavaScript</tag>
          
         <tag>原型链</tag>
          
@@ -842,7 +843,6 @@
     </data>
     </url>
 
-    
     
     
 </urlset>

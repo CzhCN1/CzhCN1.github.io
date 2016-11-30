@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://czhcn.top/about/index.html</loc>
+    
+    <lastmod>2016-11-30T08:02:06.688Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://czhcn.top/2016/11/15/hexo404/</loc>
     
     <lastmod>2016-11-15T09:48:00.436Z</lastmod>
@@ -264,13 +271,6 @@
     <loc>http://czhcn.top/2016/07/16/selector/</loc>
     
     <lastmod>2016-07-21T11:59:39.619Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://czhcn.top/about/index.html</loc>
-    
-    <lastmod>2016-07-07T12:35:53.189Z</lastmod>
     
   </url>
   
